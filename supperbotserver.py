@@ -45,23 +45,19 @@ def messaging_events(payload):
               "template_type": "button",
               "text": "Dining Hall:",
               "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-                  "title": "Check out menu"
-                },
-                {
-                  "type": "web_url",
-                  "url": "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
-                  "title": "Operating hours"
-                },
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                 "title": "Check out menu"},
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
+                 "title": "Operating hours"},
               ]
             }
           }}
 
       else:
         yield event["sender"]["id"], {
-          "text": event["message"]["text"].decode('unicode_escape')}
+          "text": event["message"]["text"]}
 
     else:
       yield event["sender"]["id"], {
