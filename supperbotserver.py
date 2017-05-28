@@ -37,7 +37,7 @@ def messaging_events(payload):
   for event in messaging_events:
     if "message" in event and "text" in event["message"]:
       yield event["sender"]["id"], {
-        "text": event["message"]["text"].encode('unicode_escape')}
+        "text": event["message"]["text"].decode('unicode_escape')}
     else:
       yield event["sender"]["id"], {
         "text": "whatchu sayin fam??"}
@@ -60,8 +60,6 @@ def send_message(recipient, message):
 if __name__ == '__main__':
   app.run()
 
-
-
 # To-do:
   # Refactor send messages
   # Functionality: get started button, greeting text, structured messages, instant reply, loading, call by name, share bot, wit.ai, subscribe to notifications
@@ -74,7 +72,8 @@ if __name__ == '__main__':
 #GIT
   # git add .
   # git commit -m "commit"
-  # git push heroku master hi
+  # git push heroku master
+  #heroku logs -t
 
 #TESTING WITH SHELL SCRIPT
   # create test.sh.
