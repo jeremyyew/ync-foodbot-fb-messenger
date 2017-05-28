@@ -55,6 +55,27 @@ def messaging_events(payload):
             }
           }}
 
+      elif "Get Started" in event["message"]["text"]:
+        yield event["sender"]["id"], {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "button",
+              "text": "Dining options:",
+              "buttons": [
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                 "title": "Dining Hall"},
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                 "title": "Other Campus Options"},
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
+                 "title": "Order In"},
+              ]
+            }
+          }}
+
       else:
         yield event["sender"]["id"], {
           "text": event["message"]["text"]}
