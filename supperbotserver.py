@@ -59,6 +59,28 @@ def messaging_events(payload):
         yield event["sender"]["id"], {
           "text": event["message"]["text"]}
 
+    elif "postback" in event and "payload" in event["postback"]:
+      if "GET_STARTED_PAYLOAD" in event["postback"]["payload"]:
+        yield event["sender"]["id"], {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "button",
+              "text": "Dining options:",
+              "buttons": [
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                 "title": "Dining Hall"},
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                 "title": "Other Campus Options"},
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
+                 "title": "Order In"},
+              ]
+            }
+          }}
+
     else:
       yield event["sender"]["id"], {
         "text": "whatchu sayin fam??"}
@@ -82,7 +104,8 @@ if __name__ == '__main__':
   app.run()
 
 # To-do:
-# Refactor send messages
+# Refactor send messages /
+# Complete FB review requirements!
 # Functionality: get started button, greeting text, structured messages, instant reply, loading, call by name, share bot, wit.ai, subscribe to notifications
 # Plan features
 # Implement all features
