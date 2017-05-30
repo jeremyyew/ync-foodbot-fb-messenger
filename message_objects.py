@@ -75,10 +75,7 @@ carousel_main = {
                     "subtitle":"Dining Hall operating hours:\n hi",
                     "default_action": {
                         "type": "web_url",
-                        "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-                        "messenger_extensions": True,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
+                        "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
                     },
                     "buttons":[
                         {
