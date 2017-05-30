@@ -47,6 +47,10 @@ def messaging_events(payload):
             elif "quick reply main" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.quick_reply_main
 
+            #IMG ATTACHMENT SENDING TEST
+            #elif "send dh image" in event["message"]["text"]:
+                #yield event["sender"]["id"], msg.send_img
+
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
                 yield event["sender"]["id"], {
