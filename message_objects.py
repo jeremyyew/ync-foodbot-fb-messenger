@@ -62,3 +62,62 @@ quick_reply_main =  {
         }
     ]
 }
+
+carousel_main = {
+    "attachment":{
+        "type":"template",
+        "payload":{
+            "template_type":"generic",
+            "elements":[
+                {
+                    "title":"Dining Hall",
+                    "image_url":"https://petersfancybrownhats.com/company_image.png",
+                    "subtitle":"Dining Hall operating hours:\n hi",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                        "messenger_extensions": True,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
+                    },
+                    "buttons":[
+                        {
+                            "type":"web_url",
+                            "url":"https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                            "title":"View menu"
+                        }
+                    ]
+                },
+                {
+                    "title": "Butteries",
+                    "image_url": "https://petersfancybrownhats.com/company_image.png",
+                    "subtitle": "Buttery operating hours:\n hi",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform",
+                        "messenger_extensions": True,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
+                    },
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                            "title": "The Nest menu/order form"
+                        },
+                        {
+                            "type": "web_url",
+                            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                            "title": "Shiner's Diner menu/order form"
+                        },
+                        {
+                            "type": "web_url",
+                            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                            "title": "Shiok Shack menu/order form"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

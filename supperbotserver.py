@@ -38,25 +38,10 @@ def messaging_events(payload):
         if "message" in event and "text" in event["message"]:
 
             # IF RECOGNIZED TEXT MSG:
-            if "Dining Hall" in event["message"]["text"]:
-                yield event["sender"]["id"], {
-                    "attachment": {
-                        "type": "template",
-                        "payload": {
-                            "template_type": "button",
-                            "text": "Dining Hall:",
-                            "buttons": [
-                                {"type": "web_url",
-                                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-                                 "title": "Check out menu"},
-                                {"type": "web_url",
-                                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
-                                 "title": "Operating hours"},
-                            ]
-                        }
-                    }}
+            if "carousel main" in event["message"]["text"]:
+                yield event["sender"]["id"], msg.carousel_main
 
-            elif "Get Started" in event["message"]["text"]:
+            elif "get started" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.get_started
 
             elif "quick reply main" in event["message"]["text"]:
