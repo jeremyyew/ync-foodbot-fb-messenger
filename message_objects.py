@@ -94,10 +94,7 @@ carousel_main = {
                     "subtitle": "Buttery operating hours:\n hi",
                     "default_action": {
                         "type": "web_url",
-                        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform",
-                        "messenger_extensions": True,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
+                        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform"
                     },
                     "buttons": [
                         {
