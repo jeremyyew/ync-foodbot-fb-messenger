@@ -4,9 +4,6 @@ import requests
 import message_objects as msg
 
 app = Flask(__name__)
-
-# This needs to be filled with the Page Access Token that will be provided
-# by the Facebook App that will be created.
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD'
 
 @app.route('/', methods=['GET'])
@@ -36,8 +33,11 @@ def messaging_events(payload):
     data = json.loads(payload)
     messaging_events = data["entry"][0]["messaging"]
     for event in messaging_events:
+
+        # IF TEXT MSG:
         if "message" in event and "text" in event["message"]:
 
+            # IF RECOGNIZED TEXT MSG:
             if "Dining Hall" in event["message"]["text"]:
                 yield event["sender"]["id"], {
                     "attachment": {
@@ -59,15 +59,24 @@ def messaging_events(payload):
             elif "Get Started" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.get_started
 
+            elif "quick reply main" in event["message"]["text"]:
+                yield event["sender"]["id"], msg.quick_reply_main
+
+            # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
                 yield event["sender"]["id"], {
                     "text": event["message"]["text"]}
 
+        # ELSE IF POSTBACK:
         elif "postback" in event and "payload" in event["postback"]:
+
             if "GET_STARTED_PAYLOAD" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.get_started
 
+            if "quick_reply_main_pb" in event["postback"]["payload"]:
+                yield event["sender"]["id"], msg.quick_reply_main
 
+        # ELSE (NOT TEXT MSG && NOT POSTBACK):
         else:
             yield event["sender"]["id"], {
                 "text": "whatchu sayin fam??"}
