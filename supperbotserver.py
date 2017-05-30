@@ -61,7 +61,7 @@ def messaging_events(payload):
             "type": "template",
             "payload": {
               "template_type": "button",
-              "text": "Dining options:",
+              "text": "Pick a dining option:",
               "buttons": [
                 {"type": "web_url",
                  "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
@@ -87,7 +87,7 @@ def messaging_events(payload):
             "type": "template",
             "payload": {
               "template_type": "button",
-              "text": "Dining options:",
+              "text": "Pick a dining option:",
               "buttons": [
                 {"type": "web_url",
                  "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
@@ -98,6 +98,9 @@ def messaging_events(payload):
                 {"type": "web_url",
                  "url": "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
                  "title": "Order In"},
+                {"type": "web_url",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
+                 "title": "Feedback"}
               ]
             }
           }}
@@ -127,7 +130,7 @@ if __name__ == '__main__':
 # To-do:
 # Refactor send messages /
 # Complete FB review requirements!
-# Functionality: get started button, greeting text, structured messages, instant reply, loading, call by name, share bot, wit.ai, subscribe to notifications
+# Functionality: get started button, greeting text, structured messages, instant reply, loading, call by name, share bot, wit.ai, subscribe to notifications, MCdelivery?
 # Plan features
 # Implement all features
 # Send for review
