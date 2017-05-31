@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ccdce73-d9db-4f9d-896d-da254e32e0e4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/message_objects.py" afterPath="$PROJECT_DIR$/message_objects.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger_settings.sh" afterPath="$PROJECT_DIR$/messenger_settings.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger_settings_stored.sh" afterPath="$PROJECT_DIR$/messenger_settings_stored.sh" />
@@ -21,11 +22,10 @@
       <file leaf-file-name="supperbotserver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supperbotserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="51" column="17" lean-forward="false" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+            <state relative-caret-position="232">
+              <caret line="75" column="60" lean-forward="false" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
               <folding>
                 <element signature="e#366#672#0" expanded="false" />
-                <element signature="e#735#976#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -34,12 +34,18 @@
       <file leaf-file-name="message_objects.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/message_objects.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="98" column="111" lean-forward="false" selection-start-line="98" selection-start-column="111" selection-end-line="98" selection-end-column="111" />
+            <state relative-caret-position="472">
+              <caret line="70" column="17" lean-forward="false" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
               <folding>
-                <element signature="e#14#762#0" expanded="false" />
-                <element signature="e#784#1801#0" expanded="false" />
-                <element signature="e#5280#6241#0" expanded="false" />
+                <element signature="e#14#750#0" expanded="false" />
+                <element signature="e#2499#3516#0" expanded="false" />
+                <element signature="e#3529#3680#0" expanded="false" />
+                <element signature="e#3701#4686#0" expanded="false" />
+                <element signature="e#4706#5395#0" expanded="false" />
+                <element signature="e#5411#6200#0" expanded="false" />
+                <element signature="e#6218#7179#0" expanded="false" />
+                <element signature="e#7193#10980#0" expanded="false" />
+                <element signature="e#10998#11381#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -48,8 +54,8 @@
       <file leaf-file-name="test.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+            <state relative-caret-position="45">
+              <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -58,8 +64,8 @@
       <file leaf-file-name="messenger_settings.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/messenger_settings.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="251" lean-forward="false" selection-start-line="38" selection-start-column="251" selection-end-line="38" selection-end-column="251" />
+            <state relative-caret-position="300">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,8 +74,8 @@
       <file leaf-file-name="messenger_settings_stored.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/messenger_settings_stored.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="273">
+              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,10 +91,10 @@
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/test.sh" />
         <option value="$PROJECT_DIR$/messenger_settings_stored.sh" />
         <option value="$PROJECT_DIR$/messenger_settings.sh" />
         <option value="$PROJECT_DIR$/supperbotserver.py" />
-        <option value="$PROJECT_DIR$/test.sh" />
         <option value="$PROJECT_DIR$/message_objects.py" />
       </list>
     </option>
@@ -132,6 +138,17 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -222,7 +239,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27260274" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4520548" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -240,7 +257,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -251,7 +268,6 @@
           <caret line="92" column="97" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="97" />
           <folding>
             <element signature="e#366#672#0" expanded="false" />
-            <element signature="e#735#976#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -288,47 +304,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/messenger_settings_stored.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="273">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/messenger_settings.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="251" lean-forward="false" selection-start-line="38" selection-start-column="251" selection-end-line="38" selection-end-column="251" />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+        <state relative-caret-position="45">
+          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supperbotserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="51" column="17" lean-forward="false" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+        <state relative-caret-position="232">
+          <caret line="75" column="60" lean-forward="false" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
           <folding>
             <element signature="e#366#672#0" expanded="false" />
-            <element signature="e#735#976#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/message_objects.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="98" column="111" lean-forward="false" selection-start-line="98" selection-start-column="111" selection-end-line="98" selection-end-column="111" />
+        <state relative-caret-position="472">
+          <caret line="70" column="17" lean-forward="false" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
           <folding>
-            <element signature="e#14#762#0" expanded="false" />
-            <element signature="e#784#1801#0" expanded="false" />
-            <element signature="e#5280#6241#0" expanded="false" />
+            <element signature="e#14#750#0" expanded="false" />
+            <element signature="e#2499#3516#0" expanded="false" />
+            <element signature="e#3529#3680#0" expanded="false" />
+            <element signature="e#3701#4686#0" expanded="false" />
+            <element signature="e#4706#5395#0" expanded="false" />
+            <element signature="e#5411#6200#0" expanded="false" />
+            <element signature="e#6218#7179#0" expanded="false" />
+            <element signature="e#7193#10980#0" expanded="false" />
+            <element signature="e#10998#11381#0" expanded="false" />
           </folding>
         </state>
       </provider>

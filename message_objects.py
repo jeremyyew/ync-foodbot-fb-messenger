@@ -1,22 +1,74 @@
-get_started = {
+welcome_msg = {
     "attachment": {
         "type": "template",
         "payload": {
             "template_type": "button",
-            "text": "Pick a dining option:",
+            "text": (
+                "Welcome to the Yale-NUS Foodbot.\n"
+                " It's still being developed, please be patient if you encounter any bugs."
+                "Feel free to share if you find it useful, and let me know if you have any suggestions!\n"
+                "Regards, Jeremy\n"
+            ),
             "buttons": [
-                {"type": "web_url",
-                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-                 "title": "Dining Hall"},
-                {"type": "web_url",
-                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-                 "title": "Other Campus Options"},
-                {"type": "web_url",
-                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
-                 "title": "Order In"}
+                {"type": "postback",
+                 "title": "Share",
+                 "payload": "GET_STARTED_PB"},
+                {"type": "postback",
+                 "title": "Feedback",
+                 "payload": "GET_STARTED_PB"},
             ]
         }
     }
+}
+
+options_msg = {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "button",
+            "text": (
+                "What would you like to do?\n"
+                "PS: You can text me an option to access it at any time, e.g. 'info'."
+            ),
+            "buttons": [
+                {"type": "postback",
+                 "title": "INFO",
+                 "payload": "QUICK_REF_PB"},
+                {"type": "postback",
+                 "title": "INTERACT",
+                 "payload": "CAROUSEL_PB"},
+                {"type": "postback",
+                 "title": "EXPLORE",
+                 "payload": "EXPLORE_PB"}
+            ]
+        }
+    }
+}
+
+explore_msg = {"text": "Feature coming soon."}
+
+quick_ref_main = {"text": (
+    "Dining Hall:\n"
+    "Weekdays: 730-930am, 1130-130pm, 6-830pm\n"
+    "Weekends: 10am-1pm, 6-830pm\n"
+    "Green & Healthy Lunches: Mon (Elm), Wed (Cen), Fri (Saga)\n\n"
+
+    "Butteries:\n"
+    "The Nest: Sat/Sun/Mon, 10-12pm\n"
+    "Shiner's Diner: Fri/Sun/Mon, 830-12pm\n"
+    "Shiok Shack: Tue/Thur, 9-12pm, Wed 10-11pm\n\n"
+
+    "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\n"
+    "Grab N' Go Lunch: TBC\n\n"
+
+    "Al Amaan's Delivery: 67770555 (11AM-3AM)\n"
+    "McDelivery: 67773777 (24hrs)\n\n"
+
+    "RC addresses:\n"
+    "Cendana: 28 College Ave West, S138533\n"
+    "Elm: 12 College Ave West, S138610\n"
+    "Saga: 10 College Ave West, S138609\n"
+)
 }
 
 quick_reply_main =  {
@@ -28,7 +80,7 @@ quick_reply_main =  {
             "buttons": [
                 {"type": "postback",
                  "title": "See options again",
-                 "payload": "quick_reply_main_pb"
+                 "payload": "QUICK_REPLY_MAIN_PB"
                  }
             ]
         }
@@ -71,28 +123,6 @@ send_img = {
     }
 }
 
-dining_hall_carousel = {
-    "title": "Dining Hall",
-    "image_url": "https://image.ibb.co/iwb5fv/dining_hall_1.jpg", #dining_hall_1.jpg
-    "subtitle":"Weekdays: 730-930am/1130-130pm/6-830pm\nWeekends: 10AM-1pm/6-830pm\nGreen Days: TBC",
-    "default_action": {
-        "type": "web_url",
-        "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
-    },
-    "buttons": [
-        {
-            "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "Today's Menu"
-        },
-        {
-            "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "Veg days"
-        }
-    ]
-}
-
 butteries_carousel={
     "title": "Butteries",
     "image_url": "https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",
@@ -120,7 +150,6 @@ butteries_carousel={
     ]
 }
 
-
 al_amaan_carousel={
     "title": "Al Amaan",
     "image_url": "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
@@ -143,7 +172,6 @@ al_amaan_carousel={
 
     ]
 }
-
 
 macs_carousel={
     "title": "McDonald's",
@@ -197,6 +225,97 @@ others_carousel={
             "title": "UTown F&B"
         }
     ]
+}
+
+list_main = {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "list",
+            "top_element_style": "compact",
+            "elements": [
+                {
+                    "title": "Classic White T-Shirt",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
+                        "webview_height_ratio": "tall"
+                    },
+                    "buttons": [
+                        {
+                            "title": "Buy",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
+                            "webview_height_ratio": "tall"
+                        }
+                    ]
+                },
+                {
+                    "title": "Classic Blue T-Shirt",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+                        "webview_height_ratio": "tall"
+                    },
+                    "buttons": [
+                        {
+                            "title": "Buy",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+                            "webview_height_ratio": "tall"
+                        }
+                    ]
+                },
+                {
+                    "title": "Classic Black T-Shirt",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
+                        "webview_height_ratio": "tall"
+                    },
+                    "buttons": [
+                        {
+                            "title": "Buy",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
+                            "webview_height_ratio": "tall"
+                        }
+                    ]
+                },
+                {
+                    "title": "Classic Gray T-Shirt",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/gray-t-shirt.png",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+                        "webview_height_ratio": "tall"
+                    },
+                    "buttons": [
+                        {
+                            "title": "Buy",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=103",
+                            "webview_height_ratio": "tall"
+                        }
+                    ]
+                }
+            ],
+            "buttons": [
+                {
+                    "title": "View More",
+                    "type": "postback",
+                    "payload": "payload"
+                }
+            ]
+        }
+    }
 }
 
 carousel_main = {

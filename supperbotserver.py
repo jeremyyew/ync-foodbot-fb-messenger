@@ -41,8 +41,11 @@ def messaging_events(payload):
             if "carousel main" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.carousel_main
 
-            elif "get started" in event["message"]["text"]:
-                yield event["sender"]["id"], msg.get_started
+            if "list main" in event["message"]["text"]:
+                yield event["sender"]["id"], msg.list_main
+
+            elif "info" in event["message"]["text"]:
+                yield event["sender"]["id"], msg.quick_ref_main
 
             elif "quick reply main" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.quick_reply_main
@@ -59,10 +62,20 @@ def messaging_events(payload):
         # ELSE IF POSTBACK:
         elif "postback" in event and "payload" in event["postback"]:
 
-            if "GET_STARTED_PAYLOAD" in event["postback"]["payload"]:
-                yield event["sender"]["id"], msg.get_started
+            if "GET_STARTED_PB" in event["postback"]["payload"]:
+                send_message(event["sender"]["id"], msg.welcome_msg)
+                yield event["sender"]["id"], msg.options_msg
 
-            if "quick_reply_main_pb" in event["postback"]["payload"]:
+            if "QUICK_REF_PB" in event["postback"]["payload"]:
+                yield event["sender"]["id"], msg.quick_ref_main
+
+            if "CAROUSEL_PB" in event["postback"]["payload"]:
+                yield event["sender"]["id"], msg.carousel_main
+
+            if "EXPLORE_PB" in event["postback"]["payload"]:
+                yield event["sender"]["id"], msg.explore_msgß
+
+            if "QUICK_REPLY_MAIN_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.quick_reply_main
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
@@ -89,7 +102,7 @@ if __name__ == '__main__':
     app.run()
 
 # To-do:
-# Refactor send messages /
+# Change get_started to carousel_main. Change pics. Set buttons. Change Others. Send Al Amaan Menu (+ upload al amaan menu). Quick reply carousel. Webscrape daily menu.
 # Complete FB review requirements!
 # Functionality: get started button, greeting text, structured messages, instant reply, loading, call by name, share bot, wit.ai, subscribe to notifications, MCdelivery?
 # Plan features
