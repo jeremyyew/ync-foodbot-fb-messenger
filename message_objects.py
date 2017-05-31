@@ -4,10 +4,10 @@ welcome_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Welcome to the Yale-NUS Foodbot.\n"
-                " It's still being developed, please be patient if you encounter any bugs."
-                "Feel free to share if you find it useful, and let me know if you have any suggestions!\n"
-                "Regards, Jeremy\n"
+                "Welcome to the Yale-NUS Foodbot! "
+                "Please be patient if you encounter any bugs, I'm still figuring this out. "
+                "Feel free to share this if you find it useful, and let me know if you have any suggestions!\n\n"
+                "Regards,\nJeremy"
             ),
             "buttons": [
                 {"type": "postback",
@@ -28,7 +28,7 @@ options_msg = {
             "template_type": "button",
             "text": (
                 "What would you like to do?\n"
-                "PS: You can text me an option to access it at any time, e.g. 'info'."
+                "PS: You can type these options to access them at any time, e.g. 'info'."
             ),
             "buttons": [
                 {"type": "postback",
@@ -123,6 +123,25 @@ send_img = {
     }
 }
 
+dining_hall_carousel={
+    "title": "Dining Hall",
+    "image_url": "https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
+    "subtitle": ("Dining Hall:\n"
+                 "Weekdays: 730-930am, 1130-130pm, 6-830pm\n"
+                 "Weekends: 10am-1pm, 6-830pm\n"
+                 "Green & Healthy Lunches: Mon (Elm), Wed (Cen), Fri (Saga)"),
+    "default_action": {
+        "type": "web_url",
+        "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
+    },
+    "buttons": [
+        {
+            "type": "web_url",
+            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+            "title": "MENU"
+        }
+    ]
+}
 butteries_carousel={
     "title": "Butteries",
     "image_url": "https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",

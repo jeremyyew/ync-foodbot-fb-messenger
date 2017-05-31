@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ccdce73-d9db-4f9d-896d-da254e32e0e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/message_objects.py" afterPath="$PROJECT_DIR$/message_objects.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger_settings.sh" afterPath="$PROJECT_DIR$/messenger_settings.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger_settings_stored.sh" afterPath="$PROJECT_DIR$/messenger_settings_stored.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supperbotserver.py" afterPath="$PROJECT_DIR$/supperbotserver.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.sh" afterPath="$PROJECT_DIR$/test.sh" />
     </list>
@@ -22,8 +19,8 @@
       <file leaf-file-name="supperbotserver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supperbotserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="75" column="60" lean-forward="false" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
+            <state relative-caret-position="272">
+              <caret line="72" column="48" lean-forward="true" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
               <folding>
                 <element signature="e#366#672#0" expanded="false" />
               </folding>
@@ -31,31 +28,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message_objects.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="message_objects.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/message_objects.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="70" column="17" lean-forward="false" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+            <state relative-caret-position="51">
+              <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
               <folding>
-                <element signature="e#14#750#0" expanded="false" />
-                <element signature="e#2499#3516#0" expanded="false" />
-                <element signature="e#3529#3680#0" expanded="false" />
-                <element signature="e#3701#4686#0" expanded="false" />
-                <element signature="e#4706#5395#0" expanded="false" />
-                <element signature="e#5411#6200#0" expanded="false" />
-                <element signature="e#6218#7179#0" expanded="false" />
-                <element signature="e#7193#10980#0" expanded="false" />
-                <element signature="e#10998#11381#0" expanded="false" />
+                <element signature="e#3258#3409#0" expanded="false" />
+                <element signature="e#3432#4098#0" expanded="false" />
+                <element signature="e#4118#5103#0" expanded="false" />
+                <element signature="e#5123#5812#0" expanded="false" />
+                <element signature="e#5828#6617#0" expanded="false" />
+                <element signature="e#6635#7596#0" expanded="false" />
+                <element signature="e#7610#11397#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+            <state relative-caret-position="303">
+              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -91,11 +86,11 @@
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py" />
         <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/test.sh" />
         <option value="$PROJECT_DIR$/messenger_settings_stored.sh" />
         <option value="$PROJECT_DIR$/messenger_settings.sh" />
         <option value="$PROJECT_DIR$/supperbotserver.py" />
         <option value="$PROJECT_DIR$/message_objects.py" />
+        <option value="$PROJECT_DIR$/test.sh" />
       </list>
     </option>
   </component>
@@ -318,18 +313,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/supperbotserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="75" column="60" lean-forward="false" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
+        <state relative-caret-position="272">
+          <caret line="72" column="48" lean-forward="true" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
           <folding>
             <element signature="e#366#672#0" expanded="false" />
           </folding>
@@ -338,19 +325,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/message_objects.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="70" column="17" lean-forward="false" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+        <state relative-caret-position="51">
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
-            <element signature="e#14#750#0" expanded="false" />
-            <element signature="e#2499#3516#0" expanded="false" />
-            <element signature="e#3529#3680#0" expanded="false" />
-            <element signature="e#3701#4686#0" expanded="false" />
-            <element signature="e#4706#5395#0" expanded="false" />
-            <element signature="e#5411#6200#0" expanded="false" />
-            <element signature="e#6218#7179#0" expanded="false" />
-            <element signature="e#7193#10980#0" expanded="false" />
-            <element signature="e#10998#11381#0" expanded="false" />
+            <element signature="e#3258#3409#0" expanded="false" />
+            <element signature="e#3432#4098#0" expanded="false" />
+            <element signature="e#4118#5103#0" expanded="false" />
+            <element signature="e#5123#5812#0" expanded="false" />
+            <element signature="e#5828#6617#0" expanded="false" />
+            <element signature="e#6635#7596#0" expanded="false" />
+            <element signature="e#7610#11397#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>

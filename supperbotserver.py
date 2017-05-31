@@ -73,7 +73,7 @@ def messaging_events(payload):
                 yield event["sender"]["id"], msg.carousel_main
 
             if "EXPLORE_PB" in event["postback"]["payload"]:
-                yield event["sender"]["id"], msg.explore_msgß
+                yield event["sender"]["id"], msg.explore_msg
 
             if "QUICK_REPLY_MAIN_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.quick_reply_main
