@@ -10,42 +10,66 @@ welcome_msg = {
                 "Regards,\nJeremy"
             ),
             "buttons": [
-                {"type": "postback",
-                 "title": "Share",
-                 "payload": "GET_STARTED_PB"},
+                {"type": "element_share",
+                 "share_contents": {
+                     "attachment": {
+                         "type": "template",
+                         "payload": {
+                             "template_type": "generic",
+                             "elements": [
+                                 {
+                                     "title": "Hungry? I gotchu fam.",
+                                     "subtitle": ("Hey friend, check out the YNC Foodbot! "
+                                                  "Convenient access to order forms, menus, delivery hotlines, operating hours, and more - "
+                                                  "all in one place!"
+                                                 ),
+                                     "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
+                                     "default_action": {
+                                         "type": "web_url",
+                                         "url": "http://m.me/979027202238929"
+                                     },
+                                     "buttons": [
+                                         {
+                                             "type": "web_url",
+                                             "url": "http://m.me/979027202238929",
+                                             "title": "Visit"
+                                         }
+                                     ]
+                                 }
+                             ]
+                         }
+                     }
+                 }
+                 },
                 {"type": "postback",
                  "title": "Feedback",
-                 "payload": "GET_STARTED_PB"},
+                 "payload": "COMING_SOON_PB"},
             ]
         }
     }
 }
 
-options_msg = {
+start_msg = {
     "attachment": {
         "type": "template",
         "payload": {
             "template_type": "button",
             "text": (
-                "What would you like to do?\n"
-                "PS: You can type these options to access them at any time, e.g. 'info'."
+                "Press 'OK' and I'll send you some quick-reference info and a bunch of handy links. "
+                "You can also ask me for the dining hall daily menu (and other cool stuff) through the menu at the bottom of the screen. "
+                "PS: If you close the menu, simply tap the bottom-right icon to re-open. \n\n"
+                "Type 'start' any time to get this message again."
             ),
             "buttons": [
                 {"type": "postback",
-                 "title": "INFO",
-                 "payload": "QUICK_REF_PB"},
-                {"type": "postback",
-                 "title": "INTERACT",
-                 "payload": "CAROUSEL_PB"},
-                {"type": "postback",
-                 "title": "EXPLORE",
-                 "payload": "EXPLORE_PB"}
+                 "title": "OK",
+                 "payload": "OK_PB"},
             ]
         }
     }
 }
 
-explore_msg = {"text": "Feature coming soon."}
+coming_soon_msg = {"text": "Feature in development."}
 
 quick_ref_main = {"text": (
     "Dining Hall:\n"

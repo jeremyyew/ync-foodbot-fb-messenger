@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5ccdce73-d9db-4f9d-896d-da254e32e0e4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/message_objects.py" afterPath="$PROJECT_DIR$/message_objects.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger_settings.sh" afterPath="$PROJECT_DIR$/messenger_settings.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supperbotserver.py" afterPath="$PROJECT_DIR$/supperbotserver.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.sh" afterPath="$PROJECT_DIR$/test.sh" />
     </list>
@@ -19,10 +20,12 @@
       <file leaf-file-name="supperbotserver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supperbotserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="72" column="48" lean-forward="true" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
+            <state relative-caret-position="145">
+              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
                 <element signature="e#366#672#0" expanded="false" />
+                <element signature="e#735#976#0" expanded="false" />
+                <element signature="e#2932#3419#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -31,16 +34,20 @@
       <file leaf-file-name="message_objects.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/message_objects.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+            <state relative-caret-position="272">
+              <caret line="65" column="37" lean-forward="false" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
               <folding>
-                <element signature="e#3258#3409#0" expanded="false" />
-                <element signature="e#3432#4098#0" expanded="false" />
-                <element signature="e#4118#5103#0" expanded="false" />
-                <element signature="e#5123#5812#0" expanded="false" />
-                <element signature="e#5828#6617#0" expanded="false" />
-                <element signature="e#6635#7596#0" expanded="false" />
-                <element signature="e#7610#11397#0" expanded="false" />
+                <element signature="e#14#2265#0" expanded="false" />
+                <element signature="e#3066#3746#0" expanded="false" />
+                <element signature="e#3768#4785#0" expanded="false" />
+                <element signature="e#4798#4949#0" expanded="false" />
+                <element signature="e#4972#5638#0" expanded="false" />
+                <element signature="e#5658#6643#0" expanded="false" />
+                <element signature="e#6663#7352#0" expanded="false" />
+                <element signature="e#7368#8157#0" expanded="false" />
+                <element signature="e#8175#9136#0" expanded="false" />
+                <element signature="e#9150#12937#0" expanded="false" />
+                <element signature="e#12955#13338#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -49,8 +56,8 @@
       <file leaf-file-name="test.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -59,8 +66,8 @@
       <file leaf-file-name="messenger_settings.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/messenger_settings.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="-191">
+              <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -69,8 +76,8 @@
       <file leaf-file-name="messenger_settings_stored.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/messenger_settings_stored.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="80">
+              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -88,8 +95,8 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/messenger_settings_stored.sh" />
         <option value="$PROJECT_DIR$/messenger_settings.sh" />
-        <option value="$PROJECT_DIR$/supperbotserver.py" />
         <option value="$PROJECT_DIR$/message_objects.py" />
+        <option value="$PROJECT_DIR$/supperbotserver.py" />
         <option value="$PROJECT_DIR$/test.sh" />
       </list>
     </option>
@@ -234,7 +241,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4520548" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24520548" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -263,6 +270,8 @@
           <caret line="92" column="97" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="97" />
           <folding>
             <element signature="e#366#672#0" expanded="false" />
+            <element signature="e#735#976#0" expanded="false" />
+            <element signature="e#2932#3419#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -299,50 +308,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/messenger_settings_stored.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="80">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger_settings.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supperbotserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="72" column="48" lean-forward="true" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
-          <folding>
-            <element signature="e#366#672#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/message_objects.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        <state relative-caret-position="272">
+          <caret line="65" column="37" lean-forward="false" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
           <folding>
-            <element signature="e#3258#3409#0" expanded="false" />
-            <element signature="e#3432#4098#0" expanded="false" />
-            <element signature="e#4118#5103#0" expanded="false" />
-            <element signature="e#5123#5812#0" expanded="false" />
-            <element signature="e#5828#6617#0" expanded="false" />
-            <element signature="e#6635#7596#0" expanded="false" />
-            <element signature="e#7610#11397#0" expanded="false" />
+            <element signature="e#14#2265#0" expanded="false" />
+            <element signature="e#3066#3746#0" expanded="false" />
+            <element signature="e#3768#4785#0" expanded="false" />
+            <element signature="e#4798#4949#0" expanded="false" />
+            <element signature="e#4972#5638#0" expanded="false" />
+            <element signature="e#5658#6643#0" expanded="false" />
+            <element signature="e#6663#7352#0" expanded="false" />
+            <element signature="e#7368#8157#0" expanded="false" />
+            <element signature="e#8175#9136#0" expanded="false" />
+            <element signature="e#9150#12937#0" expanded="false" />
+            <element signature="e#12955#13338#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supperbotserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#366#672#0" expanded="false" />
+            <element signature="e#735#976#0" expanded="false" />
+            <element signature="e#2932#3419#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger_settings.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-191">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>

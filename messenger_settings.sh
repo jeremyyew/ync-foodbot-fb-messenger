@@ -13,8 +13,30 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "thread_state":"new_thread",
   "call_to_actions":[
     {
-      "payload":""GET_STARTED_PB""
+      "payload":"GET_STARTED_PB"
     }
   ]
 }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAZAygcjNS3sBAEZCWHjMDwU8gW0OartsOxT1MElrwMpB4mHZCuniZBifZAKIT3sPTYgfJNVzPfO0EMnZANwZBEGGYPMU6tStXMUDvZBIoNUXzxQ9aKOf7k33wTDATnWTn6B90mr5Ulvp27DTvbKqK75ER17GLLt6rX9XgPnNAltgwZDZD"
 
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type":"call_to_actions",
+  "thread_state":"existing_thread",
+  "call_to_actions": [
+        {
+          "type": "postback",
+          "title": "What\u0027s cookin\u0027?",
+          "payload": "COMING_SOON_PB"
+        },
+        {
+          "type": "postback",
+          "title": "Order from buttery",
+          "payload": "COMING_SOON_PB"
+        },
+        {
+          "type": "postback",
+          "title": "Discover new food",
+          "payload": "COMING_SOON_PB"
+        }
+      ],
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAZAygcjNS3sBAEZCWHjMDwU8gW0OartsOxT1MElrwMpB4mHZCuniZBifZAKIT3sPTYgfJNVzPfO0EMnZANwZBEGGYPMU6tStXMUDvZBIoNUXzxQ9aKOf7k33wTDATnWTn6B90mr5Ulvp27DTvbKqK75ER17GLLt6rX9XgPnNAltgwZDZD"

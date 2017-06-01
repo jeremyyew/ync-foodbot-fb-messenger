@@ -56,27 +56,21 @@ def messaging_events(payload):
 
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
-                yield event["sender"]["id"], {
-                    "text": event["message"]["text"]}
+                yield event["sender"]["id"], msg.start_msg
 
         # ELSE IF POSTBACK:
         elif "postback" in event and "payload" in event["postback"]:
 
             if "GET_STARTED_PB" in event["postback"]["payload"]:
                 send_message(event["sender"]["id"], msg.welcome_msg)
-                yield event["sender"]["id"], msg.options_msg
+                yield event["sender"]["id"], msg.start_msg
 
-            if "QUICK_REF_PB" in event["postback"]["payload"]:
-                yield event["sender"]["id"], msg.quick_ref_main
-
-            if "CAROUSEL_PB" in event["postback"]["payload"]:
+            if "OK_PB" in event["postback"]["payload"]:
+                send_message(event["sender"]["id"], msg.quick_ref_main)
                 yield event["sender"]["id"], msg.carousel_main
 
-            if "EXPLORE_PB" in event["postback"]["payload"]:
-                yield event["sender"]["id"], msg.explore_msg
-
-            if "QUICK_REPLY_MAIN_PB" in event["postback"]["payload"]:
-                yield event["sender"]["id"], msg.quick_reply_main
+            if "COMING_SOON_PB" in event["postback"]["payload"]:
+                yield event["sender"]["id"], msg.coming_soon_msg
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
         else:
@@ -102,13 +96,10 @@ if __name__ == '__main__':
     app.run()
 
 # To-do:
-# Change get_started to carousel_main. Change pics. Set buttons. Change Others. Send Al Amaan Menu (+ upload al amaan menu). Quick reply carousel. Webscrape daily menu.
+# Persistent Menu, Al Amaan Menu (+ upload al amaan menu). Trivial: others carousel, Share image.
+# Explore: NLP ordering. Webscraping/Notification subscription.
+
 # Complete FB review requirements!
-# Functionality: get started button, greeting text, structured messages, instant reply, loading, call by name, share bot, wit.ai, subscribe to notifications, MCdelivery?
-# Plan features
-# Implement all features
-# Send for review
-# Get feedback
 # other ideas: ync general info, buttery orders, memes/comics
 
 #GIT
