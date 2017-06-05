@@ -1,4 +1,5 @@
 from flask import Flask, request
+from lxml import html
 import json
 import requests
 import message_objects as msg
@@ -49,10 +50,6 @@ def messaging_events(payload):
 
             elif "quick reply main" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.quick_reply_main
-
-            #IMG ATTACHMENT SENDING TEST
-            #elif "send dh image" in event["message"]["text"]:
-                #yield event["sender"]["id"], msg.send_img
 
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
@@ -115,3 +112,8 @@ if __name__ == '__main__':
 # ./test.sh
 # Unsubscribe to page to ensure messages dont get sent to heroku while testing mode.
 
+#LEARNT
+    #Facebook messenger API
+    #HTML requests
+    #Webscraping with Xpath
+    #curl/shell script
