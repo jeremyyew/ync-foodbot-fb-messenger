@@ -5,6 +5,8 @@ Chat with the bot on messenger at this page: https://www.facebook.com/YNC-Foodbo
 
 I used https://tsaprailis.com/2016/06/02/How-to-build-and-deploy-a-Facebook-Messenger-bot-with-Python-and-Flask-a-tutorial/ to start. 
 
+Hosted on Heroku. 
+
 ## Learning points: 
 
 Through this project so far, I have learned a little bit about: 
