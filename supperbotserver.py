@@ -92,28 +92,3 @@ def send_message(recipient, message):
 if __name__ == '__main__':
     app.run()
 
-# To-do:
-# Persistent Menu, Al Amaan Menu (+ upload al amaan menu). Trivial: others carousel, Share image.
-# Explore: NLP ordering. Webscraping/Notification subscription.
-
-# Complete FB review requirements!
-# other ideas: ync general info, buttery orders, memes/comics
-
-#GIT
-# git add .
-# git commit -m "commit"
-# git push heroku master
-#heroku logs -t
-
-#TESTING WITH SHELL SCRIPT
-# create test.sh.
-# Add permission: chmod +x ./test.sh (https://askubuntu.com/questions/38661/how-do-i-run-sh-files).
-# Run python server file: $ python supperbotserver.py
-# ./test.sh
-# Unsubscribe to page to ensure messages dont get sent to heroku while testing mode.
-
-#LEARNT
-    #Facebook messenger API
-    #HTML requests
-    #Webscraping with Xpath
-    #curl/shell script
