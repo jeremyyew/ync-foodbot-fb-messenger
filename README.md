@@ -18,24 +18,24 @@ Through this project so far, I have learned a little bit about:
 
 ### Features to add:
 
-- [] Send Al Amaan Menu (+ upload al amaan menu). 
+- [ ] Send Al Amaan Menu (+ upload al amaan menu). 
 
 ### Features to explore: 
 
-- [] NLP interaction ("Order buttery food")
-- [] Notification subscription ("What's cookin'?")
-- [] More content ("Discover new food places"). Find a food blogger. 
+- [ ] NLP interaction ("Order buttery food")
+- [ ] Notification subscription ("What's cookin'?")
+- [ ] More content ("Discover new food places"). Find a food blogger. 
 
 ### Misc: 
 
-- [] Edit "Others" carousel
-- [] Add "Share" image.
-- [] Get feedback. 
-- [] Check FB review requirements, send for review 
-- [] When school reopens: update timings, update/test webscraper, delete false links,
+- [ ] Edit "Others" carousel
+- [ ] Add "Share" image.
+- [ ] Get feedback. 
+- [ ] Check FB review requirements, send for review 
+- [ ] When school reopens: update timings, update/test webscraper, delete false links,
 
 ### Other chatbot ideas: 
 
-- [] YNC general info, memes/comics subscription 
+- [ ] YNC general info, memes/comics subscription 
 
 
