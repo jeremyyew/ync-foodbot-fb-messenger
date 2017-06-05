@@ -9,7 +9,7 @@ I used https://tsaprailis.com/2016/06/02/How-to-build-and-deploy-a-Facebook-Mess
 
 Through this project so far, I have learned a little bit about: 
 
--Facebook messenger API
--HTML requests
--Webscraping with Xpath
--using curl/shell script
+- Facebook messenger API
+- HTML requests
+- Webscraping with Xpath
+- using curl/shell script
