@@ -1,5 +1,4 @@
 from flask import Flask, request
-from lxml import html
 import json
 import requests
 import message_objects as msg

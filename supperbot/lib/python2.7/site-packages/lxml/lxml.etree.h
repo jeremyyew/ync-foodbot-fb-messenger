@@ -65,7 +65,7 @@ struct LxmlElementTree {
   struct LxmlElement *_context_node;
 };
 
-/* "src/lxml/lxml.etree.pyx":2572
+/* "src/lxml/lxml.etree.pyx":2587
  * 
  * 
  * cdef public class _ElementTagMatcher [ object LxmlElementTagMatcher,             # <<<<<<<<<<<<<<
@@ -81,7 +81,7 @@ struct LxmlElementTagMatcher {
   char *_name;
 };
 
-/* "src/lxml/lxml.etree.pyx":2603
+/* "src/lxml/lxml.etree.pyx":2618
  *                 self._name = NULL
  * 
  * cdef public class _ElementIterator(_ElementTagMatcher) [             # <<<<<<<<<<<<<<
@@ -166,6 +166,7 @@ __PYX_EXTERN_C DL_IMPORT(PyTypeObject) LxmlFallbackElementClassLookupType;
 __PYX_EXTERN_C DL_IMPORT(struct LxmlElement) *deepcopyNodeToDocument(struct LxmlDocument *, xmlNode *);
 __PYX_EXTERN_C DL_IMPORT(struct LxmlElementTree) *elementTreeFactory(struct LxmlElement *);
 __PYX_EXTERN_C DL_IMPORT(struct LxmlElementTree) *newElementTree(struct LxmlElement *, PyObject *);
+__PYX_EXTERN_C DL_IMPORT(struct LxmlElementTree) *adoptExternalDocument(xmlDoc *, PyObject *, int);
 __PYX_EXTERN_C DL_IMPORT(struct LxmlElement) *elementFactory(struct LxmlDocument *, xmlNode *);
 __PYX_EXTERN_C DL_IMPORT(struct LxmlElement) *makeElement(PyObject *, struct LxmlDocument *, PyObject *, PyObject *, PyObject *, PyObject *, PyObject *);
 __PYX_EXTERN_C DL_IMPORT(struct LxmlElement) *makeSubElement(struct LxmlElement *, PyObject *, PyObject *, PyObject *, PyObject *, PyObject *);
