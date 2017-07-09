@@ -45,9 +45,8 @@ def post_form():
         print r.text
 
 
-url, entry_keys = parse_gform_url(full_url)
-form_data = generate_form_data(entry_keys, entries)
-post_form()
+#url, entry_keys = parse_gform_url(full_url)
+#form_data = generate_form_data(entry_keys, entries)
 
 
 # How to Replicate:
