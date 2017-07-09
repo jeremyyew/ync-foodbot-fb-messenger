@@ -1,1 +1,1 @@
-web: gunicorn supperbotgit server:app
+web: gunicorn supperbotserver:app
