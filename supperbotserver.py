@@ -3,9 +3,10 @@ from lxml import html
 import json
 import requests
 import message_objects as msg
+import google_form_submitter as gform
 
 app = Flask(__name__)
-PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD'
+PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
 
 @app.route('/', methods=['GET'])
 def handle_verification():
@@ -42,7 +43,7 @@ def messaging_events(payload):
             if "carousel main" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.carousel_main
 
-            if "list main" in event["message"]["text"]:
+            elif "list main" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.list_main
 
             elif "info" in event["message"]["text"]:
@@ -68,6 +69,11 @@ def messaging_events(payload):
 
             if "COMING_SOON_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.coming_soon_msg
+
+            if "CENDANA_BUTTERY_ORDER" in event["postback"]["payload"]:
+                gform.post_form()
+                yield event["sender"]["id"], msg.cendana_buttery_form_submitted_msg
+
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
         else:

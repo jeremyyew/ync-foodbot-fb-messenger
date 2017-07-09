@@ -166,6 +166,7 @@ dining_hall_carousel={
         }
     ]
 }
+
 butteries_carousel={
     "title": "Butteries",
     "image_url": "https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",
@@ -377,3 +378,5 @@ carousel_main = {
         }
     }
 }
+
+cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}

@@ -31,7 +31,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
         {
           "type": "postback",
           "title": "Order from buttery",
-          "payload": "COMING_SOON_PB"
+          "payload": "CENDANA_BUTTERY_ORDER"
         },
         {
           "type": "postback",
