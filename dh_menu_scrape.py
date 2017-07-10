@@ -26,13 +26,13 @@ def get_day_special (day, meal):
     '(preceding-sibling::p/strong/u)'
     '='
     'count'
-    '(//*[@id="tab5"]'
-    '//p/strong/u[contains(text(), "Live Station")]'
+    '(//*[@id="%s"]'
+    '//p/strong/u[contains(text(), "%s")]'
     '/../../'
     'preceding-sibling::p/strong/u)'
     '+ 1'
     ']'
-    '/text()' % (tab, special))
+    '/text()' % (tab, special, tab, special))
 
     day_special = tree.xpath(xpath_string)
 
@@ -41,6 +41,5 @@ def get_day_special (day, meal):
 
     return day_special
 
-print get_day_special ("today", "bf")
 print get_day_special ("friday", "bf")
 
