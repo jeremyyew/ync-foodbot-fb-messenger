@@ -3,6 +3,7 @@ import json
 import requests
 import message_objects as msg
 import google_form_submitter as gform
+import dh_menu_scrape as dh
 
 app = Flask(__name__)
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
@@ -69,9 +70,15 @@ def messaging_events(payload):
             if "COMING_SOON_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.coming_soon_msg
 
-            if "CENDANA_BUTTERY_ORDER" in event["postback"]["payload"]:
+            if "CENDANA_BUTTERY_ORDER_PB" in event["postback"]["payload"]:
                 gform.post_form()
                 yield event["sender"]["id"], msg.cendana_buttery_form_submitted_msg
+
+            if "MENU_CHECK_PB" in event["postback"]["payload"]:
+                items = dh.scrape("friday", "breakfast")
+                print "ITEMS: ", items
+                send_message(event["sender"]["id"], msg.get_items_msg(items))
+                yield event["sender"]["id"], msg.dh_full_menu_msg
 
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
