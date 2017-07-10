@@ -380,3 +380,27 @@ carousel_main = {
 }
 
 cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}
+
+dh_full_menu_msg = {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "button",
+            "text": (
+                "View full menu at:"
+            ),
+            "buttons": [
+                {"type": "web_url",
+                 "title": "Dining hall website",
+                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
+            ]
+        }
+    }
+}
+
+def get_items_msg(items):
+    items_string = ""
+    for item in items:
+        items_string += item
+    items_msg = {"text": items_string}
+    return items_msg
