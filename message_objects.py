@@ -1,3 +1,5 @@
+import dh_menu_scrape as dh
+
 welcome_msg = {
     "attachment": {
         "type": "template",
@@ -381,7 +383,7 @@ carousel_main = {
 
 cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}
 
-dh_full_menu_msg = {
+full_menu_msg = {
     "attachment": {
         "type": "template",
         "payload": {
@@ -398,9 +400,12 @@ dh_full_menu_msg = {
     }
 }
 
-def get_items_msg(items):
+def generate_short_menu_msg():
+    meal, heading, items = dh.scrape()
+
     items_string = ""
     for item in items:
         items_string += item
-    items_msg = {"text": items_string}
-    return items_msg
+
+    msg = {"text": ("%s for %s today is:\n %s" %(heading, meal, items_string))}
+    return msg

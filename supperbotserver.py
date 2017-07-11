@@ -3,7 +3,7 @@ import json
 import requests
 import message_objects as msg
 import google_form_submitter as gform
-import dh_menu_scrape as dh
+
 
 app = Flask(__name__)
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
@@ -75,10 +75,8 @@ def messaging_events(payload):
                 yield event["sender"]["id"], msg.cendana_buttery_form_submitted_msg
 
             if "MENU_CHECK_PB" in event["postback"]["payload"]:
-                items = dh.scrape()
-                print "ITEMS: ", items
-                send_message(event["sender"]["id"], msg.get_items_msg(items))
-                yield event["sender"]["id"], msg.dh_full_menu_msg
+                send_message(event["sender"]["id"], msg.generate_short_menu_msg())
+                yield event["sender"]["id"], msg.full_menu_msg
 
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):

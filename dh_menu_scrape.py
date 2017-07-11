@@ -6,6 +6,7 @@ url = "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"}
 
 
+
 def scrape():
 
     #get xpath object from dh html
@@ -69,11 +70,8 @@ def scrape():
 
     if u'\xa0' in items:
         items.remove(u'\xa0')
-    if items == []:
-        return ["Menu unavailable."]
 
     print ("TESTING....DAY: %s, MEAL: %s, HOUR:%s, HEADING: %s, ITEMS: %s" % (day, meal, hour, heading, items))
-    return items
-
+    return meal, heading, items
 
 

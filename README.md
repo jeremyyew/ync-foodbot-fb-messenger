@@ -63,6 +63,7 @@ Through this project (so far), I have learned a little bit about:
 - [ ] re-publish, test group
 
 ### Other chatbot ideas:
-- [ ] YNC general info, memes/comics subscription 
+- [ ] YNC general info, memes/comics subscription
+- [ ] receipt scanner/expenses recorder
 
 
