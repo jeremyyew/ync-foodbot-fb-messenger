@@ -33,7 +33,8 @@ Hosted on Heroku.
     - [X] xpath by meal
     - [ ] xpath by day/tab rel
     - [X] format items_msg: change call to scrape to get meal and special
-    - [ ] set mealtime conditions by half-hour instead of hour, set separate for wknds (brunch)
+    - [X] set heading assignment by min instead of hour
+    - [ ] set separate meal/heading assignnmet for wknds (brunch)
     - [X] set default specials
 
 - [ ] Other features to explore:
@@ -47,7 +48,7 @@ Hosted on Heroku.
 - [X] Carousel messages
 - [X] Persistent menu
 
-#### Interfaces tried:
+#### Interfaces trgitied:
 - [X] Lists and Quick Replies
 
 ### Deployment: 14/7 Friday
