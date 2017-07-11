@@ -5,7 +5,12 @@ import datetime
 url = "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"}
 
-
+# construct time objects
+t0000 = datetime.time(0, 0)
+t0930 = datetime.time(9, 30)
+t1330 = datetime.time(13, 30)
+t2359 = datetime.time(23, 59, 59)
+print t0000, t0930, t1330, t2359
 
 def scrape():
 
@@ -16,32 +21,46 @@ def scrape():
     # get current day and hour
     now = datetime.datetime.now()
     day = now.strftime('%A')
-    hour = now.hour
+    now_time = now.time()
 
-    # set column to check depending on day
+    # set tab column to check depending on day
+    tab = ""
     if day == "Monday":
         tab = "tab8"
-    elif day == "Friday":
-        tab = "tab5"
     elif day == "Tuesday":
         tab = "tab5"
-    elif day == "Today":
+    elif day == "Wednesday":
+        tab = "tab5"
+    elif day == "Thursday":
+        tab = "tab5"
+    elif day == "Friday":
+        tab = "tab5"
+    elif day == "Saturday":
         tab = "tab_na"
+    elif day == "Sunday":
+        tab = "tab_na"
+    else:
+        print "tab assignment error"
 
-
-    # set meal based on hour
-    if 0 <= hour <= 10:
+    # set meal depending on time
+    meal = ""
+    if now_time >= t0000 and now_time <= t0930:
         meal = "breakfast"
-    if 11 <= hour <= 13:
+    if now_time >= t0930 and now_time <= t1330:
         meal = "lunch"
-    if 14 <= hour <= 23:
+    if now_time >= t1330 and now_time <= t2359:
         meal = "dinner"
+    else:
+        print "meal assignment error"
 
     # set heading based on meal
+    heading = ""
     if meal == "breakfast":
         heading = "Live Station"
     elif meal == "dinner" or meal == "lunch":
         heading = "Daily Special"
+    else:
+        print "heading assignment error"
 
 
     xpath_string2 = ('//*[@id="%s"]' #get id = <tab> #todo: make id = day
@@ -71,7 +90,7 @@ def scrape():
     if u'\xa0' in items:
         items.remove(u'\xa0')
 
-    print ("TESTING....DAY: %s, MEAL: %s, HOUR:%s, HEADING: %s, ITEMS: %s" % (day, meal, hour, heading, items))
+    print ("TESTING....DAY: %s, TIME: %s, TAB: %s, MEAL: %s, HEADING: %s, ITEMS: %s" % (day, now_time, tab, meal, heading, items))
     return meal, heading, items
 
 
