@@ -17,14 +17,14 @@ Through this project (so far), I have learned a little bit about:
 
 ## To-do
 ### Features:
-- [ ]**Explore food options**
+- [ ] **Food carousel**
     - [ ] Send Al Amaan Menu (+ upload images to FB server)
     - [ ] Edit "Others" carousel
     - [ ] Add "Share" image.
     - [ ] "Feedback" button text.
     - [ ] Add Buttery links.
-- [X] **Share**
-- [ ] **Feedback**
+- [X] **Share button**
+- [ ] **Feedback button**
     - [ ] Link to send message to Jeremy?
 
 **11/7 Tuesday:**
