@@ -20,17 +20,17 @@ Through this project (so far), I have learned a little bit about:
 ## To-do
 
 ### Completed Features:
-[ ] Explore food options
+-[ ] Explore food options
     - [ ] Send Al Amaan Menu (+ upload images to FB server)
     - [ ] Edit "Others" carousel
     - [ ] Add "Share" image.
     - [ ] "Feedback" button text.
     - [ ] Add Buttery links.
-[X] Share
-[ ] Feedback
+-[X] Share
+-[ ] Feedback
     - [ ] Link to send message to Jeremy?
 11/7
-[ ]Send webscraped dining hall menu content
+-[ ]Send webscraped dining hall menu content
     - [X] refactor call to scrape in supperbotserver
     - [X] xpath by special
     - [X] xpath by meal
@@ -39,7 +39,7 @@ Through this project (so far), I have learned a little bit about:
     - [ ] set mealtime conditions by half-hour instead of hour, set separate for wknds (brunch)
     - [X] set default specials
 
-[ ] Features to explore:
+-[ ] Features to explore:
     - [ ] NLP interaction ("Order buttery food")
     - [ ] Notification subscription ("What's cookin'?")
     - [ ] More content ("Discover new food places"). Find a food blogger.
