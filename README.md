@@ -20,10 +20,17 @@ Through this project (so far), I have learned a little bit about:
 ## To-do
 
 ### Completed Features:
-
-
+[ ] Explore food options
+    - [ ] Send Al Amaan Menu (+ upload images to FB server)
+    - [ ] Edit "Others" carousel
+    - [ ] Add "Share" image.
+    - [ ] "Feedback" button text.
+    - [ ] Add Buttery links.
+[X] Share
+[ ] Feedback
+    - [ ] Link to send message to Jeremy?
 11/7
-- [ ]Send webscraped dining hall menu content
+[ ]Send webscraped dining hall menu content
     - [X] refactor call to scrape in supperbotserver
     - [X] xpath by special
     - [X] xpath by meal
@@ -32,13 +39,10 @@ Through this project (so far), I have learned a little bit about:
     - [ ] set mealtime conditions by half-hour instead of hour, set separate for wknds (brunch)
     - [X] set default specials
 
-
-- [ ] Send Al Amaan Menu (+ upload images to FB server)
-- [ ] Edit "Others" carousel
-- [ ] Add "Share" image.
-- [ ] "Feedback" button text.
-- [ ] Add Buttery links.
-
+[ ] Features to explore:
+    - [ ] NLP interaction ("Order buttery food")
+    - [ ] Notification subscription ("What's cookin'?")
+    - [ ] More content ("Discover new food places"). Find a food blogger.
 
 #### Interfaces implemented:
 
@@ -47,7 +51,7 @@ Through this project (so far), I have learned a little bit about:
 - [X] Carousel messages
 - [X] Persistent menu
 
-#### Tried:
+#### Interfaces tried:
 - [X] Lists and Quick Replies
 
 ### Deployment:
@@ -55,18 +59,13 @@ Through this project (so far), I have learned a little bit about:
 14/7 Friday:
 - [ ] ***Check FB review requirements, send for review
 
-### Features to explore: 
-
-- [ ] NLP interaction ("Order buttery food")
-- [ ] Notification subscription ("What's cookin'?")
-- [ ] More content ("Discover new food places"). Find a food blogger. 
-
 ### When school reopens (10/8):
 
 - [ ] update buttery opening timings
 - [ ] update webscraper day tabs
+- [ ] update copy (e.g. share message)
 - [ ] delete false links
-- [ ] re-publish
+- [ ] re-publish, test group
 
 ### Other chatbot ideas:
 - [ ] YNC general info, memes/comics subscription 
