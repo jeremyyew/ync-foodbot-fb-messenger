@@ -8,12 +8,11 @@ I used https://tsaprailis.com/2016/06/02/How-to-build-and-deploy-a-Facebook-Mess
 Hosted on Heroku. 
 
 ## Learning points:
-Through this project (so far), I have learned a little bit about: 
 
 - Facebook messenger API
 - HTML requests
-- Webscraping with Xpath
-- using curl/shell script
+- Xml object parsing with Xpath
+- git markdown
 
 ## To-do
 ### Features:
@@ -33,7 +32,7 @@ Through this project (so far), I have learned a little bit about:
     - [X] xpath by special
     - [X] xpath by meal
     - [ ] xpath by day/tab rel
-    - [ ] format items_msg: refactor call to scrape to get meal and special
+    - [X] format items_msg: change call to scrape to get meal and special
     - [ ] set mealtime conditions by half-hour instead of hour, set separate for wknds (brunch)
     - [X] set default specials
 
