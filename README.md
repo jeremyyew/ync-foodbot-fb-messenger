@@ -33,7 +33,7 @@ Through this project (so far), I have learned a little bit about:
     - [X] xpath by special
     - [X] xpath by meal
     - [ ] xpath by day/tab rel
-    - [ ] refactor call to scrape to get meal and special
+    - [ ] format items_msg: refactor call to scrape to get meal and special
     - [ ] set mealtime conditions by half-hour instead of hour, set separate for wknds (brunch)
     - [X] set default specials
 

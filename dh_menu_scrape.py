@@ -72,7 +72,7 @@ def scrape():
     if items == []:
         return ["Menu unavailable."]
 
-    print ("TESTING....DAY: %s, MEAL: %s, ITEMS: %s" % (day, meal, items))
+    print ("TESTING....DAY: %s, MEAL: %s, HOUR:%s, HEADING: %s, ITEMS: %s" % (day, meal, hour, heading, items))
     return items
 
 
