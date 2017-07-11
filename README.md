@@ -29,7 +29,8 @@ Through this project (so far), I have learned a little bit about:
 - [X] Share
 - [ ] Feedback
     - [ ] Link to send message to Jeremy?
-11/7
+
+11/7 Tuesday:
 - [ ]Send webscraped dining hall menu content
     - [X] refactor call to scrape in supperbotserver
     - [X] xpath by special
