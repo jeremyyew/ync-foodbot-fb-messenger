@@ -26,27 +26,41 @@ Through this project (so far), I have learned a little bit about:
 - [X] Carousel message 
 - [X] Persistent menu 
 - [X] Tried out Lists and Quick Replies
-- [ ] Send webscraped dining hall menu content 
-- [ ] Send Al Amaan Menu (+ upload image to FB server)
+
+Send webscraped dining hall menu content
+- [X] refactor call to scrape in supperbotserver
+- [X] xpath by special
+- [X] xpath by meal
+- [ ] xpath by day/tab rel
+- [ ] refactor call to scrape to get meal and special
+- [ ] set mealtime conditions by half-hour instead of hour, set separate for wknds (brunch)
+- [X] set default specials
+
+
+- [ ] Send Al Amaan Menu (+ upload images to FB server)
 
 ### Small stuff: 
 
 - [ ] Edit "Others" carousel
 - [ ] Add "Share" image.
 - [ ] "Feedback" button text. 
-- [ ] Buttery links. 
+- [ ] Add Buttery links.
 
 ### Features to explore: 
 
 - [ ] NLP interaction ("Order buttery food")
-- [ ] Notification subscription ("What's cookin'?")
+- [X] Notification subscription ("What's cookin'?")
 - [ ] More content ("Discover new food places"). Find a food blogger. 
 
 ### Misc: 
 
 - [ ] Get feedback. 
 - [ ] Check FB review requirements, send for review 
-- [ ] When school reopens: update timings, update/test webscraper, delete false links
+
+### When school reopens:
+- [ ] update buttery opening timings
+- [ ] update webscraper day tabs
+- [ ] delete false links
 
 ### Other chatbot ideas: 
 

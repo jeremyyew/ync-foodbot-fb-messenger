@@ -75,7 +75,7 @@ def messaging_events(payload):
                 yield event["sender"]["id"], msg.cendana_buttery_form_submitted_msg
 
             if "MENU_CHECK_PB" in event["postback"]["payload"]:
-                items = dh.scrape("friday", "breakfast")
+                items = dh.scrape()
                 print "ITEMS: ", items
                 send_message(event["sender"]["id"], msg.get_items_msg(items))
                 yield event["sender"]["id"], msg.dh_full_menu_msg
