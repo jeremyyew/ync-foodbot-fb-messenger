@@ -13,6 +13,7 @@ Hosted on Heroku.
 - HTML requests
 - Xml object parsing with Xpath
 - git markdown
+- gitignore
 
 ## To-do
 ### Features:
