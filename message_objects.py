@@ -409,7 +409,7 @@ def generate_short_menu_msg():
     else:
         for item in items:
             items_string += item + ", "
-        items_string = items_string.rstrip(', ') + '.'
+        items_string = items_string.rstrip('\n')
 
     msg = {"text": ("%s for %s today:\n %s" %(heading, meal, items_string))}
     return msg
