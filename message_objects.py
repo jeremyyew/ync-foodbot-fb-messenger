@@ -410,5 +410,5 @@ def generate_short_menu_msg():
         for item in items:
             items_string += item + "\n"
 
-    msg = {"text": ("%s for %s today:\n %s" %(heading, meal, items_string))}
+    msg = {"text": ("%s for %s today:\n%s" %(heading, meal, items_string))}
     return msg
