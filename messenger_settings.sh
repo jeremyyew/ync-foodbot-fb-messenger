@@ -25,7 +25,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "call_to_actions": [
         {
           "type": "postback",
-          "title": "What\u0027s cookin\u0027?",
+          "title": "What\u0027s cooking?",
           "payload": "MENU_CHECK_PB"
         },
         {

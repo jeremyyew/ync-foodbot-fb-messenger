@@ -48,7 +48,7 @@ Hosted on Heroku.
 - [X] Carousel messages
 - [X] Persistent menu
 
-#### Interfaces trgitied:
+#### Interfaces tried:
 - [X] Lists and Quick Replies
 
 ### Deployment: 14/7 Friday

@@ -46,9 +46,9 @@ def scrape():
     meal = ""
     if now_time >= t0000 and now_time <= t0930:
         meal = "breakfast"
-    if now_time >= t0930 and now_time <= t1330:
+    elif now_time >= t0930 and now_time <= t1330:
         meal = "lunch"
-    if now_time >= t1330 and now_time <= t2359:
+    elif now_time >= t1330 and now_time <= t2359:
         meal = "dinner"
     else:
         print "meal assignment error"
