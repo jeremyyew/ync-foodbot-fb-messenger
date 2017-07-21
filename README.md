@@ -32,7 +32,7 @@ Hosted on Heroku.
     - [ ] xpath by day/tab rel
     - [X] format items_msg: change call to scrape to get meal and special
     - [X] set heading assignment by min instead of hour
-    - [ ] set separate meal/heading assignnmet for wknds (brunch)
+    - [ ] set separate meal/heading assignnment for weekends (brunch)
     - [X] set default specials
 
 - [ ] **Feedback button**

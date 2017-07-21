@@ -404,10 +404,12 @@ def generate_short_menu_msg():
     meal, heading, items = dh.scrape()
 
     items_string = ""
-    for item in items:
-        items_string += item + ', '
-
-    items_string = items_string.rstrip(', ') + '.'
+    if items == []:
+        items_string = "Sorry, menu not available."
+    else:
+        for item in items:
+            items_string += item + ", "
+        items_string = items_string.rstrip(', ') + '.'
 
     msg = {"text": ("%s for %s today:\n %s" %(heading, meal, items_string))}
     return msg
