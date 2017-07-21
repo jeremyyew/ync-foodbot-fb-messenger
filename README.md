@@ -23,8 +23,6 @@ Hosted on Heroku.
     - [ ] "Feedback" button text.
     - [ ] Add Buttery links.
 - [X] **Share button**
-- [ ] **Feedback button**
-    - [ ] Link to send message to Jeremy?
 
 **11/7 Tuesday:**
 - [ ] **Send webscraped dining hall menu content**
@@ -37,21 +35,16 @@ Hosted on Heroku.
     - [ ] set separate meal/heading assignnmet for wknds (brunch)
     - [X] set default specials
 
+- [ ] **Feedback button**
+    - [ ] Link to send message to Jeremy?
+
 - [ ] Other features to explore:
     - [ ] **"Order buttery food"**
     - [ ] **Notification subscription ("What's cookin'?")**
     - [ ] **"Discover new food places")**
 
-#### Interfaces implemented:
-- [X] Get Started message
-- [X] Share Button
-- [X] Carousel messages
-- [X] Persistent menu
 
-#### Interfaces tried:
-- [X] Lists and Quick Replies
-
-### Deployment: 14/7 Friday
+### Deployment: 22/7 Sat
 - [ ] **Check FB review requirements, send for review**
 
 ### When school reopens (10/8):
@@ -66,4 +59,11 @@ Hosted on Heroku.
 - [ ] YNC general info, memes/comics subscription
 - [ ] receipt scanner/expenses recorder
 
+#### Messenger API features implemented:
+- [X] Get Started message
+- [X] Share Button
+- [X] Carousel messages
+- [X] Persistent menu
 
+#### Messenger API features tried:
+- [X] Lists and Quick Replies
