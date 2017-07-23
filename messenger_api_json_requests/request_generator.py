@@ -12,7 +12,7 @@ def generate_json_request(pre, payloads, filename, url):
 # set params
 thread_settings_url = "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAZAygcjNS3sBAEZCWHjMDwU8gW0OartsOxT1MElrwMpB4mHZCuniZBifZAKIT3sPTYgfJNVzPfO0EMnZANwZBEGGYPMU6tStXMUDvZBIoNUXzxQ9aKOf7k33wTDATnWTn6B90mr5Ulvp27DTvbKqK75ER17GLLt6rX9XgPnNAltgwZDZD"
 pre = "curl -X POST -H \"Content-Type: application/json\" -d"
-fn = "messenger_settings.sh"
+fn = "messenger_api_json_requests.sh"
 
 # create setting payloads
 greeting_pl = {"setting_type": "greeting", "greeting": {"text": "Hungry? I gotchu fam."}}

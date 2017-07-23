@@ -113,7 +113,7 @@ al_amaan_menu_image1_msg = {
     "attachment": {
         "type": "image",
         "payload": {
-            "attachment_id": "992857737522542"  # dining_hall_1.jpg
+            "attachment_id": "1033950820079900"  # dining_hall_1.jpg
         }
     }
 }
@@ -121,7 +121,7 @@ al_amaan_menu_image2_msg = {
     "attachment": {
         "type": "image",
         "payload": {
-            "attachment_id": "992857737522542"  # dining_hall_1.jpg
+            "attachment_id": "1033950833413232"  # dining_hall_1.jpg
         }
     }
 }

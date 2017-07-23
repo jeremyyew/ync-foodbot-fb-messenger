@@ -18,7 +18,7 @@ Hosted on Heroku.
 ## To-do
 ### Features:
 - [ ] **Food carousel**
-    - [ ] Send Al Amaan Menu (+ upload images to FB server)
+    - [X] Send Al Amaan Menu (upload images to FB server)
     - [ ] Edit "Others" carousel
     - [ ] Add "Share" image.
     - [ ] Add Buttery links.
@@ -46,8 +46,8 @@ Hosted on Heroku.
 - [ ] **Misc**
     - [ ] "I don't understand" message
     - [ ] Refactor YNCFoodbotserver.py
-    - [ ] Refactor messenger settings
-        - [ ] Create request_generator, automate all request generation
+    - [X] Refactor messenger settings
+        - [X] Create request_generator, automate all request generation
 
 
 - [ ] Other features to explore:
