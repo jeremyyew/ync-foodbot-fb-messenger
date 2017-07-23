@@ -112,7 +112,7 @@ if __name__ == '__main__':
 #TESTING WITH SHELL SCRIPT
 # create test.sh.
 # Add permission: chmod +x ./test.sh (https://askubuntu.com/questions/38661/how-do-i-run-sh-files).
-# Run python server file: $ python supperbotserver.py
+# Run python server file: $ python YNCFoodbotserver.py
 # ./test.sh
 # Unsubscribe to page to ensure messages dont get sent to heroku while testing mode.
 

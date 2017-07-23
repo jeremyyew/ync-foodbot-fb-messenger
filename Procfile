@@ -1,1 +1,1 @@
-web: gunicorn supperbotserver:app
+web: gunicorn YNCFoodbotserver:app
