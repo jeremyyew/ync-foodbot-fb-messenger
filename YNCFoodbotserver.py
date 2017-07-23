@@ -3,7 +3,6 @@ import json
 import requests
 import message_objects as msg
 import google_form_submitter as gform
-import time
 
 state = "nil"
 print state
@@ -75,8 +74,8 @@ def messaging_events(payload):
             elif "FEEDBACK_PB" in event["postback"]["payload"]:
                 state = "waiting_for_feedback"
                 print state
-                time.sleep(10)
                 yield event["sender"]["id"], msg.feedback_prompt_msg
+                break
 
             elif "GET_INFO_PB" in event["postback"]["payload"]:
                 send_message(event["sender"]["id"], msg.quick_ref_main)
