@@ -40,17 +40,8 @@ def messaging_events(payload):
         if "message" in event and "text" in event["message"]:
 
             # IF RECOGNIZED TEXT MSG:
-            if "carousel main" in event["message"]["text"]:
-                yield event["sender"]["id"], msg.carousel_main
-
-            elif "list main" in event["message"]["text"]:
-                yield event["sender"]["id"], msg.list_main
-
-            elif "info" in event["message"]["text"]:
-                yield event["sender"]["id"], msg.quick_ref_main
-
-            elif "quick reply main" in event["message"]["text"]:
-                yield event["sender"]["id"], msg.quick_reply_main
+            if "help" in event["message"]["text"]:
+                yield event["sender"]["id"], msg.start_msg
 
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
@@ -63,7 +54,7 @@ def messaging_events(payload):
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
 
-            if "OK_PB" in event["postback"]["payload"]:
+            if "GET_INFO_PB" in event["postback"]["payload"]:
                 send_message(event["sender"]["id"], msg.quick_ref_main)
                 yield event["sender"]["id"], msg.carousel_main
 

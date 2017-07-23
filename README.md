@@ -23,6 +23,7 @@ Hosted on Heroku.
     - [ ] Add "Share" image.
     - [ ] Add Buttery links.
 - [X] **Share button**
+    - [ ] Add Share button to persistent menu
 
 **23/7 Sunday:**
 - [ ] **Send webscraped dining hall menu content**
@@ -37,7 +38,11 @@ Hosted on Heroku.
     - [X] Reformat daily special message
 
 - [ ] **Feedback button**
-    - [ ] Link to send message to Jeremy?
+    - [ ] Prompt message, feedback received message
+
+- [ ] **Misc**
+    - [ ] "I don't understand" message
+
 
 - [ ] Other features to explore:
     - [ ] **"Order buttery food"**

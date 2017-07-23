@@ -58,15 +58,15 @@ start_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Press 'OK' and I'll send you some quick-reference info and a bunch of handy links. "
-                "You can also ask me for the dining hall daily menu (and other cool stuff) through the menu at the bottom of the screen. "
-                "PS: If you close the menu, simply tap the bottom-right icon to re-open. \n\n"
-                "Type 'start' any time to get this message again."
+                "Press 'GET INFO' to get useful info and links,"
+                "or try the quick-access buttons in the pull-up menu below."
+                "\n\nPS: To re-open menu, tap the three-bar icon at the bottom-right."
+                "Type 'help' at any time to get this message again."
             ),
             "buttons": [
                 {"type": "postback",
-                 "title": "OK",
-                 "payload": "OK_PB"},
+                 "title": "GET INFO",
+                 "payload": "GET_INFO_PB"},
             ]
         }
     }
