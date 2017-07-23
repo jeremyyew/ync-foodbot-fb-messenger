@@ -9,6 +9,7 @@ app = Flask(__name__)
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
 
 state = "nil"
+print state
 
 @app.route('/', methods=['GET'])
 def handle_verification():
@@ -45,7 +46,6 @@ def messaging_events(payload):
 
             # IF RECOGNIZED TEXT MSG:
             if "help" in event["message"]["text"]:
-                print "sending start msg"
                 yield event["sender"]["id"], msg.start_msg
 
             elif "Get Started" in event["message"]["text"]:
@@ -54,12 +54,12 @@ def messaging_events(payload):
 
             elif state == "waiting_for_feedback":
                 state = "nil"
+                print state
                 yield event["sender"]["id"], msg.feedback_received_msg
 
 
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
-                print "not recognized text"
                 yield event["sender"]["id"], msg.start_msg
 
         # ELSE IF POSTBACK:
@@ -71,6 +71,7 @@ def messaging_events(payload):
 
             elif "FEEDBACK_PB" in event["postback"]["payload"]:
                 state = "waiting_for_feedback"
+                print state
                 yield event["sender"]["id"], msg.feedback_prompt_msg
 
             elif "GET_INFO_PB" in event["postback"]["payload"]:
