@@ -49,7 +49,7 @@ def messaging_events(payload):
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
 
-            if state = "waiting_for_feedback":
+            if state == "waiting_for_feedback":
                 state = "nil"
                 yield event["sender"]["id"], msg.feedback_received_msg
 
