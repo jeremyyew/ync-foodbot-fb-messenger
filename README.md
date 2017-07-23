@@ -45,6 +45,7 @@ Hosted on Heroku.
 
 - [ ] **Misc**
     - [ ] "I don't understand" message
+    - [ ] Refactor YNCFoodbotserver.py
 
 
 - [ ] Other features to explore:

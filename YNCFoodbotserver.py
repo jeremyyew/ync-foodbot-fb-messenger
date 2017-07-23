@@ -48,7 +48,7 @@ def messaging_events(payload):
 
             elif "Get Started" in event["message"]["text"]:
                 print "Get Started msg response"
-                send_message(event["sender"]["id"], msg.welcome_msg)
+                yield event["sender"]["id"], msg.welcome_msg
                 yield event["sender"]["id"], msg.start_msg
 
             # ELSE (NOT RECOGNIZED TEXT MSG):
@@ -68,8 +68,15 @@ def messaging_events(payload):
                 break
 
             elif "GET_INFO_PB" in event["postback"]["payload"]:
-                send_message(event["sender"]["id"], msg.quick_ref_main)
+                yield event["sender"]["id"], msg.quick_ref_main
                 yield event["sender"]["id"], msg.carousel_main
+
+            elif "MENU_CHECK_PB" in event["postback"]["payload"]:
+                yield event["sender"]["id"], msg.generate_short_menu_msg()
+
+            elif "AL_AMAAN_MENU_PB" in event["postback"]["payload"]:
+                yield event["sender"]["id"], msg.al_amaan_menu_image1_msg
+                yield event["sender"]["id"], msg.al_amaan_menu_image2_msg
 
             elif "COMING_SOON_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.coming_soon_msg
@@ -77,10 +84,6 @@ def messaging_events(payload):
             elif "CENDANA_BUTTERY_ORDER_PB" in event["postback"]["payload"]:
                 gform.post_form()
                 yield event["sender"]["id"], msg.cendana_buttery_form_submitted_msg
-
-            elif "MENU_CHECK_PB" in event["postback"]["payload"]:
-                yield event["sender"]["id"], msg.generate_short_menu_msg()
-
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
         else:

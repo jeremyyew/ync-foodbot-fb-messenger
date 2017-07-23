@@ -1,55 +1,53 @@
 import dh_menu_scrape as dh
 
-#GET_STARTED_PB
-welcome_msg = {
-    "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "button",
-            "text": (
-                "Welcome to the Yale-NUS Foodbot! "
-                "Feel free to share this if you find it useful:)\n\n"
-                "Jeremy"
-            ),
-            "buttons": [
-                {"type": "element_share",
-                 "share_contents": {
-                     "attachment": {
-                         "type": "template",
-                         "payload": {
-                             "template_type": "generic",
-                             "elements": [
-                                 {
-                                     "title": "Hungry? I gotchu fam.",
-                                     "subtitle": (
+# GET_STARTED_PB
+welcome_msg = {'attachment': {
+    "type": "template",
+    "payload": {
+        "template_type": "button",
+        "text": (
+            "Welcome to the Yale-NUS Foodbot! "
+            "Feel free to share this if you find it useful:)\n\n"
+            "Jeremy"
+        ),
+        "buttons": [
+            {"type": "element_share",
+             "share_contents": {
+                 "attachment": {
+                     "type": "template",
+                     "payload": {
+                         "template_type": "generic",
+                         "elements": [
+                             {
+                                 "title": "Hungry? I gotchu fam.",
+                                 "subtitle": (
                                      "Quick access to buttery order forms, dining hall menu, delivery hotlines, and more!"),
-                                     "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
-                                     "default_action": {
+                                 "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
+                                 "default_action": {
+                                     "type": "web_url",
+                                     "url": "http://m.me/979027202238929"
+                                 },
+                                 "buttons": [
+                                     {
                                          "type": "web_url",
-                                         "url": "http://m.me/979027202238929"
-                                     },
-                                     "buttons": [
-                                         {
-                                             "type": "web_url",
-                                             "url": "http://m.me/979027202238929",
-                                             "title": "Try it out"
-                                         }
-                                     ]
-                                 }
-                             ]
-                         }
+                                         "url": "http://m.me/979027202238929",
+                                         "title": "Try it out"
+                                     }
+                                 ]
+                             }
+                         ]
                      }
                  }
-                 },
-                {
-                 "type": "postback",
-                 "title": "Feedback",
-                 "payload": "FEEDBACK_PB"
-                 },
-            ]
-        }
+             }
+             },
+            {
+                "type": "postback",
+                "title": "Feedback",
+                "payload": "FEEDBACK_PB"
+            },
+        ]
     }
-}
+}}
 start_msg = {
     "attachment": {
         "type": "template",
@@ -70,14 +68,14 @@ start_msg = {
     }
 }
 
-#FEEDBACK_PB
+# FEEDBACK_PB
 feedback_prompt_msg = {"text": "You can send any suggestions, feedback or bug reports directly to the bot. "
-                       "Simply include the tag #feedback in your message to make sure I see it. "
-                       "If reporting a bug, please try to be as specific as possible."
-                       "You can also hit me up at m.me/jeremy.yew.9.\n\n"}
+                               "Simply include the tag #feedback in your message to make sure I see it. "
+                               "If reporting a bug, please try to be as specific as possible."
+                               "You can also hit me up at m.me/jeremy.yew.9.\n\n"}
 feedback_received_msg = {"text": "Got it, thanks! I'll work on it."}
 
-#GET_INFO_PB
+# GET_INFO_PB
 quick_ref_main = {"text": (
     "Dining Hall:\n"
     "Weekdays: 730-930am, 1130-130pm, 6-830pm\n"
@@ -102,7 +100,7 @@ quick_ref_main = {"text": (
 )
 }
 
-#IMG ATTACHMENTS
+# IMG ATTACHMENTS
 send_img = {
     "attachment": {
         "type": "image",
@@ -111,8 +109,24 @@ send_img = {
         }
     }
 }
+al_amaan_menu_image1_msg = {
+    "attachment": {
+        "type": "image",
+        "payload": {
+            "attachment_id": "992857737522542"  # dining_hall_1.jpg
+        }
+    }
+}
+al_amaan_menu_image2_msg = {
+    "attachment": {
+        "type": "image",
+        "payload": {
+            "attachment_id": "992857737522542"  # dining_hall_1.jpg
+        }
+    }
+}
 
-#CAROUSEL
+# CAROUSEL
 dining_hall_carousel = {
     "title": "Dining Hall",
     "image_url": "https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
@@ -158,28 +172,24 @@ butteries_carousel = {
         }
     ]
 }
-al_amaan_carousel = {
-    "title": "Al Amaan",
-    "image_url": "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
-    "subtitle": "Delivery: 67770555 (11AM-3AM)",
-    "default_action": {
+al_amaan_carousel = {'title': "Al Amaan",
+                     'image_url': "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
+                     'subtitle': "Delivery: 67770555 (11AM-3AM)", 'default_action': {
         "type": "web_url",
         "url": "http://www.alamaanrestaurant.com.sg/"
-    },
-    "buttons": [
+    }, 'buttons': [
         {
             "type": "phone_number",
             "title": "Call now",
             "payload": "+6567770555"
         },
         {
-            "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "Menu"
+            "type": "postback",
+            "title": "Menu",
+            "payload": "AL_AMAAN_MENU_PB"
         }
 
-    ]
-}
+    ]}
 macs_carousel = {
     "title": "McDonald's",
     "image_url": "https://d1nqx6es26drid.cloudfront.net/app/assets/img/logo_mcd.png",
@@ -249,7 +259,8 @@ carousel_main = {
     }
 }
 
-#MENU_CHECK_PB
+
+# MENU_CHECK_PB
 def generate_short_menu_msg():
     meal, heading, items = dh.scrape()
 
@@ -280,10 +291,11 @@ def generate_short_menu_msg():
 
     return full_menu_msg
 
-#MISC
+
+# MISC
 coming_soon_msg = {"text": "Feature in development."}
 
-#UNUSED
+# UNUSED
 list_main = {
     "attachment": {
         "type": "template",
