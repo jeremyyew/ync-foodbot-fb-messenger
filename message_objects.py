@@ -7,10 +7,10 @@ welcome_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Welcome to the Yale-NUS Foodbot! "
-                "Feel free to share if you find this useful. "
-                "Please send your suggestions or feedback here, "
-                "or send me a message: m.me/jeremy.yew.9.\n\n"
+                "Welcome to the Yale-NUS Foodbot!\n\n"
+                "Feel free to share this if you find it useful. "
+                "Please send your suggestions or feedback directly to the bot, "
+                "or hit me up at m.me/jeremy.yew.9.\n\n"
                 "Jeremy"
             ),
             "buttons": [
@@ -45,7 +45,7 @@ welcome_msg = {
                  },
                 {
                  "type": "postback",
-                 "title": "FEEDBACK",
+                 "title": "Feedback",
                  "payload": "FEEDBACK_PB"
                  },
             ]
@@ -58,14 +58,14 @@ start_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Press 'GET INFO' to get useful info and links, "
+                "Press 'Get Info' to get useful info and links, "
                 "or try the quick-access buttons in the pull-up menu below. "
-                "\n\nPS: To re-open menu, tap the three-bar icon at the bottom-right. "
+                "\n\nPS: To re-open the menu, tap the three-bar icon at the bottom-right. "
                 "Type 'help' at any time to get this message again."
             ),
             "buttons": [
                 {"type": "postback",
-                 "title": "GET INFO",
+                 "title": "Get Info",
                  "payload": "GET_INFO_PB"},
             ]
         }
@@ -73,7 +73,8 @@ start_msg = {
 }
 
 #FEEDBACK_PB
-feedback_prompt_msg = {"text": "Include #feedback in any message to submit feedback."}
+feedback_prompt_msg = {"text": "Include the tag #feedback in any message to submit your feedback or bug report. "
+                               "If reporting a bug, please try to be as specific as possible."}
 feedback_received_msg = {"text": "Got it, thanks! I'll work on it."}
 
 #GET_INFO_PB
