@@ -73,7 +73,7 @@ start_msg = {
 }
 
 #FEEDBACK_PB
-feedback_prompt_msg = {"text": "Type your feedback:"}
+feedback_prompt_msg = {"text": "Include #feedback in any message to submit feedback."}
 feedback_received_msg = {"text": "Got it, thanks! I'll work on it."}
 
 #GET_INFO_PB

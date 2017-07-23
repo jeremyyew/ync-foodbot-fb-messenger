@@ -4,9 +4,6 @@ import requests
 import message_objects as msg
 import google_form_submitter as gform
 
-state = "nil"
-print state
-
 app = Flask(__name__)
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
 
@@ -23,7 +20,6 @@ def handle_verification():
 
 @app.route('/', methods=['POST'])
 def handle_messages():
-    global state
     print "Handling Messages"
     payload = request.get_data()
     print payload
@@ -39,14 +35,11 @@ def messaging_events(payload):
     data = json.loads(payload)
     messaging_events = data["entry"][0]["messaging"]
     for event in messaging_events:
-        print "Current state: ", state
         # IF TEXT MSG:
         if "message" in event and "text" in event["message"]:
 
             # IF RECOGNIZED TEXT MSG:
-            if state == "waiting_for_feedback":
-                state = "nil"
-                print state
+            if "#feedback" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.feedback_received_msg
 
             elif "help" in event["message"]["text"]:
@@ -71,8 +64,6 @@ def messaging_events(payload):
                 yield event["sender"]["id"], msg.start_msg
 
             elif "FEEDBACK_PB" in event["postback"]["payload"]:
-                state = "waiting_for_feedback"
-                print state
                 yield event["sender"]["id"], msg.feedback_prompt_msg
                 break
 
