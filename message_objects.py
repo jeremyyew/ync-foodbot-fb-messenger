@@ -101,14 +101,6 @@ quick_ref_main = {"text": (
 }
 
 # IMG ATTACHMENTS
-send_img = {
-    "attachment": {
-        "type": "image",
-        "payload": {
-            "attachment_id": "992857737522542"  # dining_hall_1.jpg
-        }
-    }
-}
 al_amaan_menu_image1_msg = {
     "attachment": {
         "type": "image",
