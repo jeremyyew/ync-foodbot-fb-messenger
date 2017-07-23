@@ -48,17 +48,18 @@ def messaging_events(payload):
                 print "sending start msg"
                 yield event["sender"]["id"], msg.start_msg
 
-            if "Get Started" in event["message"]["text"]:
+            elif "Get Started" in event["message"]["text"]:
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
 
-            if state == "waiting_for_feedback":
+            elif state == "waiting_for_feedback":
                 state = "nil"
                 yield event["sender"]["id"], msg.feedback_received_msg
 
 
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
+                print "not recognized text"
                 yield event["sender"]["id"], msg.start_msg
 
         # ELSE IF POSTBACK:
@@ -68,22 +69,22 @@ def messaging_events(payload):
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
 
-            if "FEEDBACK_PB" in event["postback"]["payload"]:
+            elif "FEEDBACK_PB" in event["postback"]["payload"]:
                 state = "waiting_for_feedback"
                 yield event["sender"]["id"], msg.feedback_prompt_msg
 
-            if "GET_INFO_PB" in event["postback"]["payload"]:
+            elif "GET_INFO_PB" in event["postback"]["payload"]:
                 send_message(event["sender"]["id"], msg.quick_ref_main)
                 yield event["sender"]["id"], msg.carousel_main
 
-            if "COMING_SOON_PB" in event["postback"]["payload"]:
+            elif "COMING_SOON_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.coming_soon_msg
 
-            if "CENDANA_BUTTERY_ORDER_PB" in event["postback"]["payload"]:
+            elif "CENDANA_BUTTERY_ORDER_PB" in event["postback"]["payload"]:
                 gform.post_form()
                 yield event["sender"]["id"], msg.cendana_buttery_form_submitted_msg
 
-            if "MENU_CHECK_PB" in event["postback"]["payload"]:
+            elif "MENU_CHECK_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.generate_short_menu_msg()
 
 

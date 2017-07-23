@@ -22,6 +22,7 @@ Hosted on Heroku.
     - [ ] Edit "Others" carousel
     - [ ] Add "Share" image.
     - [ ] Add Buttery links.
+
 - [X] **Share button**
     - [ ] Add Share button to persistent menu
 
@@ -35,7 +36,8 @@ Hosted on Heroku.
     - [X] set separate meal/heading assignnment for weekends (brunch)
     - [X] set default specials
     - [ ] xpath by day/tab rel
-    - [X] Reformat daily special message
+    - [ ] Reformat daily special message
+
 
 - [ ] **Feedback button**
     - [ ] Prompt message, feedback received message
