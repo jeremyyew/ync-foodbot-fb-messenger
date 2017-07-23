@@ -34,6 +34,7 @@ def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
     """
+
     data = json.loads(payload)
     messaging_events = data["entry"][0]["messaging"]
     for event in messaging_events:
@@ -49,6 +50,7 @@ def messaging_events(payload):
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
 
+            global state
             if state == "waiting_for_feedback":
                 state = "nil"
                 yield event["sender"]["id"], msg.feedback_received_msg
@@ -66,6 +68,7 @@ def messaging_events(payload):
                 yield event["sender"]["id"], msg.start_msg
 
             if "FEEDBACK_PB" in event["postback"]["payload"]:
+                global state
                 state = "waiting_for_feedback"
                 yield event["sender"]["id"], msg.feedback_prompt_msg
 

@@ -12,7 +12,6 @@ t0930 = datetime.time(9, 30)
 t1300 = datetime.time(13, 00)
 t1330 = datetime.time(13, 30)
 t2359 = datetime.time(23, 59, 59)
-print t0000, t0930, t1330, t2359
 
 
 def scrape():
