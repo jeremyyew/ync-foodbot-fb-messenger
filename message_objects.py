@@ -389,7 +389,6 @@ full_menu_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "View full menu at:"
             ),
             "buttons": [
                 {"type": "web_url",
@@ -410,5 +409,11 @@ def generate_short_menu_msg():
         for item in items:
             items_string += item + "\n"
 
-    msg = {"text": ("%s for %s today:\n%s" %(heading, meal, items_string))}
-    return msg
+
+    menu_text = {"text": ("%s for %s today:\n%s"
+                          "\n View full menu at:"
+                            %(heading, meal, items_string))}
+
+    full_menu_msg.update(menu_text)
+
+    return full_menu_msg

@@ -75,8 +75,8 @@ def messaging_events(payload):
                 yield event["sender"]["id"], msg.cendana_buttery_form_submitted_msg
 
             if "MENU_CHECK_PB" in event["postback"]["payload"]:
-                send_message(event["sender"]["id"], msg.generate_short_menu_msg())
-                yield event["sender"]["id"], msg.full_menu_msg
+                #send_message(event["sender"]["id"], msg.generate_short_menu_msg())
+                yield event["sender"]["id"], msg.generate_short_menu_msg()
 
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
