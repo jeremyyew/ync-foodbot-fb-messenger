@@ -25,16 +25,17 @@ Hosted on Heroku.
     - [ ] Add Buttery links.
 - [X] **Share button**
 
-**11/7 Tuesday:**
+**23/7 Sunday:**
 - [ ] **Send webscraped dining hall menu content**
     - [X] refactor call to scrape in supperbotserver
     - [X] xpath by special
     - [X] xpath by meal
-    - [ ] xpath by day/tab rel
     - [X] format items_msg: change call to scrape to get meal and special
     - [X] set heading assignment by min instead of hour
-    - [ ] set separate meal/heading assignnment for weekends (brunch)
+    - [X] set separate meal/heading assignnment for weekends (brunch)
     - [X] set default specials
+    - [ ] xpath by day/tab rel
+    - [ ] Reformat daily special message
 
 - [ ] **Feedback button**
     - [ ] Link to send message to Jeremy?
@@ -45,7 +46,7 @@ Hosted on Heroku.
     - [ ] **"Discover new food places")**
 
 
-### Deployment: 22/7 Sat
+### Deployment: 24/7 Sat
 - [ ] **Check FB review requirements, send for review**
 
 ### When school reopens (10/8):
