@@ -43,6 +43,10 @@ def messaging_events(payload):
             if "help" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.start_msg
 
+            if "Get Started" in event["message"]["text"]:
+                send_message(event["sender"]["id"], msg.welcome_msg)
+                yield event["sender"]["id"], msg.start_msg
+
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
                 yield event["sender"]["id"], msg.start_msg
