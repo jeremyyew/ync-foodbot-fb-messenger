@@ -46,9 +46,11 @@ def messaging_events(payload):
 
             # IF RECOGNIZED TEXT MSG:
             if "help" in event["message"]["text"]:
+                print "help msg response"
                 yield event["sender"]["id"], msg.start_msg
 
             elif "Get Started" in event["message"]["text"]:
+                print "Get Started msg response"
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
 
@@ -57,9 +59,9 @@ def messaging_events(payload):
                 print state
                 yield event["sender"]["id"], msg.feedback_received_msg
 
-
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
+                print "not recognized msg response"
                 yield event["sender"]["id"], msg.start_msg
 
         # ELSE IF POSTBACK:
