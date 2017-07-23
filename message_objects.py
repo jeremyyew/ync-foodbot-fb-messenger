@@ -1,16 +1,17 @@
 import dh_menu_scrape as dh
 
+#GET_STARTED_PB
 welcome_msg = {
     "attachment": {
         "type": "template",
         "payload": {
             "template_type": "button",
             "text": (
-                "Welcome to the Yale-NUS Foodbot!"
-                "Please share this if you find this useful. "
-                "Feel free to give suggestions or feedback here, "
-                "or contact me directly at m.me/jeremy.yew.9.\n\n"
-                "Regards,\nJeremy"
+                "Welcome to the Yale-NUS Foodbot! "
+                "Feel free to share if you find this useful. "
+                "Please send your suggestions or feedback here, "
+                "or send me a message: m.me/jeremy.yew.9.\n\n"
+                "Jeremy"
             ),
             "buttons": [
                 {"type": "element_share",
@@ -43,24 +44,23 @@ welcome_msg = {
                  }
                  },
                 {
-                    "type": "web_url",
-                    "url": "m.me/jeremy.yew.9",
-                    "title": "FEEDBACK"
-                }
+                 "type": "postback",
+                 "title": "FEEDBACK",
+                 "payload": "FEEDBACK_PB"
+                 },
             ]
         }
     }
 }
-
 start_msg = {
     "attachment": {
         "type": "template",
         "payload": {
             "template_type": "button",
             "text": (
-                "Press 'GET INFO' to get useful info and links,"
-                "or try the quick-access buttons in the pull-up menu below."
-                "\n\nPS: To re-open menu, tap the three-bar icon at the bottom-right."
+                "Press 'GET INFO' to get useful info and links, "
+                "or try the quick-access buttons in the pull-up menu below. "
+                "\n\nPS: To re-open menu, tap the three-bar icon at the bottom-right. "
                 "Type 'help' at any time to get this message again."
             ),
             "buttons": [
@@ -72,8 +72,11 @@ start_msg = {
     }
 }
 
-coming_soon_msg = {"text": "Feature in development."}
+#FEEDBACK_PB
+feedback_prompt_msg = {"text": "Type your feedback:"}
+feedback_received_msg = {"text": "Got it, thanks! I'll work on it."}
 
+#GET_INFO_PB
 quick_ref_main = {"text": (
     "Dining Hall:\n"
     "Weekdays: 730-930am, 1130-130pm, 6-830pm\n"
@@ -98,49 +101,7 @@ quick_ref_main = {"text": (
 )
 }
 
-quick_reply_main = {
-    "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "button",
-            "text": "What are you thinking of?",
-            "buttons": [
-                {"type": "postback",
-                 "title": "See options again",
-                 "payload": "QUICK_REPLY_MAIN_PB"
-                 }
-            ]
-        }
-    },
-    "quick_replies": [
-        {
-            "content_type": "text",
-            "title": "dining hall",
-            "payload": "dining_hall_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "buttery",
-            "payload": "buttery_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "al amaan",
-            "payload": "al_amaan_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "macs",
-            "payload": "macs_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "others",
-            "payload": "others_pb"
-        }
-    ]
-}
-
+#IMG ATTACHMENTS
 send_img = {
     "attachment": {
         "type": "image",
@@ -150,6 +111,7 @@ send_img = {
     }
 }
 
+#CAROUSEL
 dining_hall_carousel = {
     "title": "Dining Hall",
     "image_url": "https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
@@ -169,7 +131,6 @@ dining_hall_carousel = {
         }
     ]
 }
-
 butteries_carousel = {
     "title": "Butteries",
     "image_url": "https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",
@@ -196,7 +157,6 @@ butteries_carousel = {
         }
     ]
 }
-
 al_amaan_carousel = {
     "title": "Al Amaan",
     "image_url": "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
@@ -219,7 +179,6 @@ al_amaan_carousel = {
 
     ]
 }
-
 macs_carousel = {
     "title": "McDonald's",
     "image_url": "https://d1nqx6es26drid.cloudfront.net/app/assets/img/logo_mcd.png",
@@ -246,7 +205,6 @@ macs_carousel = {
         }
     ]
 }
-
 others_carousel = {
     "title": "Others",
     "image_url": "https://petersfancybrownhats.com/company_image.png",
@@ -273,7 +231,58 @@ others_carousel = {
         }
     ]
 }
+carousel_main = {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "generic",
+            "image_aspect_ratio": "horizontal",
+            "elements": [
+                dining_hall_carousel,
+                butteries_carousel,
+                al_amaan_carousel,
+                macs_carousel,
+                others_carousel
+            ]
+        }
+    }
+}
 
+#MENU_CHECK_PB
+def generate_short_menu_msg():
+    meal, heading, items = dh.scrape()
+
+    items_string = ""
+    if items == []:
+        items_string = "Sorry, menu not available."
+    else:
+        for item in items:
+            items_string += item + "\n"
+
+    full_menu_msg = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": ("%s for %s today:\n%s"
+                         "\n View full menu at:"
+                         % (heading, meal, items_string)
+                         ),
+                "buttons": [
+                    {"type": "web_url",
+                     "title": "Dining hall website",
+                     "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
+                ]
+            }
+        }
+    }
+
+    return full_menu_msg
+
+#MISC
+coming_soon_msg = {"text": "Feature in development."}
+
+#UNUSED
 list_main = {
     "attachment": {
         "type": "template",
@@ -364,53 +373,46 @@ list_main = {
         }
     }
 }
-
-carousel_main = {
+quick_reply_main = {
     "attachment": {
         "type": "template",
         "payload": {
-            "template_type": "generic",
-            "image_aspect_ratio": "horizontal",
-            "elements": [
-                dining_hall_carousel,
-                butteries_carousel,
-                al_amaan_carousel,
-                macs_carousel,
-                others_carousel
+            "template_type": "button",
+            "text": "What are you thinking of?",
+            "buttons": [
+                {"type": "postback",
+                 "title": "See options again",
+                 "payload": "QUICK_REPLY_MAIN_PB"
+                 }
             ]
         }
-    }
-}
-
-cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}
-
-
-def generate_short_menu_msg():
-    meal, heading, items = dh.scrape()
-
-    items_string = ""
-    if items == []:
-        items_string = "Sorry, menu not available."
-    else:
-        for item in items:
-            items_string += item + "\n"
-
-    full_menu_msg = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": ("%s for %s today:\n%s"
-                         "\n View full menu at:"
-                         % (heading, meal, items_string)
-                         ),
-                "buttons": [
-                    {"type": "web_url",
-                     "title": "Dining hall website",
-                     "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
-                ]
-            }
+    },
+    "quick_replies": [
+        {
+            "content_type": "text",
+            "title": "dining hall",
+            "payload": "dining_hall_pb"
+        },
+        {
+            "content_type": "text",
+            "title": "buttery",
+            "payload": "buttery_pb"
+        },
+        {
+            "content_type": "text",
+            "title": "al amaan",
+            "payload": "al_amaan_pb"
+        },
+        {
+            "content_type": "text",
+            "title": "macs",
+            "payload": "macs_pb"
+        },
+        {
+            "content_type": "text",
+            "title": "others",
+            "payload": "others_pb"
         }
-    }
-
-    return full_menu_msg
+    ]
+}
+cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}

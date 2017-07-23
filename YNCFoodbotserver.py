@@ -8,6 +8,8 @@ import google_form_submitter as gform
 app = Flask(__name__)
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
 
+state = "nil"
+
 @app.route('/', methods=['GET'])
 def handle_verification():
     print "Handling Verification."
@@ -47,6 +49,11 @@ def messaging_events(payload):
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
 
+            if state = "waiting_for_feedback":
+                state = "nil"
+                yield event["sender"]["id"], msg.feedback_received_msg
+
+
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
                 yield event["sender"]["id"], msg.start_msg
@@ -57,6 +64,10 @@ def messaging_events(payload):
             if "GET_STARTED_PB" in event["postback"]["payload"]:
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
+
+            if "FEEDBACK_PB" in event["postback"]["payload"]:
+                state = "waiting_for_feedback"
+                yield event["sender"]["id"], msg.feedback_prompt_msg
 
             if "GET_INFO_PB" in event["postback"]["payload"]:
                 send_message(event["sender"]["id"], msg.quick_ref_main)
@@ -70,7 +81,6 @@ def messaging_events(payload):
                 yield event["sender"]["id"], msg.cendana_buttery_form_submitted_msg
 
             if "MENU_CHECK_PB" in event["postback"]["payload"]:
-                #send_message(event["sender"]["id"], msg.generate_short_menu_msg())
                 yield event["sender"]["id"], msg.generate_short_menu_msg()
 
 
