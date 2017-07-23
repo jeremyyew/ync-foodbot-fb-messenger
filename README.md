@@ -46,6 +46,8 @@ Hosted on Heroku.
 - [ ] **Misc**
     - [ ] "I don't understand" message
     - [ ] Refactor YNCFoodbotserver.py
+    - [ ] Refactor messenger settings
+        - [ ] Create request_generator, automate all request generation
 
 
 - [ ] Other features to explore:
