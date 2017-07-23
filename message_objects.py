@@ -383,21 +383,7 @@ carousel_main = {
 
 cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}
 
-full_menu_msg = {
-    "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "button",
-            "text": (
-            ),
-            "buttons": [
-                {"type": "web_url",
-                 "title": "Dining hall website",
-                 "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
-            ]
-        }
-    }
-}
+
 
 def generate_short_menu_msg():
     meal, heading, items = dh.scrape()
@@ -409,11 +395,22 @@ def generate_short_menu_msg():
         for item in items:
             items_string += item + "\n"
 
-
-    menu_text = {"text": ("%s for %s today:\n%s"
+    full_menu_msg = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": ("%s for %s today:\n%s"
                           "\n View full menu at:"
-                            %(heading, meal, items_string))}
-
-    full_menu_msg.update(menu_text)
+                            %(heading, meal, items_string)
+                ),
+                "buttons": [
+                    {"type": "web_url",
+                     "title": "Dining hall website",
+                     "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
+                ]
+            }
+        }
+    }
 
     return full_menu_msg
