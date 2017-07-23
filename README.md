@@ -21,7 +21,6 @@ Hosted on Heroku.
     - [ ] Send Al Amaan Menu (+ upload images to FB server)
     - [ ] Edit "Others" carousel
     - [ ] Add "Share" image.
-    - [ ] "Feedback" button text.
     - [ ] Add Buttery links.
 - [X] **Share button**
 
@@ -35,7 +34,7 @@ Hosted on Heroku.
     - [X] set separate meal/heading assignnment for weekends (brunch)
     - [X] set default specials
     - [ ] xpath by day/tab rel
-    - [ ] Reformat daily special message
+    - [X] Reformat daily special message
 
 - [ ] **Feedback button**
     - [ ] Link to send message to Jeremy?

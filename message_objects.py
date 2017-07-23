@@ -21,10 +21,7 @@ welcome_msg = {
                              "elements": [
                                  {
                                      "title": "Hungry? I gotchu fam.",
-                                     "subtitle": ("Hey friend, check out the YNC Foodbot! "
-                                                  "Convenient access to order forms, menus, delivery hotlines, operating hours, and more - "
-                                                  "all in one place!"
-                                                 ),
+                                     "subtitle": ("Quick access to buttery order forms, dining hall menu, delivery hotlines, and more!"),
                                      "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
                                      "default_action": {
                                          "type": "web_url",
@@ -34,7 +31,7 @@ welcome_msg = {
                                          {
                                              "type": "web_url",
                                              "url": "http://m.me/979027202238929",
-                                             "title": "Visit"
+                                             "title": "Try it out"
                                          }
                                      ]
                                  }
