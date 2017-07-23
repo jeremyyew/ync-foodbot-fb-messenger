@@ -4,12 +4,12 @@ import requests
 import message_objects as msg
 import google_form_submitter as gform
 
+state = "nil"
+print state
 
 app = Flask(__name__)
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
 
-state = "nil"
-print state
 
 @app.route('/', methods=['GET'])
 def handle_verification():
@@ -35,13 +35,12 @@ def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
     """
+    global state
 
     data = json.loads(payload)
     messaging_events = data["entry"][0]["messaging"]
     for event in messaging_events:
-
-        global state
-
+        print "Current state: ", state
         # IF TEXT MSG:
         if "message" in event and "text" in event["message"]:
 
