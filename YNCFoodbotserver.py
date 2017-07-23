@@ -45,6 +45,11 @@ def messaging_events(payload):
         if "message" in event and "text" in event["message"]:
 
             # IF RECOGNIZED TEXT MSG:
+            if state == "waiting_for_feedback":
+                state = "nil"
+                print state
+                yield event["sender"]["id"], msg.feedback_received_msg
+
             if "help" in event["message"]["text"]:
                 print "help msg response"
                 yield event["sender"]["id"], msg.start_msg
@@ -54,10 +59,6 @@ def messaging_events(payload):
                 send_message(event["sender"]["id"], msg.welcome_msg)
                 yield event["sender"]["id"], msg.start_msg
 
-            elif state == "waiting_for_feedback":
-                state = "nil"
-                print state
-                yield event["sender"]["id"], msg.feedback_received_msg
 
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
