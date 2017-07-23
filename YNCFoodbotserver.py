@@ -23,6 +23,7 @@ def handle_verification():
 
 @app.route('/', methods=['POST'])
 def handle_messages():
+    global state
     print "Handling Messages"
     payload = request.get_data()
     print payload
@@ -35,8 +36,6 @@ def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
     """
-    global state
-
     data = json.loads(payload)
     messaging_events = data["entry"][0]["messaging"]
     for event in messaging_events:
