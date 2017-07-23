@@ -6,9 +6,10 @@ welcome_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Welcome to the Yale-NUS Foodbot! "
-                "Please be patient if you encounter any bugs, I'm still figuring this out. "
-                "Feel free to share this if you find it useful, and let me know if you have any suggestions!\n\n"
+                "Welcome to the Yale-NUS Foodbot!"
+                "Please share this if you find this useful. "
+                "Feel free to give suggestions or feedback here, "
+                "or contact me directly at m.me/jeremy.yew.9.\n\n"
                 "Regards,\nJeremy"
             ),
             "buttons": [
@@ -21,7 +22,8 @@ welcome_msg = {
                              "elements": [
                                  {
                                      "title": "Hungry? I gotchu fam.",
-                                     "subtitle": ("Quick access to buttery order forms, dining hall menu, delivery hotlines, and more!"),
+                                     "subtitle": (
+                                     "Quick access to buttery order forms, dining hall menu, delivery hotlines, and more!"),
                                      "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
                                      "default_action": {
                                          "type": "web_url",
@@ -40,9 +42,11 @@ welcome_msg = {
                      }
                  }
                  },
-                {"type": "postback",
-                 "title": "Feedback",
-                 "payload": "COMING_SOON_PB"},
+                {
+                    "type": "web_url",
+                    "url": "m.me/jeremy.yew.9",
+                    "title": "FEEDBACK"
+                }
             ]
         }
     }
@@ -94,7 +98,7 @@ quick_ref_main = {"text": (
 )
 }
 
-quick_reply_main =  {
+quick_reply_main = {
     "attachment": {
         "type": "template",
         "payload": {
@@ -108,16 +112,16 @@ quick_reply_main =  {
             ]
         }
     },
-    "quick_replies":[
+    "quick_replies": [
         {
-            "content_type":"text",
-            "title":"dining hall",
-            "payload":"dining_hall_pb"
+            "content_type": "text",
+            "title": "dining hall",
+            "payload": "dining_hall_pb"
         },
         {
-            "content_type":"text",
-            "title":"buttery",
-            "payload":"buttery_pb"
+            "content_type": "text",
+            "title": "buttery",
+            "payload": "buttery_pb"
         },
         {
             "content_type": "text",
@@ -141,12 +145,12 @@ send_img = {
     "attachment": {
         "type": "image",
         "payload": {
-            "attachment_id": "992857737522542" #dining_hall_1.jpg
+            "attachment_id": "992857737522542"  # dining_hall_1.jpg
         }
     }
 }
 
-dining_hall_carousel={
+dining_hall_carousel = {
     "title": "Dining Hall",
     "image_url": "https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
     "subtitle": ("Dining Hall:\n"
@@ -166,7 +170,7 @@ dining_hall_carousel={
     ]
 }
 
-butteries_carousel={
+butteries_carousel = {
     "title": "Butteries",
     "image_url": "https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",
     "subtitle": "Nest: Sat/Sun/Mon 10-12pm\nShiner's: Fri/Sun/Mon 830-12pm\nShiok: Tue/Thur 9-12pm, Wed 10-11pm",
@@ -193,7 +197,7 @@ butteries_carousel={
     ]
 }
 
-al_amaan_carousel={
+al_amaan_carousel = {
     "title": "Al Amaan",
     "image_url": "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
     "subtitle": "Delivery: 67770555 (11AM-3AM)",
@@ -216,7 +220,7 @@ al_amaan_carousel={
     ]
 }
 
-macs_carousel={
+macs_carousel = {
     "title": "McDonald's",
     "image_url": "https://d1nqx6es26drid.cloudfront.net/app/assets/img/logo_mcd.png",
     "subtitle": "Delivery: 67773777 (24hrs)\nCendana: S138533\nElm: S138610\nSaga: S138609",
@@ -243,7 +247,7 @@ macs_carousel={
     ]
 }
 
-others_carousel={
+others_carousel = {
     "title": "Others",
     "image_url": "https://petersfancybrownhats.com/company_image.png",
     "subtitle": "Agora opening hours:\nFoodclique operating hours:\nKoufu operating hours:\nBrinda's operating hours:",
@@ -362,12 +366,12 @@ list_main = {
 }
 
 carousel_main = {
-    "attachment":{
-        "type":"template",
-        "payload":{
-            "template_type":"generic",
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "generic",
             "image_aspect_ratio": "horizontal",
-            "elements":[
+            "elements": [
                 dining_hall_carousel,
                 butteries_carousel,
                 al_amaan_carousel,
@@ -379,7 +383,6 @@ carousel_main = {
 }
 
 cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}
-
 
 
 def generate_short_menu_msg():
@@ -398,9 +401,9 @@ def generate_short_menu_msg():
             "payload": {
                 "template_type": "button",
                 "text": ("%s for %s today:\n%s"
-                          "\n View full menu at:"
-                            %(heading, meal, items_string)
-                ),
+                         "\n View full menu at:"
+                         % (heading, meal, items_string)
+                         ),
                 "buttons": [
                     {"type": "web_url",
                      "title": "Dining hall website",
