@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/Macintosh/Desktop/supperbotserver/supperbot"
+VIRTUAL_ENV="/Users/Macintosh/Desktop/YNCFoodbot_Messenger/YNCFoodbot"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
