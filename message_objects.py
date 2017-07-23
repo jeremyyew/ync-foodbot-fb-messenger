@@ -7,10 +7,8 @@ welcome_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Welcome to the Yale-NUS Foodbot!\n\n"
-                "Feel free to share this if you find it useful. "
-                "Please send your suggestions or feedback directly to the bot, "
-                "or hit me up at m.me/jeremy.yew.9.\n\n"
+                "Welcome to the Yale-NUS Foodbot! "
+                "Feel free to share this if you find it useful:)\n\n"
                 "Jeremy"
             ),
             "buttons": [
@@ -73,8 +71,10 @@ start_msg = {
 }
 
 #FEEDBACK_PB
-feedback_prompt_msg = {"text": "Include the tag #feedback in any message to submit your feedback or bug report. "
-                               "If reporting a bug, please try to be as specific as possible."}
+feedback_prompt_msg = {"text": "You can send any suggestions, feedback or bug reports directly to the bot. "
+                       "Simply include the tag #feedback in your message to make sure I see it. "
+                       "If reporting a bug, please try to be as specific as possible."
+                       "You can also hit me up at m.me/jeremy.yew.9.\n\n"}
 feedback_received_msg = {"text": "Got it, thanks! I'll work on it."}
 
 #GET_INFO_PB

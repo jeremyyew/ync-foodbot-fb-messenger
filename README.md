@@ -22,11 +22,12 @@ Hosted on Heroku.
     - [ ] Edit "Others" carousel
     - [ ] Add "Share" image.
     - [ ] Add Buttery links.
+    - [ ] Add location?
+    - [ ] Separate Brinda's and Utown
 
 - [X] **Share button**
     - [ ] Add Share button to persistent menu
 
-**23/7 Sunday:**
 - [ ] **Send webscraped dining hall menu content**
     - [X] refactor call to scrape in supperbotserver
     - [X] xpath by special
@@ -39,8 +40,8 @@ Hosted on Heroku.
     - [ ] Reformat daily special message
 
 
-- [ ] **Feedback button**
-    - [ ] Prompt message, feedback received message
+- [X] **Feedback button**
+    - [X] #feedback prompt and received message
 
 - [ ] **Misc**
     - [ ] "I don't understand" message
