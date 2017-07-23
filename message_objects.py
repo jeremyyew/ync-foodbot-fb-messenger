@@ -281,7 +281,6 @@ def generate_short_menu_msg():
 
 #MISC
 coming_soon_msg = {"text": "Feature in development."}
-typing_on = {"sender_action":"typing_on"}
 
 #UNUSED
 list_main = {

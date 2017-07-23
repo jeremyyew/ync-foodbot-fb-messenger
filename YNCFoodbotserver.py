@@ -75,7 +75,6 @@ def messaging_events(payload):
             elif "FEEDBACK_PB" in event["postback"]["payload"]:
                 state = "waiting_for_feedback"
                 print state
-                send_message(event["sender"]["id"], msg.typing_on)
                 time.sleep(10)
                 yield event["sender"]["id"], msg.feedback_prompt_msg
 
