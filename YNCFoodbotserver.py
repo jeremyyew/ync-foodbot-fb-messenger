@@ -45,6 +45,7 @@ def messaging_events(payload):
 
             # IF RECOGNIZED TEXT MSG:
             if "help" in event["message"]["text"]:
+                print "sending start msg"
                 yield event["sender"]["id"], msg.start_msg
 
             if "Get Started" in event["message"]["text"]:
