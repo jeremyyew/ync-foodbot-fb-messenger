@@ -285,6 +285,7 @@ def generate_short_menu_msg():
 
 # MISC
 coming_soon_msg = {"text": "Feature in development."}
+sorry_msg = {"text": "Sorry, I don't understand."}
 
 # UNUSED
 list_main = {

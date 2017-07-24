@@ -54,7 +54,7 @@ def messaging_events(payload):
             # ELSE (NOT RECOGNIZED TEXT MSG):
             else:
                 print "not recognized msg response"
-                yield event["sender"]["id"], msg.start_msg
+                yield event["sender"]["id"], msg.sorry_msg
 
         # ELSE IF POSTBACK:
         elif "postback" in event and "payload" in event["postback"]:
