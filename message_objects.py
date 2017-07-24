@@ -269,12 +269,11 @@ def generate_short_menu_msg():
             "payload": {
                 "template_type": "button",
                 "text": ("%s for %s today:\n%s"
-                         "\n View full menu at:"
                          % (heading, meal, items_string)
                          ),
                 "buttons": [
                     {"type": "web_url",
-                     "title": "Dining hall website",
+                     "title": "View menu",
                      "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
                 ]
             }

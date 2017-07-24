@@ -37,6 +37,8 @@ Hosted on Heroku.
     - [X] set separate meal/heading assignnment for weekends (brunch)
     - [X] set default specials
     - [ ] xpath by day/tab rel
+
+**24th Monday**
     - [ ] Reformat daily special message
 
 
