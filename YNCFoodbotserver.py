@@ -47,7 +47,7 @@ def messaging_events(payload):
 
                 elif "help" in text:
                     print "help msg response"
-                    yield event["sender"]["id"], msg.start_msg
+                    yield msg.start_msg
 
             responses = match_keyword(message_text)
             for response in responses:
