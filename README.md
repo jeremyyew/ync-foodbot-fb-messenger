@@ -18,7 +18,6 @@ Hosted on Heroku.
 ## To-do
 
 **25th Tuesday**
-    - [ ] Refactor YNCFoodbotserver.py
     - [ ] Remove persistent menu
     - [ ] Implement quick replies
 
@@ -82,3 +81,4 @@ Hosted on Heroku.
 - [X] Privacy Policy
 - [X] App Logo
 - [ ] Fix typo
+- [ ] Refactor YNCFoodbotserver.py
