@@ -16,7 +16,16 @@ Hosted on Heroku.
 - gitignore
 
 ## To-do
-### Features:
+
+**25th Tuesday**
+    - [ ] Refactor YNCFoodbotserver.py
+    - [ ] Remove persistent menu
+    - [ ] Implement quick replies
+
+
+- [ ] **Deployment**
+    - [ ] Notes
+
 - [ ] **Food carousel**
     - [X] Send Al Amaan Menu (upload images to FB server)
     - [ ] Edit "Others" carousel
@@ -28,38 +37,21 @@ Hosted on Heroku.
 - [X] **Share button**
     - [ ] Add Share button to persistent menu
 
-- [ ] **Send webscraped dining hall menu content**
-    - [X] refactor call to scrape in supperbotserver
-    - [X] xpath by special
-    - [X] xpath by meal
-    - [X] format items_msg: change call to scrape to get meal and special
-    - [X] set heading assignment by min instead of hour
-    - [X] set separate meal/heading assignnment for weekends (brunch)
-    - [X] set default specials
+- [ ] **Check Menu**
     - [ ] xpath by day/tab rel
-
-**24th Monday**
-    - [ ] Reformat daily special message
-
 
 - [X] **Feedback button**
     - [X] #feedback prompt and received message
 
 - [ ] **Misc**
-    - [ ] "I don't understand" message
-    - [ ] Refactor YNCFoodbotserver.py
     - [X] Refactor messenger settings
         - [X] Create request_generator, automate all request generation
 
-
 - [ ] Other features to explore:
-    - [ ] **"Order buttery food"**
-    - [ ] **Notification subscription ("What's cookin'?")**
-    - [ ] **"Discover new food places")**
+    - [X] **"Order buttery food"**
+    - [X] **Notification subscription ("What's cookin'?")**
+    - [ ] **"Discover new food places"**
 
-
-### Deployment: 24/7 Sat
-- [ ] **Check FB review requirements, send for review**
 
 ### When school reopens (10/8):
 
@@ -81,3 +73,12 @@ Hosted on Heroku.
 
 #### Messenger API features tried:
 - [X] Lists and Quick Replies
+
+
+### Completed:
+
+**24th Monday**
+- [X] Reformat daily special message
+- [X] Privacy Policy
+- [X] App Logo
+- [ ] Fix typo
