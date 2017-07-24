@@ -53,8 +53,6 @@ def messaging_events(payload):
             for response in responses:
                 yield sender_id, response
 
-            yield match_keyword(text)
-
             # IF RECOGNIZED TEXT MSG:
             if "#feedback" in event["message"]["text"]:
                 yield event["sender"]["id"], msg.feedback_received_msg
