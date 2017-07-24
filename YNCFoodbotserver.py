@@ -34,9 +34,28 @@ def messaging_events(payload):
     """
     data = json.loads(payload)
     messaging_events = data["entry"][0]["messaging"]
+
     for event in messaging_events:
         # IF TEXT MSG:
         if "message" in event and "text" in event["message"]:
+            sender_id = event["sender"]["id"]
+            message_text = event["message"]["text"]
+
+            def match_keyword(text):
+                if "#feedback" in text:
+                    yield msg.feedback_received_msg
+
+                elif "help" in text:
+                    print "help msg response"
+                    yield event["sender"]["id"], msg.start_msg
+
+            responses = match_keyword(message_text)
+            for response in responses:
+                yield sender_id, response
+
+
+
+            yield match_keyword(text)
 
             # IF RECOGNIZED TEXT MSG:
             if "#feedback" in event["message"]["text"]:
