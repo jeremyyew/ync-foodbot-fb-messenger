@@ -1,6 +1,48 @@
 import dh_menu_scrape as dh
 
+keywords_desc = [
+    ("info", "Opening days/hours, green meal days, etc."),
+    ("dh", "Dining hall menu link & daily special preview."),
+    ("agora", ""),
+    ("buttery", ""),
+    ("amaan", ""),
+    ("macs", ""),
+    ("utown", ""),
+    ("explore", "")
+]
+
+keywords_desc_text = ""
+for keyword, desc in keywords_desc:
+    keywords_desc_text += ("\"%s\" - %s\n\n" % (keyword, desc))
+
 # GET_STARTED_PB
+start_quick_replies = [
+    {
+        "content_type": "text",
+        "title": "dining hall",
+        "payload": "dining_hall_pb"
+    },
+    {
+        "content_type": "text",
+        "title": "buttery",
+        "payload": "buttery_pb"
+    },
+    {
+        "content_type": "text",
+        "title": "al amaan",
+        "payload": "al_amaan_pb"
+    },
+    {
+        "content_type": "text",
+        "title": "macs",
+        "payload": "macs_pb"
+    },
+    {
+        "content_type": "text",
+        "title": "others",
+        "payload": "others_pb"
+    }
+]
 welcome_msg = {'attachment': {
     "type": "template",
     "payload": {
@@ -54,18 +96,16 @@ start_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Press 'Get Info' to get useful info and links, "
-                "or try the quick-access buttons in the pull-up menu below. "
-                "\n\nPS: To re-open the menu, tap the three-bar icon at the bottom-right. "
-                "Type 'help' at any time to get this message again."
+                "Try these commands:\n\n" + keywords_desc_text
             ),
             "buttons": [
                 {"type": "postback",
-                 "title": "Get Info",
-                 "payload": "GET_INFO_PB"},
+                 "title": "Get All",
+                 "payload": "GET_ALL_PB"},
             ]
         }
-    }
+    },
+    "quick_replies": start_quick_replies
 }
 
 # FEEDBACK_PB
@@ -285,7 +325,7 @@ def generate_short_menu_msg():
 
 # MISC
 coming_soon_msg = {"text": "Feature in development."}
-sorry_msg = {"text": "Sorry, I don't understand."}
+sorry_msg = {"text": "Sorry, I don't understand. Type \"help\" to get the list of available commands."}
 
 # UNUSED
 list_main = {
@@ -377,47 +417,5 @@ list_main = {
             ]
         }
     }
-}
-quick_reply_main = {
-    "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "button",
-            "text": "What are you thinking of?",
-            "buttons": [
-                {"type": "postback",
-                 "title": "See options again",
-                 "payload": "QUICK_REPLY_MAIN_PB"
-                 }
-            ]
-        }
-    },
-    "quick_replies": [
-        {
-            "content_type": "text",
-            "title": "dining hall",
-            "payload": "dining_hall_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "buttery",
-            "payload": "buttery_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "al amaan",
-            "payload": "al_amaan_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "macs",
-            "payload": "macs_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "others",
-            "payload": "others_pb"
-        }
-    ]
 }
 cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}

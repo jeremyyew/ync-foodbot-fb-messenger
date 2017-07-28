@@ -17,12 +17,15 @@ Hosted on Heroku.
 
 ## To-do
 
-**25th Tuesday**
-- [ ] Refactor YNCFoodbotserver.py
+**28th Friday**
+- [X] Refactor YNCFoodbotserver.py
     - [X] texts
-    - [ ] postbacks
-- [ ] Remove persistent menu
-- [ ] Implement quick replies
+    - [X] postbacks
+- [ ] Branch keyword_interface:
+    - [X] Change start_msg
+    - [ ] Implement quick replies
+    - [ ] Remove persistent menu
+
 
 
 - [ ] **Deployment**
