@@ -1,48 +1,77 @@
 import dh_menu_scrape as dh
 
-keywords_desc = [
+keywords_desc_list = [
     ("info", "Opening days/hours, green meal days, etc."),
     ("dh", "Dining hall menu link & daily special preview."),
-    ("agora", ""),
     ("buttery", ""),
     ("amaan", ""),
     ("macs", ""),
+    ("agora", ""),
     ("utown", ""),
     ("explore", "")
 ]
 
-keywords_desc_text = ""
-for keyword, desc in keywords_desc:
-    keywords_desc_text += ("\"%s\" - %s\n\n" % (keyword, desc))
+
+def generate_keywords_desc_text():
+    keywords_desc_text = ""
+    for keyword, desc in keywords_desc_list:
+        keywords_desc_text += ("\"%s\" - %s\n\n" % (keyword, desc))
+    return keywords_desc_text
+
+
+quick_replies_list = [
+    ("info", "GET_INFO_PB"),
+    ("dh", "DH_MENU_PB"),
+    ("buttery", "COMING_SOON_PB"),
+    ("amaan", "AL_AMAAN_PB"),
+    ("macs", "COMING_SOON_PB"),
+    ("agora", "COMING_SOON_PB"),
+    ("utown", "COMING_SOON_PB"),
+    ("explore", "COMING_SOON_PB"),
+    ("help", "COMING_SOON_PB"),
+    ("feedback", "FEEDBACK_PB"),
+]
+
+
+def generate_quick_replies():
+    quick_replies_json = []
+    for title, payload in quick_replies_list:
+        quick_replies_json.append(
+            {"content_type": "text",
+             "title": title,
+             "payload": payload})
+    return quick_replies_json
+    """
+    all_quick_replies = [
+        {
+            "content_type": "text",
+            "title": "dining hall",
+            "payload": "dining_hall_pb"
+        },
+        {
+            "content_type": "text",
+            "title": "buttery",
+            "payload": "buttery_pb"
+        },
+        {
+            "content_type": "text",
+            "title": "al amaan",
+            "payload": "al_amaan_pb"
+        },
+        {
+            "content_type": "text",
+            "title": "macs",
+            "payload": "macs_pb"
+        },
+        {
+            "content_type": "text",
+            "title": "others",
+            "payload": "others_pb"
+        }
+    ]"""
+
 
 # GET_STARTED_PB
-start_quick_replies = [
-    {
-        "content_type": "text",
-        "title": "dining hall",
-        "payload": "dining_hall_pb"
-    },
-    {
-        "content_type": "text",
-        "title": "buttery",
-        "payload": "buttery_pb"
-    },
-    {
-        "content_type": "text",
-        "title": "al amaan",
-        "payload": "al_amaan_pb"
-    },
-    {
-        "content_type": "text",
-        "title": "macs",
-        "payload": "macs_pb"
-    },
-    {
-        "content_type": "text",
-        "title": "others",
-        "payload": "others_pb"
-    }
-]
 welcome_msg = {'attachment': {
     "type": "template",
     "payload": {
@@ -96,7 +125,7 @@ start_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Try these commands:\n\n" + keywords_desc_text
+                "Try these commands:\n\n" + generate_keywords_desc_text()
             ),
             "buttons": [
                 {"type": "postback",
@@ -105,7 +134,7 @@ start_msg = {
             ]
         }
     },
-    "quick_replies": start_quick_replies
+    "quick_replies": generate_quick_replies()
 }
 
 # FEEDBACK_PB
@@ -325,7 +354,8 @@ def generate_short_menu_msg():
 
 # MISC
 coming_soon_msg = {"text": "Feature in development."}
-sorry_msg = {"text": "Sorry, I don't understand. Type \"help\" to get the list of available commands."}
+sorry_msg = {"text": "Sorry, I don't understand. Type \"help\" to get the list of available commands.",
+             "quick_replies": generate_quick_replies()}
 
 # UNUSED
 list_main = {
