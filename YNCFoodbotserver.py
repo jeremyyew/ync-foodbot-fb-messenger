@@ -42,7 +42,7 @@ def messaging_events(payload):
 
         if "message" in event and "text" in event["message"]:
             message_text = event["message"]["text"]
-            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text.encode('UTF-8'), "\n"
+            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text.decode('UTF-8'), "\n"
 
             def match_keyword(text):
                 # IF RECOGNIZED TEXT MSG:
