@@ -24,14 +24,15 @@ def generate_text_test(type, filename, strings, url):
     text_file.close()
     return
 
-
-
 url = "http://127.0.0.1:5000/"
 text_list = ["Get Started",
              "#feedback",
              "help",
              "hi"]
 generate_text_test("text", "test_texts.sh", text_list, url)
+
+text_list = ["help"]
+generate_text_test("text", "test_help.sh", text_list, url)
 
 postback_list = ["GET_STARTED_PB",
                  "FEEDBACK_PB",
