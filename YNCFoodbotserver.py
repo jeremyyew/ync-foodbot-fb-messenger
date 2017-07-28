@@ -3,6 +3,7 @@ import json
 import requests
 import message_objects as msg
 import google_form_submitter as gform
+import time
 
 app = Flask(__name__)
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
@@ -41,13 +42,16 @@ def messaging_events(payload):
 
         if "message" in event and "text" in event["message"]:
             message_text = event["message"]["text"]
-            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text, "\n"
+            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text.encode('UTF-8'), "\n"
 
             def match_keyword(text):
                 # IF RECOGNIZED TEXT MSG:
 
                 if "Get Started" in text:
-                    yield msg.welcome_msg
+                    send_message(sender_id, msg.welcome_msg)
+                    #time.sleep(1)
+                    send_typing_msg(sender_id)
+                    #time.sleep(2)
                     yield msg.start_msg
 
                 elif "#feedback" in text:
@@ -123,6 +127,21 @@ def send_message(recipient, message):
                           "message": message
                       }),
                       headers={'Content-type': 'application/json'})
+    if r.status_code != requests.codes.ok:
+        print r.text
+
+def send_typing_msg(recipient):
+    """Send the message text to recipient with id recipient.
+    """
+
+    r = requests.post("https://graph.facebook.com/v2.6/me/messages",
+                      params={"access_token": PAT},
+                      data=json.dumps({
+                          "recipient": {"id": recipient},
+                          "sender_action": "typing_on"
+                      }),
+                      headers={'Content-type': 'application/json'})
+    print "REQUEST: ", r.text
     if r.status_code != requests.codes.ok:
         print r.text
 
