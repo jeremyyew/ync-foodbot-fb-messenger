@@ -41,35 +41,6 @@ def generate_quick_replies():
              "title": title,
              "payload": payload})
     return quick_replies_json
-    """
-    all_quick_replies = [
-        {
-            "content_type": "text",
-            "title": "dining hall",
-            "payload": "dining_hall_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "buttery",
-            "payload": "buttery_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "al amaan",
-            "payload": "al_amaan_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "macs",
-            "payload": "macs_pb"
-        },
-        {
-            "content_type": "text",
-            "title": "others",
-            "payload": "others_pb"
-        }
-    ]"""
-
 
 # GET_STARTED_PB
 welcome_msg = {'attachment': {
