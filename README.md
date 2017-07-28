@@ -17,14 +17,11 @@ Hosted on Heroku.
 
 ## To-do
 
-**28th Friday**
-- [X] Refactor YNCFoodbotserver.py
-    - [X] texts
-    - [X] postbacks
+**29th Saturday**
 - [ ] Branch keyword_interface:
-    - [X] Change start_msg
-    - [ ] Implement quick replies
-    - [ ] Remove persistent menu
+    - [ ] Add help button to sorry_msg
+    - [ ] Add quick_replies to everything
+    - [ ] Change emoji's
 
 - [ ] **Deployment**
     - [ ] Notes
@@ -74,6 +71,15 @@ Hosted on Heroku.
 
 ### Completed:
 
+**28th Friday**
+- [X] Refactor YNCFoodbotserver.py
+    - [X] texts
+    - [X] postbacks
+- [X] Branch keyword_interface:
+    - [X] Change start_msg
+    - [X] Implement quick_replies
+    - [X] Remove persistent menu
+
 **24th Monday**
 - [X] Reformat daily special message
 - [X] Privacy Policy
@@ -84,3 +90,4 @@ Hosted on Heroku.
 
 **23rd Sunday**
 - [X] Create messenger api json request generators (for image uploads and settings)
+
