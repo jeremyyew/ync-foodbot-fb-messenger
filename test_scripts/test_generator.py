@@ -31,8 +31,8 @@ text_list = ["Get Started",
              "hi"]
 generate_text_test("text", "test_texts.sh", text_list, url)
 
-text_list = ["help"]
-generate_text_test("text", "test_help.sh", text_list, url)
+generate_text_test("text", "test_help.sh", ["help"], url)
+generate_text_test("text", "test_get_started.sh", ["Get Started"], url)
 
 postback_list = ["GET_STARTED_PB",
                  "FEEDBACK_PB",

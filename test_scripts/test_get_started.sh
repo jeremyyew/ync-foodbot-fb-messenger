@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d '{"entry": [{"messaging": [{"timestamp": 1494428871158, "message": {"text": "Get Started", "mid": "mid.$cAAN6a6Ui58ZiJCwx9lb8ubp5XBDz", "seq": 52321}, "recipient": {"id": "979027202238929"}, "sender": {"id": "1484887258198358"}}], "id": "979027202238929", "time": 1494428871668}], "object": "page"}' http://127.0.0.1:5000/
