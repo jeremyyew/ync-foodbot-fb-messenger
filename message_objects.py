@@ -1,24 +1,22 @@
 import dh_menu_scrape as dh
 
+#json generators
 keywords_desc_list = [
-    ("info", "Opening days/hours, green meal days, etc."),
-    ("dh", "Dining hall menu link & daily special preview."),
-    ("buttery", ""),
-    ("amaan", ""),
-    ("macs", ""),
-    ("agora", ""),
-    ("utown", ""),
-    ("explore", "")
+    (u'\U0001F35F', "info", "All opening days/hours, etc."),
+    (u'\U0001F35F', "dh", "Dining hall menu link & preview."),
+    (u'\U0001F35F', "buttery", "Oening days/hours, menu, order form links."),
+    (u'\U0001F35F', "amaan", "Al Amaan menu & hotline."),
+    (u'\U0001F35F', "macs", "Macs menu, hotline, & online order."),
+    (u'\U0001F35F', "agora", "Opening hours & menu."),
+    (u'\U0001F35F', "utown", "Utown F&B outlets link."),
+    (u'\U0001F35F', "explore", "Places near campus to visit!")
+    #("brewhouse", "Brewhouse pop-up times/locations.")
 ]
-
-
 def generate_keywords_desc_text():
     keywords_desc_text = ""
-    for keyword, desc in keywords_desc_list:
-        keywords_desc_text += ("\"%s\" - %s\n\n" % (keyword, desc))
+    for emoji, keyword, desc in keywords_desc_list:
+        keywords_desc_text += ("%s \"%s\"  --  %s\n" % (emoji, keyword, desc))
     return keywords_desc_text
-
-
 quick_replies_list = [
     ("info", "GET_INFO_PB"),
     ("dh", "DH_MENU_PB"),
@@ -31,8 +29,6 @@ quick_replies_list = [
     ("help", "COMING_SOON_PB"),
     ("feedback", "FEEDBACK_PB"),
 ]
-
-
 def generate_quick_replies():
     quick_replies_json = []
     for title, payload in quick_replies_list:
@@ -48,9 +44,8 @@ welcome_msg = {'attachment': {
     "payload": {
         "template_type": "button",
         "text": (
-            "Welcome to the Yale-NUS Foodbot! "
-            "Feel free to share this if you find it useful:)\n\n"
-            "Jeremy"
+            "Welcome to the Yale-NUS Foodbot!\n"
+            "Feel free to share this if you find it useful"+u''
         ),
         "buttons": [
             {"type": "element_share",
@@ -96,7 +91,7 @@ start_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Try these commands:\n\n" + generate_keywords_desc_text()
+                "Try typing these commands!\n\n" + generate_keywords_desc_text()
             ),
             "buttons": [
                 {"type": "postback",
@@ -325,7 +320,7 @@ def generate_short_menu_msg():
 
 # MISC
 coming_soon_msg = {"text": "Feature in development."}
-sorry_msg = {"text": "Sorry, I don't understand. Type \"help\" to get the list of available commands.",
+sorry_msg = {"text": "Sorry, I don't understand. Type \"help\" to show list of commands with descriptions.",
              "quick_replies": generate_quick_replies()}
 
 # UNUSED
