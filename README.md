@@ -26,8 +26,6 @@ Hosted on Heroku.
     - [ ] Implement quick replies
     - [ ] Remove persistent menu
 
-
-
 - [ ] **Deployment**
     - [ ] Notes
 
