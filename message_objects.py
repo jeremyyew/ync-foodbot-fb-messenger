@@ -1,22 +1,26 @@
 import dh_menu_scrape as dh
 
-#json generators
+# json generators
 keywords_desc_list = [
-    (u'\U0001F35F', "info", "All opening days/hours, etc."),
+    (u'\U0001f552', "info", "All opening days/hours, etc."),
     (u'\U0001F35F', "dh", "Dining hall menu link & preview."),
-    (u'\U0001F35F', "buttery", "Oening days/hours, menu, order form links."),
+    (u'\U0001F35F', "buttery", "Opening days/hours, menu, order form links."),
     (u'\U0001F35F', "amaan", "Al Amaan menu & hotline."),
     (u'\U0001F35F', "macs", "Macs menu, hotline, & online order."),
-    (u'\U0001F35F', "agora", "Opening hours & menu."),
+    (u'\u2615', "agora", "Opening hours & menu."),
     (u'\U0001F35F', "utown", "Utown F&B outlets link."),
     (u'\U0001F35F', "explore", "Places near campus to visit!")
-    #("brewhouse", "Brewhouse pop-up times/locations.")
+    # ("brewhouse", "Brewhouse pop-up times/locations.")
 ]
+
+
 def generate_keywords_desc_text():
     keywords_desc_text = ""
     for emoji, keyword, desc in keywords_desc_list:
-        keywords_desc_text += ("%s \"%s\"  --  %s\n" % (emoji, keyword, desc))
+        keywords_desc_text += ("%s \'%s\'  --  %s\n" % (emoji, keyword, desc))
     return keywords_desc_text
+
+
 quick_replies_list = [
     ("info", "GET_INFO_PB"),
     ("dh", "DH_MENU_PB"),
@@ -29,6 +33,8 @@ quick_replies_list = [
     ("help", "COMING_SOON_PB"),
     ("feedback", "FEEDBACK_PB"),
 ]
+
+
 def generate_quick_replies():
     quick_replies_json = []
     for title, payload in quick_replies_list:
@@ -38,6 +44,7 @@ def generate_quick_replies():
              "payload": payload})
     return quick_replies_json
 
+
 # GET_STARTED_PB
 welcome_msg = {'attachment': {
     "type": "template",
@@ -45,7 +52,7 @@ welcome_msg = {'attachment': {
         "template_type": "button",
         "text": (
             "Welcome to the Yale-NUS Foodbot!\n"
-            "Feel free to share this if you find it useful"+u''
+            "Feel free to share if you find it useful " + u'\U0001f60e'
         ),
         "buttons": [
             {"type": "element_share",
