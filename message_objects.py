@@ -71,7 +71,7 @@ start_msg = {
 # FEEDBACK_PB
 feedback_prompt_msg = {"text": "You can send any suggestions, feedback or bug reports directly to the bot. "
                                "Simply include the tag #feedback in your message to make sure I see it. "
-                               "If reporting a bug, please try to be as specific as possible."
+                               "If reporting a bug, please try to be as specific as possible. "
                                "You can also hit me up at m.me/jeremy.yew.9.\n\n"}
 feedback_received_msg = {"text": "Got it, thanks! I'll work on it."}
 

@@ -22,9 +22,9 @@ def handle_verification():
 def handle_messages():
     print "Handling Messages"
     payload = request.get_data()
-    print payload
     for sender, message in messaging_events(payload):
-        print "Incoming from %s: %s" % (sender, message)
+        #print "Incoming from %s: %s" % (sender, message)
+        print "*************** SENDING RESPONSE: *************** \n", message, "\n"
         send_message(sender, message)
     return "ok"
 
@@ -34,27 +34,36 @@ def messaging_events(payload):
     """
     data = json.loads(payload)
     messaging_events = data["entry"][0]["messaging"]
+
     for event in messaging_events:
         # IF TEXT MSG:
+
         if "message" in event and "text" in event["message"]:
+            sender_id = event["sender"]["id"]
+            message_text = event["message"]["text"]
+            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text, "\n"
 
-            # IF RECOGNIZED TEXT MSG:
-            if "#feedback" in event["message"]["text"]:
-                yield event["sender"]["id"], msg.feedback_received_msg
+            def match_keyword(text):
+                # IF RECOGNIZED TEXT MSG:
 
-            elif "help" in event["message"]["text"]:
-                print "help msg response"
-                yield event["sender"]["id"], msg.start_msg
+                if "Get Started" in text:
+                    yield msg.welcome_msg
+                    yield msg.start_msg
 
-            elif "Get Started" in event["message"]["text"]:
-                print "Get Started msg response"
-                yield event["sender"]["id"], msg.welcome_msg
-                yield event["sender"]["id"], msg.start_msg
+                elif "#feedback" in text:
+                    yield msg.feedback_received_msg
 
-            # ELSE (NOT RECOGNIZED TEXT MSG):
-            else:
-                print "not recognized msg response"
-                yield event["sender"]["id"], msg.sorry_msg
+                elif "help" in text:
+                    yield msg.start_msg
+
+                # ELSE (NOT RECOGNIZED TEXT MSG):
+                else:
+                    print "not recognized msg response"
+                    yield msg.sorry_msg
+
+            responses = match_keyword(message_text)
+            for response in responses:
+                yield sender_id, response
 
         # ELSE IF POSTBACK:
         elif "postback" in event and "payload" in event["postback"]:
@@ -77,7 +86,6 @@ def messaging_events(payload):
             elif "AL_AMAAN_MENU_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.al_amaan_menu_image1_msg
                 yield event["sender"]["id"], msg.al_amaan_menu_image2_msg
-
             elif "COMING_SOON_PB" in event["postback"]["payload"]:
                 yield event["sender"]["id"], msg.coming_soon_msg
 

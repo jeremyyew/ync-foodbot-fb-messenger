@@ -18,8 +18,11 @@ Hosted on Heroku.
 ## To-do
 
 **25th Tuesday**
-    - [ ] Remove persistent menu
-    - [ ] Implement quick replies
+- [ ] Refactor YNCFoodbotserver.py
+    - [X] texts
+    - [ ] postbacks
+- [ ] Remove persistent menu
+- [ ] Implement quick replies
 
 
 - [ ] **Deployment**
@@ -42,10 +45,6 @@ Hosted on Heroku.
 - [X] **Feedback button**
     - [X] #feedback prompt and received message
 
-- [ ] **Misc**
-    - [X] Refactor messenger settings
-        - [X] Create request_generator, automate all request generation
-
 - [ ] Other features to explore:
     - [X] **"Order buttery food"**
     - [X] **Notification subscription ("What's cookin'?")**
@@ -64,15 +63,13 @@ Hosted on Heroku.
 - [ ] YNC general info, memes/comics subscription
 - [ ] receipt scanner/expenses recorder
 
-#### Messenger API features implemented:
+#### Messenger API features explored:
 - [X] Get Started message
 - [X] Share Button
 - [X] Carousel messages
 - [X] Persistent menu
-
-#### Messenger API features tried:
-- [X] Lists and Quick Replies
-
+- [X] Lists
+- [X] Quick Replies
 
 ### Completed:
 
@@ -80,5 +77,9 @@ Hosted on Heroku.
 - [X] Reformat daily special message
 - [X] Privacy Policy
 - [X] App Logo
-- [ ] Fix typo
-- [ ] Refactor YNCFoodbotserver.py
+- [X] Fix typo
+- [X] Refactor YNCFoodbotserver.py
+- [X] Create test generators
+
+**23rd Sunday**
+- [X] Create messenger api json request generators (for image uploads and settings)
