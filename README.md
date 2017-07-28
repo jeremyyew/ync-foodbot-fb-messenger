@@ -55,7 +55,7 @@ Hosted on Heroku.
 
 
 ### When school reopens (10/8):
-
+- [ ] coffee stand openings - scrape?
 - [ ] update buttery opening timings
 - [ ] update webscraper day tabs
 - [ ] update copy (e.g. share message)
