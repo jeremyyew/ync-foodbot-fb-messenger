@@ -18,8 +18,11 @@ Hosted on Heroku.
 ## To-do
 
 **25th Tuesday**
-    - [ ] Remove persistent menu
-    - [ ] Implement quick replies
+- [ ] Refactor YNCFoodbotserver.py
+    - [X] texts
+    - [ ] postbacks
+- [ ] Remove persistent menu
+- [ ] Implement quick replies
 
 
 - [ ] **Deployment**
@@ -75,9 +78,6 @@ Hosted on Heroku.
 - [X] Privacy Policy
 - [X] App Logo
 - [X] Create test generators
-- [ ] Refactor YNCFoodbotserver.py
-    - [X] texts
-    - [ ] postbacks
 
 **23rd Sunday**
 - [X] Create messenger api json request generators (for image uploads and settings)
