@@ -82,7 +82,7 @@ def messaging_events(payload):
                     yield msg.quick_ref_main
                     yield msg.carousel_main
 
-                elif "MENU_CHECK_PB" in payload:
+                elif "DH_MENU_PB" in payload:
                     yield msg.generate_short_menu_msg()
 
                 elif "AL_AMAAN_MENU_PB" in payload:
