@@ -8,7 +8,6 @@ import time
 app = Flask(__name__)
 PAT = 'EAAZAygcjNS3sBAPG5AC9WEt9FFm3Fi8DZBjb24POoGgm5OpidWyzAJVDHy7bD4ZCsAK9XUzRVnXaCbeopf0RuWaKlvHdvefZBE2SASfivlCPZAC96GBCK9XQCMlVUSkxPxJMxVr7MN3ibJRQ3zJA3ZA7IhjUJ4rT2b7UmAiR5DZAgZDZD '
 
-
 @app.route('/', methods=['GET'])
 def handle_verification():
     print "Handling Verification."
@@ -41,64 +40,67 @@ def messaging_events(payload):
         sender_id = event["sender"]["id"]
 
         def match_text_or_payload(input):
-            # IF RECOGNIZED TEXT MSG:
-
+            # IF RECOGNIZED TEXT MSG/POSTBACK:
             def input_contains(keys):
-                any(key in input for key in keys)
+                return any(key in input for key in keys)
 
-            if input_contains(["Get Started", "GET_STARTED_PB", "start"]):
+            if input_contains(["Get Started", "start", "GET_ STARTED_PB"]):
                 yield msg.welcome_msg
-                # time.sleep(1)
+                time.sleep(1)
                 send_typing_msg(sender_id)
-                # time.sleep(2)
+                time.sleep(2)
                 yield msg.start_msg
 
             elif input_contains(["info", "INFO_PB"]):
                 yield msg.info_msg
 
+            elif input_contains(["dh", "DH_PB"]):
+                yield msg.generate_short_menu_msg()
+
+            elif input_contains(["buttery", "BUTTERY_PB"]):
+                yield msg.buttery_msg
+
+            elif input_contains(["amaan", "AMAAN_PB"]):
+                yield msg.al_amaan_menu_image1_msg
+                yield msg.al_amaan_menu_image2_msg
+
+            elif input_contains(["macs", "MACS_PB"]):
+                yield msg.sorry_msg
+
+            elif input_contains(["agora", "AGORA_PB"]):
+                yield msg.sorry_msg
+
+            elif input_contains(["utown", "UTOWN_PB"]):
+                yield msg.sorry_msg
+
+            elif input_contains(["explore", "EXPLORE_PB"]):
+                yield msg.sorry_msg
+
+            elif input_contains(["help", "HELP_PB"]):
+                yield msg.start_msg
+
+            elif input_contains(["FEEDBACK_PB", "feedback"]):
+                yield msg.feedback_prompt_msg
 
             elif input_contains(["#feedback"]):
                 yield msg.feedback_received_msg
 
-            elif "help" in text:
-                yield msg.start_msg
-
-            # ELSE (NOT RECOGNIZED TEXT MSG):
-            else:
-                print "ERROR: not recognized text"
-                yield msg.sorry_msg
-
-        """def match_payload(payload):
-            # IF RECOGNIZED PAYLOAD:
-
-            elif "FEEDBACK_PB" in payload:
-                yield msg.feedback_prompt_msg
-
-            elif "GET_INFO_PB" in payload:
-                yield msg.quick_ref_main
-                yield msg.carousel_main
-
-            elif "DH_MENU_PB" in payload:
-                yield msg.generate_short_menu_msg()
-
-            elif "AL_AMAAN_MENU_PB" in payload:
-                yield msg.al_amaan_menu_image1_msg
-                yield msg.al_amaan_menu_image2_msg
-
-            elif "HELP_PB" in payload:
-                yield msg.start_msg
+            elif input_contains(["get all", "GET_ALL_PB"]):
+                yield msg.info_msg
+                yield msg.all_carousels_msg
 
             elif "COMING_SOON_PB" in payload:
                 yield msg.coming_soon_msg
+
+            # ELSE (NOT RECOGNIZED text or postback: ):
+            else:
+                print "ERROR: not recognized text or postback"
+                yield msg.sorry_msg
 
             #elif "CENDANA_BUTTERY_ORDER_PB" in event["postback"]["payload"]:
                 #gform.post_form()
                 #yield msg.cendana_buttery_form_submitted_msg
 
-            # ELSE (NOT RECOGNIZED POSTBACK)
-            else:
-                print "ERROR: not recognized postback"
-                yield msg.sorry_msg"""
 
         if "message" in event and "text" in event["message"]:
             message_text = event["message"]["text"]
@@ -107,18 +109,17 @@ def messaging_events(payload):
 
         # ELSE IF POSTBACK:
         elif "postback" in event and "payload" in event["postback"]:
-            payload = event["postback"]["payload"]
-            print "############### RECEIVED ###############\n############### POSTBACK: ###############\n", payload, "\n"
-            responses = match_text_or_payload(payload)
+            postback = event["postback"]["payload"]
+            print "############### RECEIVED ###############\n############### POSTBACK: ###############\n", postback, "\n"
+            responses = match_text_or_payload(postback)
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
         else:
-            print "ERROR: not recognized text or postback"
+            print "ERROR: message not text or postback"
             responses = msg.sorry_msg
 
         for response in responses:
             yield sender_id, response
-
 
 def send_message(recipient, message):
     """Send the message text to recipient with id recipient.
@@ -135,8 +136,8 @@ def send_message(recipient, message):
         print r.text
 
 def send_typing_msg(recipient):
-    """Send the message text to recipient with id recipient.
-    """
+    """Send the message text to recipient with id recipient."""
+    
 
     r = requests.post("https://graph.facebook.com/v2.6/me/messages",
                       params={"access_token": PAT},
