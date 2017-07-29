@@ -26,19 +26,34 @@ def generate_text_test(type, filename, strings, url):
 
 url = "http://127.0.0.1:5000/"
 text_list = ["Get Started",
-             "#feedback",
+             "info",
+             "dh",
+             "buttery",
+             "amaan",
+             "macs",
+             "agora",
+             "utown",
+             "explore",
+             "get all",
              "help",
-             "hi"]
+             "feedback",
+             "#feedback"]
 generate_text_test("text", "test_texts.sh", text_list, url)
 
 generate_text_test("text", "test_help.sh", ["help"], url)
 generate_text_test("text", "test_get_started.sh", ["Get Started"], url)
 
 postback_list = ["GET_STARTED_PB",
+                 "INFO_PB",
+                 "DH_PB",
+                 "BUTTERY_PB",
+                 "AMAAN_PB",
+                 "MACS_PB",
+                 "AGORA_PB",
+                 "UTOWN_PB",
+                 "EXPLORE_PB",
+                 "GET_ALL_PB",
                  "FEEDBACK_PB",
-                 "GET_INFO_PB",
-                 "MENU_CHECK_PB",
-                 "AL_AMAAN_MENU_PB",
                  "COMING_SOON_PB"]
 generate_text_test("postback", "test_postbacks.sh", postback_list, url)
 
