@@ -18,8 +18,8 @@ Hosted on Heroku.
 ## To-do
 
 **29th Saturday**
-- [ ] Write instant_test.py
-- [ ] Refactor match_text_or_payload out into match_text_or_payload.py
+- [X] Write instant_test.py
+- [X] Refactor match_text_or_payload out into match_text_or_payload.py
 - [ ] Refactor message_objects
 
 - [ ] Branch keyword_interface:
