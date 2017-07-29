@@ -9,5 +9,8 @@ payload = {"object": "page", "entry": [{"id": "979027202238929", "time": 1494428
 url = "http://127.0.0.1:5000/"
 headers = {'content-type': 'application/json'}
 r = requests.post(url, data=json.dumps(payload), headers=headers)
+print r.text
 if r.status_code != requests.codes.ok:
     print r.text
+
+
