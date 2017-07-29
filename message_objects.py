@@ -2,38 +2,35 @@ import dh_menu_scrape as dh
 
 # json generators
 keywords_desc_list = [
-    (u'\U0001f552', "info", "All opening days/hours, etc."),
-    (u'\U0001F35F', "dh", "Dining hall menu link & preview."),
-    (u'\U0001F35F', "buttery", "Opening days/hours, menu, order form links."),
-    (u'\U0001F35F', "amaan", "Al Amaan menu & hotline."),
-    (u'\U0001F35F', "macs", "Macs menu, hotline, & online order."),
-    (u'\u2615', "agora", "Opening hours & menu."),
-    (u'\U0001F35F', "utown", "Utown F&B outlets link."),
-    (u'\U0001F35F', "explore", "Places near campus to visit!")
+    (u'\U0001f552', "info", "all opening days/hours/etc"),
+    (u'\U0001f374', "dh", "dining hall menu link"),
+    (u'\U0001f354', "buttery", "opening days/hours/menu/order form links"),
+    (u'\U0001f35b', "amaan", "Al Amaan menu/hotline"),
+    (u'\U0001F35F', "macs", "Macs menu/hotline/online order"),
+    (u'\u2615', "agora", "opening hours/menu"),
+    (u'\u2668', "utown", "Utown F&B outlets"),
+    (u'\U0001f6b2', "explore", "places near campus to visit")
     # ("brewhouse", "Brewhouse pop-up times/locations.")
 ]
-
 
 def generate_keywords_desc_text():
     keywords_desc_text = ""
     for emoji, keyword, desc in keywords_desc_list:
-        keywords_desc_text += ("%s \'%s\'  --  %s\n" % (emoji, keyword, desc))
+        keywords_desc_text += ("%s \'%s\' --- %s\n" % (emoji, keyword, desc))
     return keywords_desc_text
 
-
 quick_replies_list = [
-    ("info", "GET_INFO_PB"),
-    ("dh", "DH_MENU_PB"),
-    ("buttery", "COMING_SOON_PB"),
-    ("amaan", "AL_AMAAN_PB"),
-    ("macs", "COMING_SOON_PB"),
-    ("agora", "COMING_SOON_PB"),
-    ("utown", "COMING_SOON_PB"),
-    ("explore", "COMING_SOON_PB"),
-    ("help", "COMING_SOON_PB"),
+    ("info", "INFO_PB"),
+    ("dh", "DH_PB"),
+    ("buttery", "BUTTERY_PB"),
+    ("amaan", "AMAAN_PB"),
+    ("macs", "MACS_PB"),
+    ("agora", "AGORA_PB"),
+    ("utown", "UTOWN_PB"),
+    ("explore", "EXPLORE_PB"),
+    ("help", "HELP_PB"),
     ("feedback", "FEEDBACK_PB"),
 ]
-
 
 def generate_quick_replies():
     quick_replies_json = []
@@ -51,7 +48,7 @@ welcome_msg = {'attachment': {
     "payload": {
         "template_type": "button",
         "text": (
-            "Welcome to the Yale-NUS Foodbot!\n"
+            "Welcome to the Yale-NUS Foodbot! "
             "Feel free to share if you find it useful " + u'\U0001f60e'
         ),
         "buttons": [
@@ -98,7 +95,7 @@ start_msg = {
         "payload": {
             "template_type": "button",
             "text": (
-                "Try typing these commands!\n\n" + generate_keywords_desc_text()
+                "Try typing/selecting these keywords:\n\n" + generate_keywords_desc_text()
             ),
             "buttons": [
                 {"type": "postback",
@@ -117,8 +114,8 @@ feedback_prompt_msg = {"text": "You can send any suggestions, feedback or bug re
                                "You can also hit me up at m.me/jeremy.yew.9.\n\n"}
 feedback_received_msg = {"text": "Got it, thanks! I'll work on it."}
 
-# GET_INFO_PB
-quick_ref_main = {"text": (
+# INFO_PB
+info_msg = {"text": (
     "Dining Hall:\n"
     "Weekdays: 730-930am, 1130-130pm, 6-830pm\n"
     "Weekends: 10am-1pm, 6-830pm\n"
@@ -327,7 +324,7 @@ def generate_short_menu_msg():
 
 # MISC
 coming_soon_msg = {"text": "Feature in development."}
-sorry_msg = {"text": "Sorry, I don't understand. Type \"help\" to show list of commands with descriptions.",
+sorry_msg = {"text": "Sorry, I don't understand. Type/select \"help\" to show list of commands.",
              "quick_replies": generate_quick_replies()}
 
 # UNUSED
