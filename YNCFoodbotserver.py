@@ -40,72 +40,76 @@ def messaging_events(payload):
         # IF TEXT MSG:
         sender_id = event["sender"]["id"]
 
+        def match_text_or_payload(input):
+            # IF RECOGNIZED TEXT MSG:
+
+            def input_contains(keys):
+                any(key in input for key in keys)
+
+            if input_contains(["Get Started", "GET_STARTED_PB", "start"]):
+                yield msg.welcome_msg
+                # time.sleep(1)
+                send_typing_msg(sender_id)
+                # time.sleep(2)
+                yield msg.start_msg
+
+            elif input_contains(["info", "INFO_PB"]):
+                yield msg.info_msg
+
+
+            elif input_contains(["#feedback"]):
+                yield msg.feedback_received_msg
+
+            elif "help" in text:
+                yield msg.start_msg
+
+            # ELSE (NOT RECOGNIZED TEXT MSG):
+            else:
+                print "ERROR: not recognized text"
+                yield msg.sorry_msg
+
+        """def match_payload(payload):
+            # IF RECOGNIZED PAYLOAD:
+
+            elif "FEEDBACK_PB" in payload:
+                yield msg.feedback_prompt_msg
+
+            elif "GET_INFO_PB" in payload:
+                yield msg.quick_ref_main
+                yield msg.carousel_main
+
+            elif "DH_MENU_PB" in payload:
+                yield msg.generate_short_menu_msg()
+
+            elif "AL_AMAAN_MENU_PB" in payload:
+                yield msg.al_amaan_menu_image1_msg
+                yield msg.al_amaan_menu_image2_msg
+
+            elif "HELP_PB" in payload:
+                yield msg.start_msg
+
+            elif "COMING_SOON_PB" in payload:
+                yield msg.coming_soon_msg
+
+            #elif "CENDANA_BUTTERY_ORDER_PB" in event["postback"]["payload"]:
+                #gform.post_form()
+                #yield msg.cendana_buttery_form_submitted_msg
+
+            # ELSE (NOT RECOGNIZED POSTBACK)
+            else:
+                print "ERROR: not recognized postback"
+                yield msg.sorry_msg"""
+
         if "message" in event and "text" in event["message"]:
             message_text = event["message"]["text"]
             print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text.encode('unicode_escape'), "\n"
-
-            def match_keyword(text):
-                # IF RECOGNIZED TEXT MSG:
-
-                if "Get Started" in text:
-                    send_message(sender_id, msg.welcome_msg)
-                    #time.sleep(1)
-                    send_typing_msg(sender_id)
-                    #time.sleep(2)
-                    yield msg.start_msg
-
-                elif "#feedback" in text:
-                    yield msg.feedback_received_msg
-
-                elif "help" in text:
-                    yield msg.start_msg
-
-                # ELSE (NOT RECOGNIZED TEXT MSG):
-                else:
-                    print "ERROR: not recognized text"
-                    yield msg.sorry_msg
-
-            responses = match_keyword(message_text)
+            responses = match_text_or_payload(message_text)
 
         # ELSE IF POSTBACK:
         elif "postback" in event and "payload" in event["postback"]:
-
             payload = event["postback"]["payload"]
-
-            def match_payload(payload):
-                # IF RECOGNIZED PAYLOAD:
-
-                if "GET_STARTED_PB" in payload:
-                    yield msg.welcome_msg
-                    yield msg.start_msg
-
-                elif "FEEDBACK_PB" in payload:
-                    yield msg.feedback_prompt_msg
-
-                elif "GET_INFO_PB" in payload:
-                    yield msg.quick_ref_main
-                    yield msg.carousel_main
-
-                elif "DH_MENU_PB" in payload:
-                    yield msg.generate_short_menu_msg()
-
-                elif "AL_AMAAN_MENU_PB" in payload:
-                    yield msg.al_amaan_menu_image1_msg
-                    yield msg.al_amaan_menu_image2_msg
-
-                elif "COMING_SOON_PB" in payload:
-                    yield msg.coming_soon_msg
-
-                elif "CENDANA_BUTTERY_ORDER_PB" in event["postback"]["payload"]:
-                    gform.post_form()
-                    yield msg.cendana_buttery_form_submitted_msg
-
-                # ELSE (NOT RECOGNIZED POSTBACK)
-                else:
-                    print "ERROR: not recognized postback"
-                    yield msg.sorry_msg
-
-            responses = match_payload(payload)
+            print "############### RECEIVED ###############\n############### POSTBACK: ###############\n", payload, "\n"
+            responses = match_text_or_payload(payload)
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
         else:
