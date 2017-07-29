@@ -2,9 +2,9 @@ import dh_menu_scrape as dh
 
 # json generators
 keywords_desc_list = [
-    (u'\U0001f552', "info", "all opening days/hours/etc"),
+    (u'\U0001f552', "info", "all opening hours/etc"),
     (u'\U0001f374', "dh", "dining hall menu link"),
-    (u'\U0001f354', "buttery", "opening days/hours/menu/order form links"),
+    (u'\U0001f354', "buttery", "menus/order form links"),
     (u'\U0001f35b', "amaan", "Al Amaan menu/hotline"),
     (u'\U0001F35F', "macs", "Macs menu/hotline/online order"),
     (u'\u2615', "agora", "opening hours/menu"),
@@ -13,11 +13,13 @@ keywords_desc_list = [
     # ("brewhouse", "Brewhouse pop-up times/locations.")
 ]
 
+
 def generate_keywords_desc_text():
     keywords_desc_text = ""
     for emoji, keyword, desc in keywords_desc_list:
         keywords_desc_text += ("%s \'%s\' --- %s\n" % (emoji, keyword, desc))
     return keywords_desc_text
+
 
 quick_replies_list = [
     ("info", "INFO_PB"),
@@ -32,6 +34,7 @@ quick_replies_list = [
     ("feedback", "FEEDBACK_PB"),
 ]
 
+
 def generate_quick_replies():
     quick_replies_json = []
     for title, payload in quick_replies_list:
@@ -40,6 +43,14 @@ def generate_quick_replies():
              "title": title,
              "payload": payload})
     return quick_replies_json
+
+
+quick_replies_json = generate_quick_replies()
+
+
+def add_quick_reply(msg):
+    msg.update({"quick_replies": quick_replies_json})
+    return msg
 
 
 # GET_STARTED_PB
@@ -89,13 +100,13 @@ welcome_msg = {'attachment': {
         ]
     }
 }}
-start_msg = {
+start_msg = add_quick_reply({
     "attachment": {
         "type": "template",
         "payload": {
             "template_type": "button",
             "text": (
-                "Try typing/selecting these keywords:\n\n" + generate_keywords_desc_text()
+                "Try typing/selecting these keywords:\n" + generate_keywords_desc_text()
             ),
             "buttons": [
                 {"type": "postback",
@@ -103,19 +114,17 @@ start_msg = {
                  "payload": "GET_ALL_PB"},
             ]
         }
-    },
-    "quick_replies": generate_quick_replies()
-}
+    }})
 
 # FEEDBACK_PB
-feedback_prompt_msg = {"text": "You can send any suggestions, feedback or bug reports directly to the bot. "
-                               "Simply include the tag #feedback in your message to make sure I see it. "
-                               "If reporting a bug, please try to be as specific as possible. "
-                               "You can also hit me up at m.me/jeremy.yew.9.\n\n"}
-feedback_received_msg = {"text": "Got it, thanks! I'll work on it."}
+feedback_prompt_msg = add_quick_reply({"text": "Send any suggestions, feedback or bug reports directly to the bot. "
+                                               "Simply include the tag #feedback in your message . "
+                                               "If reporting a bug, please try to be as specific as possible. "
+                                               "You can also hit me up at m.me/jeremy.yew.9.\n\n"})
+feedback_received_msg = add_quick_reply({"text": "Feedback received, thanks! I'll work on it."})
 
 # INFO_PB
-info_msg = {"text": (
+info_msg = add_quick_reply({"text": (
     "Dining Hall:\n"
     "Weekdays: 730-930am, 1130-130pm, 6-830pm\n"
     "Weekends: 10am-1pm, 6-830pm\n"
@@ -137,28 +146,41 @@ info_msg = {"text": (
     "Elm: 12 College Ave West, S138610\n"
     "Saga: 10 College Ave West, S138609\n"
 )
-}
+})
 
 # IMG ATTACHMENTS
-al_amaan_menu_image1_msg = {
+al_amaan_menu_image1_msg = add_quick_reply({
     "attachment": {
         "type": "image",
         "payload": {
             "attachment_id": "1033950820079900"  # dining_hall_1.jpg
         }
     }
-}
-al_amaan_menu_image2_msg = {
+})
+al_amaan_menu_image2_msg = add_quick_reply({
     "attachment": {
         "type": "image",
         "payload": {
             "attachment_id": "1033950833413232"  # dining_hall_1.jpg
         }
     }
-}
+})
 
 # CAROUSEL
-dining_hall_carousel = {
+def generate_carousel_msg(carousel):
+    carousel_msg = add_quick_reply({
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "image_aspect_ratio": "horizontal",
+                "elements": [carousel]
+            }
+        }
+    })
+    return carousel_msg
+
+dh_carousel = {
     "title": "Dining Hall",
     "image_url": "https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
     "subtitle": ("Dining Hall:\n"
@@ -177,7 +199,9 @@ dining_hall_carousel = {
         }
     ]
 }
-butteries_carousel = {
+dh_msg = generate_carousel_msg(dh_carousel)
+
+buttery_carousel = {
     "title": "Butteries",
     "image_url": "https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",
     "subtitle": "Nest: Sat/Sun/Mon 10-12pm\nShiner's: Fri/Sun/Mon 830-12pm\nShiok: Tue/Thur 9-12pm, Wed 10-11pm",
@@ -203,7 +227,9 @@ butteries_carousel = {
         }
     ]
 }
-al_amaan_carousel = {'title': "Al Amaan",
+buttery_msg = generate_carousel_msg(buttery_carousel)
+
+amaan_carousel = {'title': "Al Amaan",
                      'image_url': "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
                      'subtitle': "Delivery: 67770555 (11AM-3AM)", 'default_action': {
         "type": "web_url",
@@ -273,22 +299,24 @@ others_carousel = {
         }
     ]
 }
-carousel_main = {
+
+all_carousels_list = [
+    dh_carousel,
+    buttery_carousel,
+    amaan_carousel,
+    macs_carousel,
+    others_carousel
+]
+all_carousels_msg = add_quick_reply({
     "attachment": {
         "type": "template",
         "payload": {
             "template_type": "generic",
             "image_aspect_ratio": "horizontal",
-            "elements": [
-                dining_hall_carousel,
-                butteries_carousel,
-                al_amaan_carousel,
-                macs_carousel,
-                others_carousel
-            ]
+            "elements": all_carousels_list
         }
     }
-}
+})
 
 
 # MENU_CHECK_PB
@@ -324,7 +352,7 @@ def generate_short_menu_msg():
 
 # MISC
 coming_soon_msg = {"text": "Feature in development."}
-sorry_msg = {"text": "Sorry, I don't understand. Type/select \"help\" to show list of commands.",
+sorry_msg = {"text": "Sorry, I don't understand. Type or select \"help\" to show list of commands.",
              "quick_replies": generate_quick_replies()}
 
 # UNUSED
