@@ -18,24 +18,36 @@ Hosted on Heroku.
 ## To-do
 
 **29th Saturday**
+- [ ] Write instant_test.py
+- [ ] Refactor match_text_or_payload out into match_text_or_payload.py
+- [ ] Refactor message_objects
+
 - [ ] Branch keyword_interface:
     - [ ] Add help button to sorry_msg
     - [ ] Add quick_replies to everything
-    - [ ] Change emoji's
+    - [X] Add emoji's
+    - [X] Get Started, GET_ STARTED_PB, start
+    - [X] info, INFO_PB
+    - [X] dh, DH_PB
+    - [ ] buttery, BUTTERY_PB
+    - [ ] amaan, AMAAN_PB
+    - [ ] MACS_PB, macs_msg
+    - [ ] AGORA_PB, agora_msg
+    - [ ] UTOWN_PB, utown_msg
+    - [ ] EXPLORE_PB, explore_msg
+    - [X] "help", "HELP_PB"
+    - [X] "FEEDBACK_PB", "feedback"
+    - [X] "#feedback"
+    - [ ] GET_ALL_PB, get_all_msg
+    - [ ] turn typing delay back on
 
-- [ ] **Deployment**
-    - [ ] Notes
-
-- [ ] **Food carousel**
-    - [X] Send Al Amaan Menu (upload images to FB server)
-    - [ ] Edit "Others" carousel
-    - [ ] Add "Share" image.
-    - [ ] Add Buttery links.
     - [ ] Add location?
     - [ ] Separate Brinda's and Utown
 
-- [X] **Share button**
-    - [ ] Add Share button to persistent menu
+- [ ] **Deployment**
+    - [ ] Notes
+    - [ ] Add "Share" image.
+    - [ ] case sensitivity
 
 - [ ] **Check Menu**
     - [ ] xpath by day/tab rel
@@ -90,4 +102,5 @@ Hosted on Heroku.
 
 **23rd Sunday**
 - [X] Create messenger api json request generators (for image uploads and settings)
+- [X] Send Al Amaan Menu (upload images to FB server)
 
