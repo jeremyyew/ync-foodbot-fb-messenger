@@ -7,7 +7,7 @@ keywords_desc_list = [
     (u'\U0001f354', "buttery", "opening hours, menus/order form links"),
     (u'\U0001f35b', "amaan", "Al Amaan menu/hotline"),
     (u'\U0001F35F', "macs", "Macs menu/hotline/online order"),
-    (u'\u2615', "agora", "opening hours/menu"),
+    (u'\u2615', "agora", "cafe opening hours/menu"),
     (u'\u2668', "utown", "Utown F&B outlets"),
     (u'\U0001f6b2', "explore", "places near campus to visit")
     # ("brewhouse", "Brewhouse pop-up times/locations.")
@@ -203,34 +203,6 @@ dh_buttons = [
 ]
 dh_info_msg = add_quick_reply({"text": dh_text
                                })
-
-
-def generate_dh_menu_msg():
-    meal, heading, items = dh.scrape()
-
-    items_string = ""
-    if items == []:
-        items_string = "Sorry, menu not available."
-    else:
-        for item in items:
-            items_string += "-" + item + "\n"
-
-    full_menu_msg = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": ("%s for %s today:\n%s"
-                         % (heading, meal, items_string)
-                         ),
-                "buttons": dh_buttons
-            }
-        }
-    }
-
-    return add_quick_reply(full_menu_msg)
-
-
 dh_carousel = generate_carousel_element(title="Dining Hall", image_url="https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
                                         subtitle=dh_text,
                                         default_url="https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
@@ -294,52 +266,12 @@ amaan_menu_image2_msg = add_quick_reply({
         }
     }
 })
-amaan_carousel = {'title': "Al Amaan",
-                  'image_url': "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
-                  'subtitle': "Delivery: 67770555 (11AM-3AM)", 'default_action': {
-        "type": "web_url",
-        "url": "http://www.alamaanrestaurant.com.sg/"
-    }, 'buttons': [
-        {
-            "type": "phone_number",
-            "title": "Call now",
-            "payload": "+6567770555"
-        },
-        {
-            "type": "postback",
-            "title": "Menu",
-            "payload": "AL_AMAAN_MENU_PB"
-        }
-
-    ]}
+amaan_carousel = generate_carousel_element(title="Al Amaan",
+                                           image_url="https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
+                                           subtitle=amaan_text, default_url="http://www.alamaanrestaurant.com.sg/",
+                                           buttons=amaan_buttons)
 
 # MACS_PB
-macs_carousel = {
-    "title": "McDonald's",
-    "image_url": "https://d1nqx6es26drid.cloudfront.net/app/assets/img/logo_mcd.png",
-    "subtitle": "Delivery: 67773777 (24hrs)\nCendana: S138533\nElm: S138610\nSaga: S138609",
-    "default_action": {
-        "type": "web_url",
-        "url": "https://www.mcdelivery.com.sg/sg/browse/menu.html"
-    },
-    "buttons": [
-        {
-            "type": "phone_number",
-            "title": "Call now",
-            "payload": "+6567773777"
-        },
-        {
-            "type": "web_url",
-            "url": "https://www.mcdelivery.com.sg/sg/browse/menu.html",
-            "title": "Menu"
-        },
-        {
-            "type": "web_url",
-            "url": "https://www.mcdelivery.com.sg/sg/guest.html",
-            "title": "Order online"
-        }
-    ]
-}
 macs_text = "McDelivery: 67773777 (24hrs)\n-Cendana: S138533\n-Elm: S138610\n-Saga: S138609\n"
 macs_buttons = [{
     "type": "phone_number",
@@ -357,25 +289,46 @@ macs_buttons = [{
         "title": "Order online"
     }]
 macs_msg = add_quick_reply(generate_buttons_msg(macs_text, macs_buttons))
+macs_carousel = generate_carousel_element(title="McDonald's",
+                                          image_url="https://d1nqx6es26drid.cloudfront.net/app/assets/img/logo_mcd.png",
+                                          subtitle=macs_text,
+                                          default_url="https://www.mcdelivery.com.sg/sg/browse/menu.html",
+                                          buttons=macs_buttons)
 
 # AGORA_PB
 agora_text = "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\nGrab N' Go Lunch: TBC\n"
 agora_buttons = [{"type": "postback", "title": "GRAB N' GO MENU", "payload": "COMING_SOON_PB"}]
 agora_msg = add_quick_reply(generate_buttons_msg(agora_text, agora_buttons))
+agora_carousel = generate_carousel_element(title="Agora Cafe", image_url="", subtitle=agora_text, default_url="https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/", buttons=agora_buttons)
 
 # UTOWN_PB
-utown_text = "Nearest Foodcourts: \n-Koufu Foodcourt: Mon-Fri 7am- 10pm, Sat-Sun 10am-10pm\n-Flavours@Utown: Everyday 7.30am-10pm\n"
+utown_text = "Utown Foodcourts: \n-Koufu Foodcourt: Mon-Fri 7am- 10pm, Sat-Sun 10am-10pm\n-Flavours@Utown: Everyday 7.30am-10pm\n"
 utown_buttons = [{
     "type": "web_url",
     "url": "http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html",
     "title": "View More"
 }]
 utown_msg = add_quick_reply(generate_buttons_msg(utown_text, utown_buttons))
+utown_carousel = generate_carousel_element(title="UTown F&B Outlets", image_url="", subtitle="utown_text", default_url="http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html", buttons=utown_buttons)
 
 # EXPLORE_PB
 explore_text = "Check out these cool places near campus!"
-explore_buttons = []
-explore_msg = add_quick_reply(generate_buttons_msg(explore_text, explore_buttons))
+explore_buttons = [{
+    "type": "postback",
+    "title": "Explore",
+    "payload": "EXPLORE_PB"
+}]
+explore_msg = add_quick_reply(generate_buttons_msg(explore_text, []))
+explore_carousel= generate_carousel_element(title="Explore", image_url="", subtitle=explore_text, default_url= "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/", buttons=explore_buttons)
+
+# EXPLORE_PB - explore places
+pipe_district_url = "http://danielfooddiary.com/2016/02/17/thepipedistrict/"
+pipe_district_loc = "https://goo.gl/maps/R85eSuf8xnL2"
+pipe_district_buttons = [{"type": "web_url", "url":pipe_district_url, "title": "See Review"}, {"type": "web_url", "url":pipe_district_loc, "title": "Directions"}]
+pipe_district_carousel1 = generate_carousel_element(title="Pipe District", image_url="", subtitle="", default_url= pipe_district_url, buttons=pipe_district_buttons)
+pipe_district_carousel2 = pipe_district_carousel1
+explore_places_list = [pipe_district_carousel1, pipe_district_carousel2]
+explore_places_carousel_msg = add_quick_reply(generate_carousel_msg(explore_places_list))
 
 # GET_ALL_MSG
 all_texts = [dh_text, buttery_text, amaan_text, macs_text, agora_text, utown_text]
@@ -394,10 +347,12 @@ get_all_text_msg = add_quick_reply(generate_buttons_msg(get_all_text, get_all_bu
 
 get_all_carousels_list = [
     dh_carousel,
-    buttery_carousel
-    #    amaan_carousel,
-    #   macs_carousel,
-    #  others_carousel
+    buttery_carousel,
+    amaan_carousel,
+    macs_carousel,
+    agora_carousel,
+    utown_carousel,
+    explore_carousel
 ]
 get_all_carousel_msg = add_quick_reply(generate_carousel_msg(get_all_carousels_list))
 

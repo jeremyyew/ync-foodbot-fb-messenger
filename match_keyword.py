@@ -43,7 +43,8 @@ def match_text_or_payload(input, sender_id):
         yield msg.utown_msg
 
     elif input_contains(["explore", "EXPLORE_PB"]):
-        yield msg.coming_soon_msg
+        yield msg.explore_msg
+        yield msg.explore_places_carousel_msg
 
     elif input_contains(["help", "HELP_PB"]):
         yield msg.start_msg
