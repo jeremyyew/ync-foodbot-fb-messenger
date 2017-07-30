@@ -18,52 +18,36 @@ Hosted on Heroku.
 ## To-do To-day
 **30th Sunday**
 
-- [ ] Branch keyword_interface:
-    - [ ] Add quick_replies to everything
-    - [X] Get Started, GET_ STARTED_PB, start
-    - [X] info, INFO_PB
-    - [X] dh, DH_PB
-    - [X] buttery, BUTTERY_PB
-    - [X] amaan, AMAAN_PB
-    - [X] MACS_PB, macs_msg
-    - [X] AGORA_PB, agora_msg
-    - [X] UTOWN_PB, utown_msg
-    - [X] EXPLORE_PB, explore_msg
-    - [X] "help", "HELP_PB"
-    - [X] "FEEDBACK_PB", "feedback"
-    - [X] "#feedback"
-    - [X] GET_ALL_PB, get_all_msg
-    - [X] turn typing delay back on
-    - [ ] add emoji to all msgs
-    - [ ] Spoons and Forks
-    - [X] refactor info msg to concat all texts
-    - [ ] Agora img, Utown img, explore img
-    - [ ] Agora - grab n go scrape
-    - [ ] Change explore default url
-    - [X] Change coming_soon_msg
-    - [ ] Add location to amaan_buttons
-    - [ ] Add "Share" image.
-    - [ ] xpath by day/tab rel
+- [ ] add emoji to all msgs
+- [ ] Agora img, Utown img, explore img
+- [X] refactor info msg to concat all texts
+- [ ] Agora - grab n go scrape
+- [ ] Change explore default url
+- [X] Change coming_soon_msg
+- [ ] Add location to amaan_buttons
+- [ ] Add "Share" image.
+- [ ] xpath by day/tab rel
 
 ## Must-haves (Before first deployment, 1 August)
-    - [ ] Notes
-    - [ ] update buttery opening timings
-    - [ ] Populate explore button
-    - [ ] Get rid of all COMING_SOON_PB
+- [ ] Notes
+- [ ] update buttery opening timings
+- [ ] Populate explore button
+- [ ] Get rid of all COMING_SOON_PB
 
 ## Should-haves (Before release)
 - [ ] update webscraper day tabs
-- [ ]upload all img to imgbb
+- [ ] upload all img to imgbb
 - [ ] update copy (e.g. share message)
 - [ ] delete false links (if any)
 - [ ] Implement Google Form CMS: https://www.drivecms.xyz/#getting-started
 
 ## Nice-to-haves
-    - [ ] case insensitivity
-    - [ ] coffee stand openings - scrape?
+- [ ] case insensitivity
+- [ ] coffee stand openings - scrape?
 **Features to explore**
-    - [X] Order buttery food?
-    - [X] Notification subscriptions?
+- [X] Order buttery food?
+- [X] Notification subscriptions?
+- [ ] Spoons and Forks link
 
 ### Other chatbot ideas:
 - [ ] YNC general info, memes/comics subscription
@@ -79,7 +63,24 @@ Hosted on Heroku.
 
 ## Completed:
 
-**29th Saturday**
+**30/07 Sunday**
+- [X] Add quick_replies to everything
+- [X] Get Started, GET_ STARTED_PB, start
+- [X] info, INFO_PB
+- [X] dh, DH_PB
+- [X] buttery, BUTTERY_PB
+- [X] amaan, AMAAN_PB
+- [X] MACS_PB, macs_msg
+- [X] AGORA_PB, agora_msg
+- [X] UTOWN_PB, utown_msg
+- [X] EXPLORE_PB, explore_msg
+- [X] "help", "HELP_PB"
+- [X] "FEEDBACK_PB", "feedback"
+- [X] "#feedback"
+- [X] GET_ALL_PB, get_all_msg
+- [X] turn typing delay back on
+
+**29/07 Saturday**
 - [X] Write instant_test.py
 - [X] Refactor match_text_or_payload out into match_text_or_payload.py
 - [X] Refactor message_objects: add_quick_reply and generate_carousel_msg
@@ -88,7 +89,7 @@ Hosted on Heroku.
 - [X] Add emoji's to start_msg
 - [X] Add help button to sorry_msg
 
-**28th Friday**
+**28/07 Friday**
 - [X] Refactor YNCFoodbotserver.py
     - [X] texts
     - [X] postbacks
@@ -97,7 +98,7 @@ Hosted on Heroku.
     - [X] Implement quick_replies
     - [X] Remove persistent menu
 
-**24th Monday**
+**24/07 Monday**
 - [X] Reformat daily special message
 - [X] Privacy Policy
 - [X] App Logo
@@ -105,7 +106,7 @@ Hosted on Heroku.
 - [X] Refactor YNCFoodbotserver.py
 - [X] Create test generators
 
-**23rd Sunday**
+**23/07 Sunday**
 - [X] Create messenger api json request generators (for image uploads and settings)
 - [X] Send Al Amaan Menu (upload images to FB server)
 
