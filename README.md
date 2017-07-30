@@ -20,10 +20,10 @@ Hosted on Heroku.
 **29th Saturday**
 - [X] Write instant_test.py
 - [X] Refactor match_text_or_payload out into match_text_or_payload.py
-- [ ] Refactor message_objects
+- [X] Refactor message_objects: add_quick_reply and generate_carousel_msg
 
 - [ ] Branch keyword_interface:
-    - [ ] Add help button to sorry_msg
+    - [X] Add help button to sorry_msg
     - [ ] Add quick_replies to everything
     - [X] Add emoji's
     - [X] Get Started, GET_ STARTED_PB, start
