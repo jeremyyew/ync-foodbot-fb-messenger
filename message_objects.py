@@ -4,7 +4,7 @@ import dh_menu_scrape as dh
 keywords_desc_list = [
     (u'\U0001f552', "info", "all opening hours/etc"),
     (u'\U0001f374', "dh", "dining hall menu link"),
-    (u'\U0001f354', "buttery", "menus/order form links"),
+    (u'\U0001f354', "buttery", "opening hours, menus/order form links"),
     (u'\U0001f35b', "amaan", "Al Amaan menu/hotline"),
     (u'\U0001F35F', "macs", "Macs menu/hotline/online order"),
     (u'\u2615', "agora", "opening hours/menu"),
@@ -166,6 +166,7 @@ al_amaan_menu_image2_msg = add_quick_reply({
     }
 })
 
+
 # CAROUSEL
 def generate_carousel_msg(carousel):
     carousel_msg = add_quick_reply({
@@ -200,6 +201,42 @@ dh_carousel = {
     ]
 }
 dh_msg = generate_carousel_msg(dh_carousel)
+dh_info_msg = add_quick_reply({"text":
+                                   "Dining hall mealtimes:\n"
+                                   "Weekdays: 7.30-9.30am, 11.30am-1.30pm, 6-8.30pm\n"
+                                   "Weekends: 10am-1pm, 6-8.30pm\n"
+                                   "Green & Healthy Lunch (TBC): Mon (Elm), Wed (Cen), Fri (Saga)\n\n"
+                               })
+
+def generate_dh_menu_msg():
+    meal, heading, items = dh.scrape()
+
+    items_string = ""
+    if items == []:
+        items_string = "Sorry, menu not available."
+    else:
+        for item in items:
+            items_string += item + "\n"
+
+    full_menu_msg = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": ("%s for %s today:\n%s"
+                         % (heading, meal, items_string)
+                         ),
+                "buttons": [
+                    {"type": "web_url",
+                     "title": "View menu",
+                     "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
+                ]
+            }
+        }
+    }
+
+    return add_quick_reply(full_menu_msg)
+
 
 buttery_carousel = {
     "title": "Butteries",
@@ -230,8 +267,8 @@ buttery_carousel = {
 buttery_msg = generate_carousel_msg(buttery_carousel)
 
 amaan_carousel = {'title': "Al Amaan",
-                     'image_url': "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
-                     'subtitle': "Delivery: 67770555 (11AM-3AM)", 'default_action': {
+                  'image_url': "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
+                  'subtitle': "Delivery: 67770555 (11AM-3AM)", 'default_action': {
         "type": "web_url",
         "url": "http://www.alamaanrestaurant.com.sg/"
     }, 'buttons': [
@@ -318,42 +355,19 @@ all_carousels_msg = add_quick_reply({
     }
 })
 
-
-# MENU_CHECK_PB
-def generate_short_menu_msg():
-    meal, heading, items = dh.scrape()
-
-    items_string = ""
-    if items == []:
-        items_string = "Sorry, menu not available."
-    else:
-        for item in items:
-            items_string += item + "\n"
-
-    full_menu_msg = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": ("%s for %s today:\n%s"
-                         % (heading, meal, items_string)
-                         ),
-                "buttons": [
-                    {"type": "web_url",
-                     "title": "View menu",
-                     "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
-                ]
-            }
-        }
-    }
-
-    return full_menu_msg
-
-
 # MISC
 coming_soon_msg = {"text": "Feature in development."}
-sorry_msg = {"text": "Sorry, I don't understand. Type or select \"help\" to show list of commands.",
-             "quick_replies": generate_quick_replies()}
+sorry_msg = add_quick_reply({'attachment': {
+    "type": "template",
+    "payload": {
+        "template_type": "button",
+        "text": "Sorry, I don't understand. Type or select \"help\" to show list of commands.",
+        "buttons": [{"type": "postback",
+                     "title": "help",
+                     "payload": "HELP_PB"}
+                    ]
+    }
+}})
 
 # UNUSED
 list_main = {
