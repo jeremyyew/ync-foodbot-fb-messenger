@@ -16,58 +16,52 @@ Hosted on Heroku.
 - gitignore
 
 ## To-do
-
-**29th Saturday**
-- [X] Write instant_test.py
-- [X] Refactor match_text_or_payload out into match_text_or_payload.py
-- [X] Refactor message_objects: add_quick_reply and generate_carousel_msg
+**30th Sunday**
 
 - [ ] Branch keyword_interface:
-    - [X] Add help button to sorry_msg
     - [ ] Add quick_replies to everything
-    - [X] Add emoji's
     - [X] Get Started, GET_ STARTED_PB, start
     - [X] info, INFO_PB
     - [X] dh, DH_PB
-    - [ ] buttery, BUTTERY_PB
-    - [ ] amaan, AMAAN_PB
-    - [ ] MACS_PB, macs_msg
-    - [ ] AGORA_PB, agora_msg
-    - [ ] UTOWN_PB, utown_msg
+    - [X] buttery, BUTTERY_PB
+    - [X] amaan, AMAAN_PB
+    - [X] MACS_PB, macs_msg
+    - [X] AGORA_PB, agora_msg
+    - [X] UTOWN_PB, utown_msg
     - [ ] EXPLORE_PB, explore_msg
     - [X] "help", "HELP_PB"
     - [X] "FEEDBACK_PB", "feedback"
     - [X] "#feedback"
-    - [ ] GET_ALL_PB, get_all_msg
-    - [ ] turn typing delay back on
+    - [X] GET_ALL_PB, get_all_msg
+    - [X] turn typing delay back on
+    - [ ] add emoji to all msgs
+    - [ ] Spoons and Forks
 
-    - [ ] Add location?
-    - [ ] Separate Brinda's and Utown
+    - [ ] refactor info msg to concat all texts
+    - [ ] refactor get_all msg into a list?
+
+    - [X] Change coming_soon_msg
 
 - [ ] **Deployment**
     - [ ] Notes
     - [ ] Add "Share" image.
     - [ ] case sensitivity
 
-- [ ] **Check Menu**
-    - [ ] xpath by day/tab rel
-
-- [X] **Feedback button**
-    - [X] #feedback prompt and received message
-
 - [ ] Other features to explore:
     - [X] **"Order buttery food"**
     - [X] **Notification subscription ("What's cookin'?")**
     - [ ] **"Discover new food places"**
 
-
 ### When school reopens (10/8):
+- [ ] **Check Menu**
+    - [ ] xpath by day/tab rel
 - [ ] coffee stand openings - scrape?
 - [ ] update buttery opening timings
 - [ ] update webscraper day tabs
 - [ ] update copy (e.g. share message)
 - [ ] delete false links
 - [ ] re-publish, test group
+- [ ] Implement Google Form CMS: https://www.drivecms.xyz/#getting-started
 
 ### Other chatbot ideas:
 - [ ] YNC general info, memes/comics subscription
@@ -82,6 +76,15 @@ Hosted on Heroku.
 - [X] Quick Replies
 
 ### Completed:
+
+**29th Saturday**
+- [X] Write instant_test.py
+- [X] Refactor match_text_or_payload out into match_text_or_payload.py
+- [X] Refactor message_objects: add_quick_reply and generate_carousel_msg
+- [X] **Feedback button**
+    - [X] #feedback prompt and received message
+- [X] Add emoji's to start_msg
+- [X] Add help button to sorry_msg
 
 **28th Friday**
 - [X] Refactor YNCFoodbotserver.py

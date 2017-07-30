@@ -135,11 +135,11 @@ info_msg = add_quick_reply({"text": (
     "Shiner's Diner: Fri/Sun/Mon, 830-12pm\n"
     "Shiok Shack: Tue/Thur, 9-12pm, Wed 10-11pm\n\n"
 
-    "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\n"
-    "Grab N' Go Lunch: TBC\n\n"
-
     "Al Amaan's Delivery: 67770555 (11AM-3AM)\n"
     "McDelivery: 67773777 (24hrs)\n\n"
+
+    "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\n"
+    "Grab N' Go Lunch: TBC\n\n"
 
     "RC addresses:\n"
     "Cendana: 28 College Ave West, S138533\n"
@@ -148,65 +148,62 @@ info_msg = add_quick_reply({"text": (
 )
 })
 
-# IMG ATTACHMENTS
-al_amaan_menu_image1_msg = add_quick_reply({
-    "attachment": {
-        "type": "image",
-        "payload": {
-            "attachment_id": "1033950820079900"  # dining_hall_1.jpg
-        }
-    }
-})
-al_amaan_menu_image2_msg = add_quick_reply({
-    "attachment": {
-        "type": "image",
-        "payload": {
-            "attachment_id": "1033950833413232"  # dining_hall_1.jpg
-        }
-    }
-})
 
-
-# CAROUSEL
-def generate_carousel_msg(carousel):
-    carousel_msg = add_quick_reply({
+# CAROUSEL and BUTTON GENERATOR
+def generate_carousel_msg(elements):
+    carousel_msg = {
         "attachment": {
             "type": "template",
             "payload": {
                 "template_type": "generic",
                 "image_aspect_ratio": "horizontal",
-                "elements": [carousel]
+                "elements": elements
             }
         }
-    })
+    }
     return carousel_msg
 
-dh_carousel = {
-    "title": "Dining Hall",
-    "image_url": "https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
-    "subtitle": ("Dining Hall:\n"
-                 "Weekdays: 730-930am, 1130-130pm, 6-830pm\n"
-                 "Weekends: 10am-1pm, 6-830pm\n"
-                 "Green & Healthy Lunches: Mon (Elm), Wed (Cen), Fri (Saga)"),
-    "default_action": {
-        "type": "web_url",
-        "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
-    },
-    "buttons": [
-        {
+
+def generate_carousel_element(title, image_url, subtitle, default_url, buttons):
+    return {
+        "title": title,
+        "image_url": image_url,
+        "subtitle": subtitle,
+        "default_action": {
             "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "MENU"
-        }
-    ]
-}
-dh_msg = generate_carousel_msg(dh_carousel)
-dh_info_msg = add_quick_reply({"text":
-                                   "Dining hall mealtimes:\n"
-                                   "Weekdays: 7.30-9.30am, 11.30am-1.30pm, 6-8.30pm\n"
-                                   "Weekends: 10am-1pm, 6-8.30pm\n"
-                                   "Green & Healthy Lunch (TBC): Mon (Elm), Wed (Cen), Fri (Saga)\n\n"
+            "url": default_url
+        },
+        "buttons": buttons
+    }
+
+
+def generate_buttons_msg(text, buttons):
+    if buttons == []:
+        return {"text": text}
+    else:
+        return {'attachment': {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": text,
+                "buttons": buttons
+            }
+        }}
+
+
+# DH_PB
+dh_text = "Dining hall mealtimes:\n" \
+          "-Mon-Fri: 7.30-9.30am, 11.30am-1.30pm, 6-8.30pm\n" \
+          "-Sat-Sun: 10am-1pm, 6-8.30pm\n" \
+          "-Green & Healthy Lunch: (TBC) Mon (Elm), Wed (Cen), Fri (Saga)\n"
+dh_buttons = [
+    {"type": "web_url",
+     "title": "View menu",
+     "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
+]
+dh_info_msg = add_quick_reply({"text": dh_text
                                })
+
 
 def generate_dh_menu_msg():
     meal, heading, items = dh.scrape()
@@ -216,7 +213,7 @@ def generate_dh_menu_msg():
         items_string = "Sorry, menu not available."
     else:
         for item in items:
-            items_string += item + "\n"
+            items_string += "-" + item + "\n"
 
     full_menu_msg = {
         "attachment": {
@@ -226,11 +223,7 @@ def generate_dh_menu_msg():
                 "text": ("%s for %s today:\n%s"
                          % (heading, meal, items_string)
                          ),
-                "buttons": [
-                    {"type": "web_url",
-                     "title": "View menu",
-                     "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
-                ]
+                "buttons": dh_buttons
             }
         }
     }
@@ -238,34 +231,69 @@ def generate_dh_menu_msg():
     return add_quick_reply(full_menu_msg)
 
 
-buttery_carousel = {
-    "title": "Butteries",
-    "image_url": "https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",
-    "subtitle": "Nest: Sat/Sun/Mon 10-12pm\nShiner's: Fri/Sun/Mon 830-12pm\nShiok: Tue/Thur 9-12pm, Wed 10-11pm",
-    "default_action": {
-        "type": "web_url",
-        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform"
-    },
-    "buttons": [
-        {
-            "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "The Nest"
-        },
-        {
-            "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "Shiner's Diner"
-        },
-        {
-            "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "Shiok Shack"
-        }
-    ]
-}
-buttery_msg = generate_carousel_msg(buttery_carousel)
+dh_carousel = generate_carousel_element(title="Dining Hall", image_url="https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
+                                        subtitle=dh_text,
+                                        default_url="https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+                                        buttons=dh_buttons)
 
+# BUTTERY_PB
+buttery_text = "Buttery opening: (TBC)\n" \
+               "-The Nest: Sat/Sun/Mon 10-12pm\n" \
+               "-Shiner's Diner: Fri/Sun/Mon 8.30-12pm\n" \
+               "-Shiok Shack: Tue/Thur 9-12pm, Wed 10-11pm\n"
+buttery_buttons = [
+    {
+        "type": "web_url",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform",
+        "title": "Nest Order Form"
+    },
+    {
+        "type": "postback",
+        "payload": "COMING_SOON_PB",
+        "title": "Shiner's Diner"
+    },
+    {
+        "type": "postback",
+        "payload": "COMING_SOON_PB",
+        "title": "Shiok Shack"
+    }
+]
+buttery_msg = add_quick_reply(generate_buttons_msg(
+    text=buttery_text, buttons=buttery_buttons))
+buttery_carousel = generate_carousel_element(title="Butteries",
+                                             image_url="https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",
+                                             subtitle=buttery_text,
+                                             default_url="https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform",
+                                             buttons=buttery_buttons)
+
+# AMAAN_PB
+amaan_text = "Al Amaan Delivery: 67770555 (Open 11AM-3AM)\n"
+amaan_buttons = [{
+    "type": "phone_number",
+    "title": "Call now",
+    "payload": "+6567770555"
+}, {
+    "type": "postback",
+    "title": "Get Menu",
+    "payload": "AMAAN_MENU_PB"
+}]
+amaan_msg = add_quick_reply(generate_buttons_msg(amaan_text, amaan_buttons))
+amaan_menu_image1_msg = add_quick_reply({
+    "attachment": {
+        "type": "image",
+        "payload": {
+            "attachment_id": "1033950820079900"  # dining_hall_1.jpg
+        }
+    }
+})
+amaan_menu_image2_msg = add_quick_reply({
+    "attachment": {
+        "type": "image",
+        "payload": {
+            "attachment_id": "1033950833413232"  # dining_hall_1.jpg
+        }
+    }
+})
 amaan_carousel = {'title': "Al Amaan",
                   'image_url': "https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
                   'subtitle': "Delivery: 67770555 (11AM-3AM)", 'default_action': {
@@ -284,6 +312,8 @@ amaan_carousel = {'title': "Al Amaan",
         }
 
     ]}
+
+# MACS_PB
 macs_carousel = {
     "title": "McDonald's",
     "image_url": "https://d1nqx6es26drid.cloudfront.net/app/assets/img/logo_mcd.png",
@@ -310,53 +340,69 @@ macs_carousel = {
         }
     ]
 }
-others_carousel = {
-    "title": "Others",
-    "image_url": "https://petersfancybrownhats.com/company_image.png",
-    "subtitle": "Agora opening hours:\nFoodclique operating hours:\nKoufu operating hours:\nBrinda's operating hours:",
-    "default_action": {
+macs_text = "McDelivery: 67773777 (24hrs)\n-Cendana: S138533\n-Elm: S138610\n-Saga: S138609\n"
+macs_buttons = [{
+    "type": "phone_number",
+    "title": "Call now",
+    "payload": "+6567773777"
+},
+    {
         "type": "web_url",
-        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform"
+        "url": "https://www.mcdelivery.com.sg/sg/browse/menu.html",
+        "title": "Menu"
     },
-    "buttons": [
-        {
-            "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "Call Brinda's now"
-        },
-        {
-            "type": "web_url",
-            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
-            "title": "Brinda's menu"
-        },
-        {
-            "type": "web_url",
-            "url": "http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html",
-            "title": "UTown F&B"
-        }
-    ]
-}
+    {
+        "type": "web_url",
+        "url": "https://www.mcdelivery.com.sg/sg/guest.html",
+        "title": "Order online"
+    }]
+macs_msg = add_quick_reply(generate_buttons_msg(macs_text, macs_buttons))
 
-all_carousels_list = [
+# AGORA_PB
+agora_text = "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\nGrab N' Go Lunch: TBC\n"
+agora_buttons = [{"type": "postback", "title": "GRAB N' GO MENU", "payload": "COMING_SOON_PB"}]
+agora_msg = add_quick_reply(generate_buttons_msg(agora_text, agora_buttons))
+
+# UTOWN_PB
+utown_text = "Nearest Foodcourts: \n-Koufu Foodcourt: Mon-Fri 7am- 10pm, Sat-Sun 10am-10pm\n-Flavours@Utown: Everyday 7.30am-10pm\n"
+utown_buttons = [{
+    "type": "web_url",
+    "url": "http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html",
+    "title": "View More"
+}]
+utown_msg = add_quick_reply(generate_buttons_msg(utown_text, utown_buttons))
+
+# EXPLORE_PB
+explore_text = "Check out these cool places near campus!"
+explore_buttons = []
+explore_msg = add_quick_reply(generate_buttons_msg(explore_text, explore_buttons))
+
+# GET_ALL_MSG
+all_texts = [dh_text, buttery_text, amaan_text, macs_text, agora_text, utown_text]
+
+
+def generate_get_all_text(texts):
+    get_all_text = ""
+    for text in texts:
+        get_all_text += text + "\n"
+    return get_all_text
+
+
+get_all_text = generate_get_all_text(all_texts)
+get_all_buttons = []
+get_all_text_msg = add_quick_reply(generate_buttons_msg(get_all_text, get_all_buttons))
+
+get_all_carousels_list = [
     dh_carousel,
-    buttery_carousel,
-    amaan_carousel,
-    macs_carousel,
-    others_carousel
+    buttery_carousel
+    #    amaan_carousel,
+    #   macs_carousel,
+    #  others_carousel
 ]
-all_carousels_msg = add_quick_reply({
-    "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "generic",
-            "image_aspect_ratio": "horizontal",
-            "elements": all_carousels_list
-        }
-    }
-})
+get_all_carousel_msg = add_quick_reply(generate_carousel_msg(get_all_carousels_list))
 
 # MISC
-coming_soon_msg = {"text": "Feature in development."}
+coming_soon_msg = add_quick_reply({"text": "Coming soon!"})
 sorry_msg = add_quick_reply({'attachment': {
     "type": "template",
     "payload": {
@@ -461,3 +507,30 @@ list_main = {
     }
 }
 cendana_buttery_form_submitted_msg = {"text": "Submitted your order to The Nest."}
+others_carousel = {
+    "title": "Others",
+    "image_url": "https://petersfancybrownhats.com/company_image.png",
+    "subtitle": "Agora opening hours:\nFoodclique operating hours:\nKoufu operating hours:\nBrinda's operating hours:",
+    "default_action": {
+        "type": "web_url",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform"
+    },
+    "buttons": [
+        {
+            "type": "web_url",
+            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+            "title": "Call Brinda's now"
+        },
+        {
+            "type": "web_url",
+            "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
+            "title": "Brinda's menu"
+        },
+        {
+            "type": "web_url",
+            "url": "http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html",
+            "title": "UTown F&B"
+        }
+    ]
+}
+slow_msg = {"text": "Hang on, this might take a second..."}

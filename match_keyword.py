@@ -27,20 +27,23 @@ def match_text_or_payload(input, sender_id):
         yield msg.buttery_msg
 
     elif input_contains(["amaan", "AMAAN_PB"]):
-        yield msg.al_amaan_menu_image1_msg
-        yield msg.al_amaan_menu_image2_msg
+        yield msg.amaan_msg
+
+    elif input_contains(["AMAAN_MENU_PB"]):
+        yield msg.amaan_menu_image1_msg
+        yield msg.amaan_menu_image2_msg
 
     elif input_contains(["macs", "MACS_PB"]):
-        yield msg.sorry_msg
+        yield msg.macs_msg
 
     elif input_contains(["agora", "AGORA_PB"]):
-        yield msg.sorry_msg
+        yield msg.agora_msg
 
     elif input_contains(["utown", "UTOWN_PB"]):
-        yield msg.sorry_msg
+        yield msg.utown_msg
 
     elif input_contains(["explore", "EXPLORE_PB"]):
-        yield msg.sorry_msg
+        yield msg.coming_soon_msg
 
     elif input_contains(["help", "HELP_PB"]):
         yield msg.start_msg
@@ -52,8 +55,18 @@ def match_text_or_payload(input, sender_id):
         yield msg.feedback_received_msg
 
     elif input_contains(["get all", "GET_ALL_PB"]):
-        yield msg.info_msg
-        yield msg.all_carousels_msg
+        yield msg.get_all_text_msg
+        time.sleep(1)
+        send_typing_msg(sender_id)
+        yield msg.get_all_carousel_msg
+        """yield msg.slow_msg
+        yield msg.dh_info_msg
+        yield msg.generate_dh_menu_msg()
+        yield msg.buttery_msg
+        yield msg.amaan_msg
+        yield msg.macs_msg
+        yield msg.agora_msg
+        yield msg.utown_msg"""
 
     elif input_contains(["COMING_SOON_PB"]):
         yield msg.coming_soon_msg
