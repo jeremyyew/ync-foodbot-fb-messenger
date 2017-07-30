@@ -20,7 +20,8 @@ def match_text_or_payload(input, sender_id):
         yield msg.info_msg
 
     elif input_contains(["dh", "DH_PB"]):
-        yield msg.generate_short_menu_msg()
+        yield msg.dh_info_msg
+        yield msg.generate_dh_menu_msg()
 
     elif input_contains(["buttery", "BUTTERY_PB"]):
         yield msg.buttery_msg
@@ -56,6 +57,9 @@ def match_text_or_payload(input, sender_id):
 
     elif input_contains(["COMING_SOON_PB"]):
         yield msg.coming_soon_msg
+
+    elif input_contains(["list"]):
+        yield msg.list_main
 
     # ELSE (NOT RECOGNIZED text or postback: ):
     else:
