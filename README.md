@@ -15,7 +15,7 @@ Hosted on Heroku.
 - git markdown
 - gitignore
 
-## To-do
+## To-do To-day
 **30th Sunday**
 
 - [ ] Branch keyword_interface:
@@ -28,7 +28,7 @@ Hosted on Heroku.
     - [X] MACS_PB, macs_msg
     - [X] AGORA_PB, agora_msg
     - [X] UTOWN_PB, utown_msg
-    - [ ] EXPLORE_PB, explore_msg
+    - [X] EXPLORE_PB, explore_msg
     - [X] "help", "HELP_PB"
     - [X] "FEEDBACK_PB", "feedback"
     - [X] "#feedback"
@@ -36,38 +36,40 @@ Hosted on Heroku.
     - [X] turn typing delay back on
     - [ ] add emoji to all msgs
     - [ ] Spoons and Forks
-
-    - [ ] refactor info msg to concat all texts
-    - [ ] refactor get_all msg into a list?
-
+    - [X] refactor info msg to concat all texts
+    - [ ] Agora img, Utown img, explore img
+    - [ ] Agora - grab n go scrape
+    - [ ] Change explore default url
     - [X] Change coming_soon_msg
-
-- [ ] **Deployment**
-    - [ ] Notes
+    - [ ] Add location to amaan_buttons
     - [ ] Add "Share" image.
-    - [ ] case sensitivity
-
-- [ ] Other features to explore:
-    - [X] **"Order buttery food"**
-    - [X] **Notification subscription ("What's cookin'?")**
-    - [ ] **"Discover new food places"**
-
-### When school reopens (10/8):
-- [ ] **Check Menu**
     - [ ] xpath by day/tab rel
-- [ ] coffee stand openings - scrape?
-- [ ] update buttery opening timings
+
+## Must-haves (Before first deployment, 1 August)
+    - [ ] Notes
+    - [ ] update buttery opening timings
+    - [ ] Populate explore button
+    - [ ] Get rid of all COMING_SOON_PB
+
+## Should-haves (Before release)
 - [ ] update webscraper day tabs
+- [ ]upload all img to imgbb
 - [ ] update copy (e.g. share message)
-- [ ] delete false links
-- [ ] re-publish, test group
+- [ ] delete false links (if any)
 - [ ] Implement Google Form CMS: https://www.drivecms.xyz/#getting-started
+
+## Nice-to-haves
+    - [ ] case insensitivity
+    - [ ] coffee stand openings - scrape?
+**Features to explore**
+    - [X] Order buttery food?
+    - [X] Notification subscriptions?
 
 ### Other chatbot ideas:
 - [ ] YNC general info, memes/comics subscription
 - [ ] receipt scanner/expenses recorder
 
-#### Messenger API features explored:
+### Messenger API features explored:
 - [X] Get Started message
 - [X] Share Button
 - [X] Carousel messages
@@ -75,7 +77,7 @@ Hosted on Heroku.
 - [X] Lists
 - [X] Quick Replies
 
-### Completed:
+## Completed:
 
 **29th Saturday**
 - [X] Write instant_test.py
