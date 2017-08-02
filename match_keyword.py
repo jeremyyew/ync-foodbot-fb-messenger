@@ -49,11 +49,11 @@ def match_text_or_payload(input, sender_id):
     elif input_contains(["help", "HELP_PB"]):
         yield msg.start_msg
 
-    elif input_contains(["FEEDBACK_PB", "feedback"]):
-        yield msg.feedback_prompt_msg
-
     elif input_contains(["#feedback"]):
         yield msg.feedback_received_msg
+
+    elif input_contains(["FEEDBACK_PB", "feedback"]):
+        yield msg.feedback_prompt_msg
 
     elif input_contains(["get all", "GET_ALL_PB"]):
         yield msg.get_all_text_msg
