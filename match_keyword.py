@@ -42,9 +42,9 @@ def match_text_or_payload(input, sender_id):
     elif input_contains(["utown", "UTOWN_PB"]):
         yield msg.utown_msg
 
-    elif input_contains(["explore", "EXPLORE_PB"]):
-        yield msg.explore_msg
-        yield msg.explore_places_carousel_msg
+    #elif input_contains(["explore", "EXPLORE_PB"]):
+    #     yield msg.explore_msg
+    #    yield msg.explore_places_carousel_msg
 
     elif input_contains(["help", "HELP_PB"]):
         yield msg.start_msg
@@ -68,6 +68,10 @@ def match_text_or_payload(input, sender_id):
         yield msg.macs_msg
         yield msg.agora_msg
         yield msg.utown_msg"""
+
+    #elif input_contains(["EXPLORE_REVIEWS_PB"]):
+    #    for review in msg.pipe_district_review_msgs:
+    #        yield review
 
     elif input_contains(["COMING_SOON_PB"]):
         yield msg.coming_soon_msg
