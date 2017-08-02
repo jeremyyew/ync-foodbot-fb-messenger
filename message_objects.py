@@ -9,7 +9,7 @@ keywords_desc_list = [
     (u'\U0001F35F', "macs", "Macs menu/hotline/online order"),
     (u'\u2615', "agora", "cafe opening hours/menu"),
     (u'\u2668', "utown", "Utown F&B outlets"),
-    (u'\U0001f6b2', "explore", "places near campus to visit")
+    #(u'\U0001f6b2', "explore", "places near campus to visit")
     # ("brewhouse", "Brewhouse pop-up times/locations.")
 ]
 
@@ -285,7 +285,7 @@ amaan_carousel = generate_carousel_element(title="Al Amaan",
                                            buttons=amaan_buttons)
 
 # MACS_PB
-macs_text = "McDelivery: 67773777 (24hrs)\n-Cendana: S138533\n-Elm: S138610\n-Saga: S138609\n"
+macs_text = "McDelivery: 67773777 (Open 24hrs)\n-Cendana: S138533\n-Elm: S138610\n-Saga: S138609\n"
 macs_buttons = [{
     "type": "phone_number",
     "title": "Call now",
