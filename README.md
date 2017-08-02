@@ -19,14 +19,14 @@ Hosted on Heroku.
 ## To-do To-day
 **2/8 Mon**
 - [X] Add location to amaan_buttons
-- [X] Remove explore
-- [ ] Remove info
+- [X] Remove explore (from keywords_desc_list, quick_replies, get_all_carousel, get_all_text, test_generator, match_keyword)
+- [X] Remove info (from keywords_desc_list, quick_replies, get_all_carousel, get_all_text, test_generator, match_keyword)
 - [ ] xpath by day/tab rel
 
-- [ ] add emoji to all msgs
-- [ ] Agora img, Utown img, explore img
+- [X] add emoji to all msgs
+- [ ] Agora img, Utown img
 - [ ] Agora - grab n go scrape
-- [ ] Change explore default url
+- [ ] Change Get Started description
 
 ## Must-haves (Before deployment v0.1, 3/8)
 - [ ] Notes
