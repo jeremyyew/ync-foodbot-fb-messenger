@@ -20,6 +20,7 @@ Hosted on Heroku.
 **2/8 Mon**
 - [X] Add location to amaan_buttons
 - [X] Remove explore
+- [ ] Remove info
 - [ ] xpath by day/tab rel
 
 - [ ] add emoji to all msgs
