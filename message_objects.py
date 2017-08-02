@@ -24,15 +24,16 @@ def generate_keywords_desc_text():
 quick_replies_list = [
     #("info", "INFO_PB"),
     (u'\U0001f374' + "dh", "DH_PB"),
-    ("buttery", "BUTTERY_PB"),
-    ("amaan", "AMAAN_PB"),
-    ("macs", "MACS_PB"),
-    ("agora", "AGORA_PB"),
-    ("utown", "UTOWN_PB"),
-    ("get all", "GET_ALL_PB"),
+    (u'\U0001f354' + "buttery", "BUTTERY_PB"),
+    (u'\U0001f35b' + "amaan", "AMAAN_PB"),
+    (u'\U0001F35F' + "macs", "MACS_PB"),
+    (u'\u2615' + "agora", "AGORA_PB"),
+    (u'\u2668' + "utown", "UTOWN_PB"),
+    (u'\U0001f4af' + "get all", "GET_ALL_PB"),
     #("explore", "EXPLORE_PB"),
-    ("help", "HELP_PB"),
-    ("feedback", "FEEDBACK_PB"),
+    (u'\u2764\ufe0f' + "share", "GET_STARTED_PB"),
+    (u'\u2753' + "help", "HELP_PB"),
+    (u'\U0001f4ac' + "feedback", "FEEDBACK_PB"),
 ]
 
 
