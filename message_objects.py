@@ -159,10 +159,7 @@ start_msg = add_quick_reply({
     }})
 
 # FEEDBACK_PB
-feedback_prompt_msg = add_quick_reply({"text": "Send any suggestions, feedback or bug reports directly to the bot. "
-                                               "Simply include the tag #feedback in your message . "
-                                               "If reporting a bug, please try to be as specific as possible. "
-                                               "You can also hit me up at m.me/jeremy.yew.9.\n\n"})
+feedback_prompt_msg = add_quick_reply({"text": "Simply include the tag #feedback directly in your suggestion, feedback, or bug report message. If reporting a bug, please try to be as specific as possible. You can also hit me up at m.me/jeremy.yew.9.\n\n"})
 feedback_received_msg = add_quick_reply({"text": "Feedback received, thanks! I'll work on it."})
 
 # INFO_PB
@@ -216,7 +213,7 @@ def generate_dh_menu_msg():
     return add_quick_reply(msg)
 
 # BUTTERY_PB
-buttery_text = "Buttery opening: (TBC)\n" \
+buttery_text = "Buttery openings: (TBC)\n" \
                "-The Nest: Sat/Sun/Mon 10-12pm\n" \
                "-Shiner's Diner: Fri/Sun/Mon 8.30-12pm\n" \
                "-Shiok Shack: Tue/Thur 9-12pm, Wed 10-11pm\n"
