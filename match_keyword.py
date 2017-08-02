@@ -13,7 +13,7 @@ def match_text_or_payload(input, sender_id):
         yield msg.welcome_msg
         time.sleep(1)
         send_typing_msg(sender_id)
-        time.sleep(2)
+        time.sleep(1)
         yield msg.start_msg
 
     #elif input_contains(["info", "INFO_PB"]):
