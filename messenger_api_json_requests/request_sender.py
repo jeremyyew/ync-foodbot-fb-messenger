@@ -9,7 +9,7 @@ def send_json_request(payloads):
         if r.status_code != requests.codes.ok:
             print r.text
 
-greeting_pl = {"setting_type": "greeting", "greeting": {"text": "Type 'start' or press 'Get Started'."}}
+greeting_pl = {"setting_type": "greeting", "greeting": {"text": "Type 'start' or tap 'Get Started'."}}
 get_started_pl = {
     "setting_type": "call_to_actions",
     "thread_state": "new_thread",
