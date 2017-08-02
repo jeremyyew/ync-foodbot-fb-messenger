@@ -371,8 +371,7 @@ get_all_carousels_list = [
     amaan_carousel,
     macs_carousel,
     agora_carousel,
-    utown_carousel,
-    explore_carousel
+    utown_carousel
 ]
 get_all_carousel_msg = add_quick_reply(generate_carousel_msg(get_all_carousels_list))
 
