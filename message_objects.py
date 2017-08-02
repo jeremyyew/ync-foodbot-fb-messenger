@@ -209,7 +209,7 @@ dh_carousel = generate_carousel_element(title="Dining Hall", image_url="https://
 def generate_dh_menu_msg():
     meal, heading, items = dh.scrape()
     msg_string = ""
-    msg_string += "Today's %s for %s:" % (heading, meal)
+    msg_string += "Today's %s for %s: \n" % (heading, meal)
     for item in items:
         msg_string += item + "\n"
     msg = generate_buttons_msg(msg_string, dh_buttons)
