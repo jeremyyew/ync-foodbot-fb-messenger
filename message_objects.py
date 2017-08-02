@@ -206,6 +206,14 @@ dh_carousel = generate_carousel_element(title="Dining Hall", image_url="https://
                                         subtitle=dh_text,
                                         default_url="https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
                                         buttons=dh_buttons)
+def generate_dh_menu_msg():
+    meal, heading, items = scrape()
+    msg_string = ""
+    msg_string += "Today's %s for %s:" % (heading, meal)
+    for item in items:
+        msg_string += item + "\n""
+    msg = generate_buttons_msg(msg_string, dh_buttons)
+    return add_quick_reply(msg)
 
 # BUTTERY_PB
 buttery_text = "Buttery opening: (TBC)\n" \
