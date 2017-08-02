@@ -29,6 +29,7 @@ quick_replies_list = [
     ("macs", "MACS_PB"),
     ("agora", "AGORA_PB"),
     ("utown", "UTOWN_PB"),
+    ("get all", "GET_ALL_PB"),
     #("explore", "EXPLORE_PB"),
     ("help", "HELP_PB"),
     ("feedback", "FEEDBACK_PB"),
@@ -188,7 +189,7 @@ info_msg = add_quick_reply({"text": (
 })
 
 # DH_PB
-dh_text = "Dining hall mealtimes:\n" \
+dh_text = u'\U0001f374 ' + "Dining hall mealtimes:\n" \
           "-Mon-Fri: 7.30-9.30am, 11.30am-1.30pm, 6-8.30pm\n" \
           "-Sat-Sun: 10am-1pm, 6-8.30pm\n" \
           "-Green & Healthy Lunch: (TBC) Mon (Elm), Wed (Cen), Fri (Saga)\n"
@@ -213,7 +214,7 @@ def generate_dh_menu_msg():
     return add_quick_reply(msg)
 
 # BUTTERY_PB
-buttery_text = "Buttery openings: (TBC)\n" \
+buttery_text = u'\U0001f354 ' + "Buttery openings: (TBC)\n" \
                "-The Nest: Sat/Sun/Mon 10-12pm\n" \
                "-Shiner's Diner: Fri/Sun/Mon 8.30-12pm\n" \
                "-Shiok Shack: Tue/Thur 9-12pm, Wed 10-11pm\n"
@@ -243,7 +244,7 @@ buttery_carousel = generate_carousel_element(title="Butteries",
                                              buttons=buttery_buttons)
 
 # AMAAN_PB
-amaan_text = "Al Amaan Delivery: +67770555 (Open 11AM-3AM)\n"
+amaan_text = u'\U0001f35b ' + "Al Amaan Delivery: +67770555 (Open 11AM-3AM)\n"
 amaan_buttons = [{
     "type": "phone_number",
     "title": "Call now",
@@ -282,7 +283,7 @@ amaan_carousel = generate_carousel_element(title="Al Amaan",
                                            buttons=amaan_buttons)
 
 # MACS_PB
-macs_text = "McDelivery: 67773777 (Open 24hrs)\n-Cendana: S138533\n-Elm: S138610\n-Saga: S138609\n"
+macs_text = u'\U0001F35F ' + "McDelivery: 67773777 (Open 24hrs)\n-Cendana: S138533\n-Elm: S138610\n-Saga: S138609\n"
 macs_buttons = [{
     "type": "phone_number",
     "title": "Call now",
@@ -306,13 +307,13 @@ macs_carousel = generate_carousel_element(title="McDonald's",
                                           buttons=macs_buttons)
 
 # AGORA_PB
-agora_text = "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\nGrab N' Go Lunch: TBC\n"
+agora_text = u'\u2615 ' + "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\nGrab N' Go Lunch: TBC\n"
 agora_buttons = [{"type": "postback", "title": "GRAB N' GO MENU", "payload": "COMING_SOON_PB"}]
 agora_msg = add_quick_reply(generate_buttons_msg(agora_text, agora_buttons))
 agora_carousel = generate_carousel_element(title="Agora Cafe", image_url="", subtitle=agora_text, default_url="https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/", buttons=agora_buttons)
 
 # UTOWN_PB
-utown_text = "Utown Foodcourts: \n-Koufu Foodcourt: Mon-Fri 7am- 10pm, Sat-Sun 10am-10pm\n-Flavours@Utown: Everyday 7.30am-10pm\n"
+utown_text = u'\u2668 ' + "Utown Foodcourts: \n-Koufu Foodcourt: Mon-Fri 7am- 10pm, Sat-Sun 10am-10pm\n-Flavours@Utown: Everyday 7.30am-10pm\n"
 utown_buttons = [{
     "type": "web_url",
     "url": "http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html",
