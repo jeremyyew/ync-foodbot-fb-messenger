@@ -16,8 +16,8 @@ def match_text_or_payload(input, sender_id):
         time.sleep(2)
         yield msg.start_msg
 
-    elif input_contains(["info", "INFO_PB"]):
-        yield msg.info_msg
+    #elif input_contains(["info", "INFO_PB"]):
+        #yield msg.info_msg
 
     elif input_contains(["dh", "DH_PB"]):
         yield msg.dh_info_msg
