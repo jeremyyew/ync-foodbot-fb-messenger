@@ -26,7 +26,6 @@ def generate_text_test(type, filename, strings, url):
 
 url = "http://127.0.0.1:5000/"
 text_list = ["Get Started",
-             "info",
              "dh",
              "buttery",
              "amaan",
