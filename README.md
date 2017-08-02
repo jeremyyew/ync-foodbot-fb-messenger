@@ -14,21 +14,20 @@ Hosted on Heroku.
 - Xml object parsing with Xpath
 - git markdown
 - gitignore
+- git branching
 
 ## To-do To-day
-**30th Sunday**
+**2/8 Mon**
+- [X] Add location to amaan_buttons
+- [ ] Remove explore
+- [ ] xpath by day/tab rel
 
 - [ ] add emoji to all msgs
 - [ ] Agora img, Utown img, explore img
-- [X] refactor info msg to concat all texts
 - [ ] Agora - grab n go scrape
 - [ ] Change explore default url
-- [X] Change coming_soon_msg
-- [ ] Add location to amaan_buttons
-- [ ] Add "Share" image.
-- [ ] xpath by day/tab rel
 
-## Must-haves (Before first deployment, 1 August)
+## Must-haves (Before deployment v0.1, 3/8)
 - [ ] Notes
 - [ ] update buttery opening timings
 - [ ] Populate explore button
@@ -64,6 +63,9 @@ Hosted on Heroku.
 ## Completed:
 
 **30/07 Sunday**
+- [X] Change coming_soon_msg
+- [X] refactor info msg to concat all texts
+- [X] Add "Share" image.
 - [X] Add quick_replies to everything
 - [X] Get Started, GET_ STARTED_PB, start
 - [X] info, INFO_PB
