@@ -53,6 +53,48 @@ def add_quick_reply(msg):
     return msg
 
 
+# CAROUSEL and BUTTON GENERATOR
+def generate_carousel_msg(elements):
+    carousel_msg = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "image_aspect_ratio": "horizontal",
+                "elements": elements
+            }
+        }
+    }
+    return carousel_msg
+
+
+def generate_carousel_element(title, image_url, subtitle, default_url, buttons):
+    return {
+        "title": title,
+        "image_url": image_url,
+        "subtitle": subtitle,
+        "default_action": {
+            "type": "web_url",
+            "url": default_url
+        },
+        "buttons": buttons
+    }
+
+
+def generate_buttons_msg(text, buttons):
+    if buttons == []:
+        return {"text": text}
+    else:
+        return {'attachment': {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": text,
+                "buttons": buttons
+            }
+        }}
+
+
 # GET_STARTED_PB
 welcome_msg = {'attachment': {
     "type": "template",
@@ -74,7 +116,7 @@ welcome_msg = {'attachment': {
                                  "title": "Hungry? I gotchu fam.",
                                  "subtitle": (
                                      "Quick access to buttery order forms, dining hall menu, delivery hotlines, and more!"),
-                                 "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
+                                 "image_url": "https://image.ibb.co/d03JQQ/YNCFoodbotlogo2.png",
                                  "default_action": {
                                      "type": "web_url",
                                      "url": "http://m.me/979027202238929"
@@ -148,49 +190,6 @@ info_msg = add_quick_reply({"text": (
 )
 })
 
-
-# CAROUSEL and BUTTON GENERATOR
-def generate_carousel_msg(elements):
-    carousel_msg = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "image_aspect_ratio": "horizontal",
-                "elements": elements
-            }
-        }
-    }
-    return carousel_msg
-
-
-def generate_carousel_element(title, image_url, subtitle, default_url, buttons):
-    return {
-        "title": title,
-        "image_url": image_url,
-        "subtitle": subtitle,
-        "default_action": {
-            "type": "web_url",
-            "url": default_url
-        },
-        "buttons": buttons
-    }
-
-
-def generate_buttons_msg(text, buttons):
-    if buttons == []:
-        return {"text": text}
-    else:
-        return {'attachment': {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": text,
-                "buttons": buttons
-            }
-        }}
-
-
 # DH_PB
 dh_text = "Dining hall mealtimes:\n" \
           "-Mon-Fri: 7.30-9.30am, 11.30am-1.30pm, 6-8.30pm\n" \
@@ -239,7 +238,7 @@ buttery_carousel = generate_carousel_element(title="Butteries",
                                              buttons=buttery_buttons)
 
 # AMAAN_PB
-amaan_text = "Al Amaan Delivery: 67770555 (Open 11AM-3AM)\n"
+amaan_text = "Al Amaan Delivery: +67770555 (Open 11AM-3AM)\n"
 amaan_buttons = [{
     "type": "phone_number",
     "title": "Call now",
@@ -248,7 +247,13 @@ amaan_buttons = [{
     "type": "postback",
     "title": "Get Menu",
     "payload": "AMAAN_MENU_PB"
-}]
+},
+    {
+        "type": "web_url",
+        "title": "Get Menu",
+        "url": "https://goo.gl/maps/fRyaBEeCx172"
+    }
+]
 amaan_msg = add_quick_reply(generate_buttons_msg(amaan_text, amaan_buttons))
 amaan_menu_image1_msg = add_quick_reply({
     "attachment": {
@@ -322,10 +327,17 @@ explore_msg = add_quick_reply(generate_buttons_msg(explore_text, []))
 explore_carousel= generate_carousel_element(title="Explore", image_url="", subtitle=explore_text, default_url= "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/", buttons=explore_buttons)
 
 # EXPLORE_PB - explore places
-pipe_district_url = "http://danielfooddiary.com/2016/02/17/thepipedistrict/"
+def generate_review_msgs(reviews):
+    for review in reviews:
+        yield add_quick_reply({"text": review})
+
+pipe_district_url = "http://www.thepipedistrict.com/#aboutPage"
+pipe_district_reviews = ["http://danielfooddiary.com/2016/02/17/thepipedistrict/", "https://www.burpple.com/the-pipe-district"]
 pipe_district_loc = "https://goo.gl/maps/R85eSuf8xnL2"
-pipe_district_buttons = [{"type": "web_url", "url":pipe_district_url, "title": "See Review"}, {"type": "web_url", "url":pipe_district_loc, "title": "Directions"}]
-pipe_district_carousel1 = generate_carousel_element(title="Pipe District", image_url="", subtitle="", default_url= pipe_district_url, buttons=pipe_district_buttons)
+pipe_district_buttons = [{"type": "web_url", "url":pipe_district_url, "title": "Website"}, {"type": "postback", "payload":"EXPLORE_REVIEWS_PB", "title":"Reviews"},{"type": "web_url", "url":pipe_district_loc, "title": "Directions"}]
+pipe_district_carousel1 = generate_carousel_element(title="Pipe District", image_url="https://image.ibb.co/gdPHjk/pipedistrict1.jpg", subtitle="Pipe-themed restaurant in Science Park.", default_url= pipe_district_url, buttons=pipe_district_buttons)
+pipe_district_review_msgs = generate_review_msgs(pipe_district_reviews)
+
 pipe_district_carousel2 = pipe_district_carousel1
 explore_places_list = [pipe_district_carousel1, pipe_district_carousel2]
 explore_places_carousel_msg = add_quick_reply(generate_carousel_msg(explore_places_list))
