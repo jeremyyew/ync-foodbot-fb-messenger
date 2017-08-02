@@ -23,7 +23,7 @@ def generate_keywords_desc_text():
 
 quick_replies_list = [
     #("info", "INFO_PB"),
-    ("dh", "DH_PB"),
+    (u'\U0001f374' + "dh", "DH_PB"),
     ("buttery", "BUTTERY_PB"),
     ("amaan", "AMAAN_PB"),
     ("macs", "MACS_PB"),
@@ -103,7 +103,7 @@ welcome_msg = {'attachment': {
         "template_type": "button",
         "text": (
             "Welcome to the Yale-NUS Foodbot! "
-            "Feel free to share if you find it useful " + u'\U0001f60e'
+            "Feel free to share this if you find it useful. Please do send feedback, suggestions or bug reports!" + u'\U0001f60e'
         ),
         "buttons": [
             {"type": "element_share",
@@ -160,7 +160,7 @@ start_msg = add_quick_reply({
     }})
 
 # FEEDBACK_PB
-feedback_prompt_msg = add_quick_reply({"text": "Simply include the tag #feedback directly in your suggestion, feedback, or bug report message. If reporting a bug, please try to be as specific as possible. You can also hit me up at m.me/jeremy.yew.9.\n\n"})
+feedback_prompt_msg = add_quick_reply({"text": "Simply include the tag #feedback directly in your message. If reporting a bug, please try to be as specific as possible. You can also hit me up at m.me/jeremy.yew.9.\n\n"})
 feedback_received_msg = add_quick_reply({"text": "Feedback received, thanks! I'll work on it."})
 
 # INFO_PB
@@ -320,7 +320,7 @@ utown_buttons = [{
     "title": "View More"
 }]
 utown_msg = add_quick_reply(generate_buttons_msg(utown_text, utown_buttons))
-utown_carousel = generate_carousel_element(title="UTown F&B Outlets", image_url="", subtitle="utown_text", default_url="http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html", buttons=utown_buttons)
+utown_carousel = generate_carousel_element(title="UTown F&B Outlets", image_url="", subtitle=utown_text, default_url="http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html", buttons=utown_buttons)
 
 # EXPLORE_PB
 explore_text = "Check out these cool places near campus!"
