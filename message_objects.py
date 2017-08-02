@@ -150,7 +150,7 @@ start_msg = add_quick_reply({
         "payload": {
             "template_type": "button",
             "text": (
-                "Try typing/selecting these keywords:\n" + generate_keywords_desc_text()
+                "Try typing/tapping these keywords:\n" + generate_keywords_desc_text()
             ),
             "buttons": [
                 {"type": "postback",
@@ -381,7 +381,7 @@ sorry_msg = add_quick_reply({'attachment': {
     "type": "template",
     "payload": {
         "template_type": "button",
-        "text": "Sorry, I don't understand. Type or select \"help\" to show list of commands.",
+        "text": "Sorry, I don't understand. Type or tap \"help\" to show list of commands.",
         "buttons": [{"type": "postback",
                      "title": "help",
                      "payload": "HELP_PB"}
