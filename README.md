@@ -19,7 +19,7 @@ Hosted on Heroku.
 ## To-do To-day
 **2/8 Mon**
 - [X] Add location to amaan_buttons
-- [ ] Remove explore
+- [X] Remove explore
 - [ ] xpath by day/tab rel
 
 - [ ] add emoji to all msgs
