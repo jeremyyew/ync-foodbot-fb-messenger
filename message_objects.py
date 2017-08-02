@@ -2,7 +2,7 @@ import dh_menu_scrape as dh
 
 # json generators
 keywords_desc_list = [
-    (u'\U0001f552', "info", "all opening hours/etc"),
+    #(u'\U0001f552', "info", "all opening hours/etc"),
     (u'\U0001f374', "dh", "dining hall menu link"),
     (u'\U0001f354', "buttery", "opening hours, menus/order form links"),
     (u'\U0001f35b', "amaan", "Al Amaan menu/hotline"),
@@ -372,6 +372,7 @@ get_all_carousels_list = [
     macs_carousel,
     agora_carousel,
     utown_carousel
+    #explore_carousel
 ]
 get_all_carousel_msg = add_quick_reply(generate_carousel_msg(get_all_carousels_list))
 
