@@ -250,7 +250,7 @@ amaan_buttons = [{
 },
     {
         "type": "web_url",
-        "title": "Get Menu",
+        "title": "Location",
         "url": "https://goo.gl/maps/fRyaBEeCx172"
     }
 ]
