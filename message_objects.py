@@ -22,14 +22,14 @@ def generate_keywords_desc_text():
 
 
 quick_replies_list = [
-    ("info", "INFO_PB"),
+    #("info", "INFO_PB"),
     ("dh", "DH_PB"),
     ("buttery", "BUTTERY_PB"),
     ("amaan", "AMAAN_PB"),
     ("macs", "MACS_PB"),
     ("agora", "AGORA_PB"),
     ("utown", "UTOWN_PB"),
-    ("explore", "EXPLORE_PB"),
+    #("explore", "EXPLORE_PB"),
     ("help", "HELP_PB"),
     ("feedback", "FEEDBACK_PB"),
 ]
