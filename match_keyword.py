@@ -9,7 +9,7 @@ def match_text_or_payload(input, sender_id):
     def input_contains(keys):
         return any(key in input for key in keys)
 
-    if input_contains(["Get Started", "start", "GET_ STARTED_PB"]):
+    if input_contains(["Get Started", "start", "GET_STARTED_PB"]):
         yield msg.welcome_msg
         time.sleep(1)
         send_typing_msg(sender_id)
