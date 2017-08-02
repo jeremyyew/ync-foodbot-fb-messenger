@@ -211,7 +211,7 @@ def generate_dh_menu_msg():
     msg_string = ""
     msg_string += "Today's %s for %s:" % (heading, meal)
     for item in items:
-        msg_string += item + "\n""
+        msg_string += item + "\n"
     msg = generate_buttons_msg(msg_string, dh_buttons)
     return add_quick_reply(msg)
 
