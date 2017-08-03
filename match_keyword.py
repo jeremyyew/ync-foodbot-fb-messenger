@@ -42,6 +42,15 @@ def match_text_or_payload(input, sender_id):
     elif input_contains(["utown", "UTOWN_PB"]):
         yield msg.utown_msg
 
+    elif input_contains(["get all", "GET_ALL_PB"]):
+        yield msg.get_all_text_msg
+        time.sleep(1)
+        send_typing_msg(sender_id)
+        yield msg.get_all_carousel_msg
+
+    elif input_contains(["share", "SHARE_PB"]):
+        yield msg.welcome_msg
+
     #elif input_contains(["explore", "EXPLORE_PB"]):
     #     yield msg.explore_msg
     #    yield msg.explore_places_carousel_msg
@@ -49,25 +58,15 @@ def match_text_or_payload(input, sender_id):
     elif input_contains(["help", "HELP_PB"]):
         yield msg.start_msg
 
-    elif input_contains(["#feedback"]):
-        yield msg.feedback_received_msg
-
     elif input_contains(["FEEDBACK_PB", "feedback"]):
         yield msg.feedback_prompt_msg
 
-    elif input_contains(["get all", "GET_ALL_PB"]):
-        yield msg.get_all_text_msg
-        time.sleep(1)
-        send_typing_msg(sender_id)
-        yield msg.get_all_carousel_msg
-        """yield msg.slow_msg
-        yield msg.dh_info_msg
-        yield msg.generate_dh_menu_msg()
-        yield msg.buttery_msg
-        yield msg.amaan_msg
-        yield msg.macs_msg
-        yield msg.agora_msg
-        yield msg.utown_msg"""
+
+    elif input_contains(["#feedback"]):
+        yield msg.feedback_received_msg
+
+
+
 
     #elif input_contains(["EXPLORE_REVIEWS_PB"]):
     #    for review in msg.pipe_district_review_msgs:
