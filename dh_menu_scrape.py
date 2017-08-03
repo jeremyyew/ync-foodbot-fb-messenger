@@ -2,6 +2,12 @@ from lxml import html
 import requests
 import datetime
 
+#Dependencies:
+#Meal timings.
+#Spelling of dh menu website of days as "Mon", "Thu", etc.
+#tab Today
+#names of meals and headers (daily specials, stations)
+
 url = "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
 headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"}
