@@ -31,7 +31,7 @@ quick_replies_list = [
     (u'\u2668' + "utown", "UTOWN_PB"),
     (u'\U0001f4af' + "get all", "GET_ALL_PB"),
     #("explore", "EXPLORE_PB"),
-    (u'\u2764\ufe0f' + "share", "GET_STARTED_PB"),
+    (u'\u2764\ufe0f' + "share", "SHARE_PB"),
     (u'\u2753' + "help", "HELP_PB"),
     (u'\U0001f4ac' + "feedback", "FEEDBACK_PB"),
 ]
