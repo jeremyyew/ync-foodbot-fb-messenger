@@ -36,8 +36,12 @@ def match_text_or_payload(input, sender_id):
     elif input_contains(["macs", "MACS_PB"]):
         yield msg.macs_msg
 
+    elif input_contains(["AGORA_MENU_PB"]):
+        yield msg.generate_agora_menu_msg()
+
     elif input_contains(["agora", "AGORA_PB"]):
         yield msg.agora_msg
+        yield msg.generate_agora_menu_msg()
 
     elif input_contains(["utown", "UTOWN_PB"]):
         yield msg.utown_msg
