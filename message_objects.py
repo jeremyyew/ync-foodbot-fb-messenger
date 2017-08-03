@@ -104,7 +104,7 @@ welcome_msg = {'attachment': {
         "template_type": "button",
         "text": (
             "Welcome to the Yale-NUS Foodbot! "
-            "Feel free to share this if you find it useful. Please do send feedback, suggestions or bug reports!" + u'\U0001f60e'
+            "Feel free to share this if you find it useful. Please send any feedback or suggestions" + u'\U0001f60e'
         ),
         "buttons": [
             {"type": "element_share",
@@ -138,7 +138,7 @@ welcome_msg = {'attachment': {
              },
             {
                 "type": "postback",
-                "title": "Feedback",
+                "title": "feedback",
                 "payload": "FEEDBACK_PB"
             },
         ]
