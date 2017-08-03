@@ -40,18 +40,20 @@ def messaging_events(payload):
         # IF TEXT MSG:
         sender_id = event["sender"]["id"]
 
-        if "message" in event and "text" in event["message"]:
-            message_text = event["message"]["text"]
-            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text.encode('unicode_escape'), "\n"
-            #responses = match_text_or_payload(message_text)
-            responses = match.match_text_or_payload(message_text, sender_id)
-
-        # ELSE IF POSTBACK:
-        elif "postback" in event and "payload" in event["postback"]:
+        if "postback" in event and "payload" in event["postback"]:
             postback = event["postback"]["payload"]
             print "############### RECEIVED ###############\n############### POSTBACK: ###############\n", postback, "\n"
             #responses = match_text_or_payload(postback)
             responses = match.match_text_or_payload(postback, sender_id)
+
+        elif "message" in event and "text" in event["message"]:
+            message_text = event["message"]["text"]
+            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text, "\n"
+            #responses = match_text_or_payload(message_text)
+            responses = match.match_text_or_payload(message_text, sender_id)
+
+        # ELSE IF POSTBACK:
+
 
         # ELSE (NOT TEXT MSG && NOT POSTBACK):
         else:
