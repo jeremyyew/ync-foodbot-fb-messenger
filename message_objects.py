@@ -2,14 +2,14 @@ import dh_menu_scrape as dh
 
 # json generators
 keywords_desc_list = [
-    #(u'\U0001f552', "info", "all opening hours/etc"),
+    # (u'\U0001f552', "info", "all opening hours/etc"),
     (u'\U0001f374', "dh", "dining hall menu link"),
     (u'\U0001f354', "buttery", "opening hours, menus/order form links"),
     (u'\U0001f35b', "amaan", "Al Amaan menu/hotline"),
     (u'\U0001F35F', "macs", "Macs menu/hotline/online order"),
     (u'\u2615', "agora", "cafe opening hours/menu"),
     (u'\u2668', "utown", "Utown F&B outlets"),
-    #(u'\U0001f6b2', "explore", "places near campus to visit")
+    # (u'\U0001f6b2', "explore", "places near campus to visit")
     # ("brewhouse", "Brewhouse pop-up times/locations.")
 ]
 
@@ -22,7 +22,7 @@ def generate_keywords_desc_text():
 
 
 quick_replies_list = [
-    #("info", "INFO_PB"),
+    # ("info", "INFO_PB"),
     (u'\U0001f374' + "dh", "DH_PB"),
     (u'\U0001f354' + "buttery", "BUTTERY_PB"),
     (u'\U0001f35b' + "amaan", "AMAAN_PB"),
@@ -30,7 +30,7 @@ quick_replies_list = [
     (u'\u2615' + "agora", "AGORA_PB"),
     (u'\u2668' + "utown", "UTOWN_PB"),
     (u'\U0001f4af' + "get all", "GET_ALL_PB"),
-    #("explore", "EXPLORE_PB"),
+    # ("explore", "EXPLORE_PB"),
     (u'\u2764\ufe0f' + "share", "SHARE_PB"),
     (u'\u2753' + "help", "HELP_PB"),
     (u'\U0001f4ac' + "feedback", "FEEDBACK_PB"),
@@ -161,7 +161,8 @@ start_msg = add_quick_reply({
     }})
 
 # FEEDBACK_PB
-feedback_prompt_msg = add_quick_reply({"text": "Simply include the tag #feedback directly in your message. If reporting a bug, please try to be as specific as possible. You can also hit me up at m.me/jeremy.yew.9.\n\n"})
+feedback_prompt_msg = add_quick_reply({
+                                          "text": "Simply include the tag #feedback directly in your message. If reporting a bug, please try to be as specific as possible. You can also hit me up at m.me/jeremy.yew.9.\n\n"})
 feedback_received_msg = add_quick_reply({"text": "Feedback received, thanks! I'll work on it."})
 
 # INFO_PB
@@ -191,9 +192,9 @@ info_msg = add_quick_reply({"text": (
 
 # DH_PB
 dh_text = u'\U0001f374 ' + "Dining hall mealtimes:\n" \
-          "-Mon-Fri: 7.30-9.30am, 11.30am-1.30pm, 6-8.30pm\n" \
-          "-Sat-Sun: 10am-1pm, 6-8.30pm\n" \
-          "-Green & Healthy Lunch: (TBC) Mon (Elm), Wed (Cen), Fri (Saga)\n"
+                           "-Mon-Fri: 7.30-9.30am, 11.30am-1.30pm, 6-8.30pm\n" \
+                           "-Sat-Sun: 10am-1pm, 6-8.30pm\n" \
+                           "-Green & Healthy Lunch: (TBC) Mon (Elm), Wed (Cen), Fri (Saga)\n"
 dh_buttons = [
     {"type": "web_url",
      "title": "View menu",
@@ -205,20 +206,26 @@ dh_carousel = generate_carousel_element(title="Dining Hall", image_url="https://
                                         subtitle=dh_text,
                                         default_url="https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
                                         buttons=dh_buttons)
+
+
 def generate_dh_menu_msg():
-    meal, heading, items = dh.scrape()
+    meal, heading, items = dh.scrape("dh")
     msg_string = ""
     msg_string += "Today's %s for %s: \n" % (heading, meal)
-    for item in items:
-        msg_string += item + "\n"
+    if items == []:
+        msg_string += "(preview not available)"
+    else:
+        for item in items:
+            msg_string += item + "\n"
     msg = generate_buttons_msg(msg_string, dh_buttons)
     return add_quick_reply(msg)
 
+
 # BUTTERY_PB
 buttery_text = u'\U0001f354 ' + "Buttery openings: (TBC)\n" \
-               "-The Nest: Sat/Sun/Mon 10-12pm\n" \
-               "-Shiner's Diner: Fri/Sun/Mon 8.30-12pm\n" \
-               "-Shiok Shack: Tue/Thur 9-12pm, Wed 10-11pm\n"
+                                "-The Nest: Sat/Sun/Mon 10-12pm\n" \
+                                "-Shiner's Diner: Fri/Sun/Mon 8.30-12pm\n" \
+                                "-Shiok Shack: Tue/Thur 9-12pm, Wed 10-11pm\n"
 buttery_buttons = [
     {
         "type": "web_url",
@@ -302,16 +309,33 @@ macs_buttons = [{
     }]
 macs_msg = add_quick_reply(generate_buttons_msg(macs_text, macs_buttons))
 macs_carousel = generate_carousel_element(title="McDonald's",
-                                          image_url="https://d1nqx6es26drid.cloudfront.net/app/assets/img/logo_mcd.png",
+                                          image_url="https://image.ibb.co/kwM6Ga/macs.png",
                                           subtitle=macs_text,
                                           default_url="https://www.mcdelivery.com.sg/sg/browse/menu.html",
                                           buttons=macs_buttons)
 
 # AGORA_PB
-agora_text = u'\u2615 ' + "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\nGrab N' Go Lunch: TBC\n"
-agora_buttons = [{"type": "postback", "title": "GRAB N' GO MENU", "payload": "COMING_SOON_PB"}]
-agora_msg = add_quick_reply(generate_buttons_msg(agora_text, agora_buttons))
-agora_carousel = generate_carousel_element(title="Agora Cafe", image_url="", subtitle=agora_text, default_url="https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/", buttons=agora_buttons)
+agora_text = u'\u2615 ' + "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\nGrab & Go Hours: TBC\n"
+agora_buttons = [{"type": "postback", "title": "Grab & Go Menu", "payload": "AGORA_MENU_PB"}]
+agora_msg = add_quick_reply(generate_buttons_msg(agora_text, []))
+agora_carousel = generate_carousel_element(title="Agora Cafe", image_url="https://image.ibb.co/kk059v/agora1.jpg",
+                                           subtitle=agora_text,
+                                           default_url="https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
+                                           buttons=agora_buttons)
+
+
+def generate_agora_menu_msg():
+    meal, heading, items = dh.scrape("agora")
+    msg_string = ""
+    msg_string += "Today's Grab & Go Lunch: \n"
+    if items == []:
+        msg_string += "(preview not available)"
+    else:
+        for item in items:
+            msg_string += item + "\n"
+    msg = generate_buttons_msg(msg_string, dh_buttons)
+    return add_quick_reply(msg)
+
 
 # UTOWN_PB
 utown_text = u'\u2668 ' + "Utown Foodcourts: \n-Koufu Foodcourt: Mon-Fri 7am- 10pm, Sat-Sun 10am-10pm\n-Flavours@Utown: Everyday 7.30am-10pm\n"
@@ -321,7 +345,10 @@ utown_buttons = [{
     "title": "View More"
 }]
 utown_msg = add_quick_reply(generate_buttons_msg(utown_text, utown_buttons))
-utown_carousel = generate_carousel_element(title="UTown F&B Outlets", image_url="", subtitle=utown_text, default_url="http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html", buttons=utown_buttons)
+utown_carousel = generate_carousel_element(title="UTown F&B Outlets", image_url="https://image.ibb.co/dgqYwa/Utown.jpg",
+                                           subtitle=utown_text,
+                                           default_url="http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html",
+                                           buttons=utown_buttons)
 
 # EXPLORE_PB
 explore_text = "Check out these cool places near campus!"
@@ -331,18 +358,28 @@ explore_buttons = [{
     "payload": "EXPLORE_PB"
 }]
 explore_msg = add_quick_reply(generate_buttons_msg(explore_text, []))
-explore_carousel= generate_carousel_element(title="Explore", image_url="", subtitle=explore_text, default_url= "https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/", buttons=explore_buttons)
+explore_carousel = generate_carousel_element(title="Explore", image_url="", subtitle=explore_text,
+                                             default_url="https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
+                                             buttons=explore_buttons)
+
 
 # EXPLORE_PB - explore places
 def generate_review_msgs(reviews):
     for review in reviews:
         yield add_quick_reply({"text": review})
 
+
 pipe_district_url = "http://www.thepipedistrict.com/#aboutPage"
-pipe_district_reviews = ["http://danielfooddiary.com/2016/02/17/thepipedistrict/", "https://www.burpple.com/the-pipe-district"]
+pipe_district_reviews = ["http://danielfooddiary.com/2016/02/17/thepipedistrict/",
+                         "https://www.burpple.com/the-pipe-district"]
 pipe_district_loc = "https://goo.gl/maps/R85eSuf8xnL2"
-pipe_district_buttons = [{"type": "web_url", "url":pipe_district_url, "title": "Website"}, {"type": "postback", "payload":"EXPLORE_REVIEWS_PB", "title":"Reviews"},{"type": "web_url", "url":pipe_district_loc, "title": "Directions"}]
-pipe_district_carousel1 = generate_carousel_element(title="Pipe District", image_url="https://image.ibb.co/gdPHjk/pipedistrict1.jpg", subtitle="Pipe-themed restaurant in Science Park.", default_url= pipe_district_url, buttons=pipe_district_buttons)
+pipe_district_buttons = [{"type": "web_url", "url": pipe_district_url, "title": "Website"},
+                         {"type": "postback", "payload": "EXPLORE_REVIEWS_PB", "title": "Reviews"},
+                         {"type": "web_url", "url": pipe_district_loc, "title": "Directions"}]
+pipe_district_carousel1 = generate_carousel_element(title="Pipe District",
+                                                    image_url="https://image.ibb.co/gdPHjk/pipedistrict1.jpg",
+                                                    subtitle="Pipe-themed restaurant in Science Park.",
+                                                    default_url=pipe_district_url, buttons=pipe_district_buttons)
 pipe_district_review_msgs = generate_review_msgs(pipe_district_reviews)
 
 pipe_district_carousel2 = pipe_district_carousel1
@@ -371,7 +408,7 @@ get_all_carousels_list = [
     macs_carousel,
     agora_carousel,
     utown_carousel
-    #explore_carousel
+    # explore_carousel
 ]
 get_all_carousel_msg = add_quick_reply(generate_carousel_msg(get_all_carousels_list))
 
