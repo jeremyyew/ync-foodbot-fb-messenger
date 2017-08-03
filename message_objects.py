@@ -98,7 +98,7 @@ def generate_buttons_msg(text, buttons):
 
 
 # GET_STARTED_PB
-welcome_msg = {'attachment': {
+welcome_msg = add_quick_reply({'attachment': {
     "type": "template",
     "payload": {
         "template_type": "button",
@@ -143,7 +143,7 @@ welcome_msg = {'attachment': {
             },
         ]
     }
-}}
+}})
 start_msg = add_quick_reply({
     "attachment": {
         "type": "template",
