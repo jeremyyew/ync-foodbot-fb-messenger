@@ -3,7 +3,7 @@ import dh_menu_scrape as dh
 # json generators
 keywords_desc_list = [
     # (u'\U0001f552', "info", "all opening hours/etc"),
-    (u'\U0001f374', "dh", "dining hall menu link"),
+    (u'\U0001f374', "dh", "dining hall menu preview/link"),
     (u'\U0001f354', "buttery", "opening hours, menus/order form links"),
     (u'\U0001f35b', "amaan", "Al Amaan menu/hotline"),
     (u'\U0001F35F', "macs", "Macs menu/hotline/online order"),
@@ -104,7 +104,7 @@ welcome_msg = add_quick_reply({'attachment': {
         "template_type": "button",
         "text": (
             "Welcome to the Yale-NUS Foodbot! "
-            "Feel free to share this if you find it useful. Please send any feedback or suggestions" + u'\U0001f60e'
+            "Feel free to share this if you find it useful. Please do send any feedback or suggestions you may have " + u'\U0001f60a'
         ),
         "buttons": [
             {"type": "element_share",
@@ -235,12 +235,12 @@ buttery_buttons = [
     {
         "type": "postback",
         "payload": "COMING_SOON_PB",
-        "title": "Shiner's Diner"
+        "title": "Shiner's Diner Menu"
     },
     {
         "type": "postback",
         "payload": "COMING_SOON_PB",
-        "title": "Shiok Shack"
+        "title": "Shiok Shack Menu"
     }
 ]
 buttery_msg = add_quick_reply(generate_buttons_msg(
