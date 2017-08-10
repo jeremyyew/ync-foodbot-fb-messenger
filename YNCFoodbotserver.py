@@ -48,8 +48,8 @@ def messaging_events(payload):
 
         elif "message" in event and "text" in event["message"]:
             message_text = event["message"]["text"]
-            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text.encode("unicode-escape"), "\n"
-            #responses = match_text_or_payload(message_text)
+            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", data, "\n"
+                #message_text.encode("unicode-escape"), "\n"
             responses = match.match_text_or_payload(message_text, sender_id)
 
         # ELSE IF POSTBACK:
