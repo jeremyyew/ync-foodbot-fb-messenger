@@ -23,52 +23,57 @@ def handle_verification():
 def handle_messages():
     print "Handling Messages"
     payload = request.get_data()
-    for sender, message in messaging_events(payload):
-        #print "Incoming from %s: %s" % (sender, message)
-        print "*************** SENDING RESPONSE: *************** \n", message, "\n"
-        send_message(sender, message)
-    return "ok"
+    data = json.loads(payload)
+
+    if isinstance(data, dict):
+        for sender, message in messaging_events(payload):
+            #print "Incoming from %s: %s" % (sender, message)
+            print "*************** SENDING RESPONSE: *************** \n", message, "\n"
+            send_message(sender, message)
+        return "ok"
+    elif isinstance(data, list):
+        handle_CMS_Json(data)
+        return "ok"
+    else:
+        print "Json array or obj?"
+
+def handle_CMS_Json(data):
+    print "MADE CONTACT", data[0]
+
 
 def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
     """
-
     data = json.loads(payload)
 
-    if False:
-        print "MADE CONTACT WITH GDRIVE CMS", data
+    messaging_events = data["entry"][0]["messaging"]
 
-    else:
-        print data
-        messaging_events = data["entry"][0]["messaging"]
+    for event in messaging_events:
+        # IF TEXT MSG:
+        sender_id = event["sender"]["id"]
 
-        for event in messaging_events:
-            # IF TEXT MSG:
-            sender_id = event["sender"]["id"]
+        if "postback" in event and "payload" in event["postback"]:
+            postback = event["postback"]["payload"]
+            print "############### RECEIVED ###############\n############### POSTBACK: ###############\n", postback, "\n"
+            #responses = match_text_or_payload(postback)
+            responses = match.match_text_or_payload(postback, sender_id)
 
-            if "postback" in event and "payload" in event["postback"]:
-                postback = event["postback"]["payload"]
-                print "############### RECEIVED ###############\n############### POSTBACK: ###############\n", postback, "\n"
-                #responses = match_text_or_payload(postback)
-                responses = match.match_text_or_payload(postback, sender_id)
+        elif "message" in event and "text" in event["message"]:
+            message_text = event["message"]["text"]
+            print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", message_text.encode("unicode-escape"), "\n"
+            responses = match.match_text_or_payload(message_text, sender_id)
 
-            elif "message" in event and "text" in event["message"]:
-                message_text = event["message"]["text"]
-                print "############### RECEIVED ###############\n############### MESSAGE: ###############\n", data, "\n"
-                    #message_text.encode("unicode-escape"), "\n"
-                responses = match.match_text_or_payload(message_text, sender_id)
-
-            # ELSE IF POSTBACK:
+        # ELSE IF POSTBACK:
 
 
-            # ELSE (NOT TEXT MSG && NOT POSTBACK):
-            else:
-                print "ERROR: message not text or postback"
-                responses = msg.sorry_msg
+        # ELSE (NOT TEXT MSG && NOT POSTBACK):
+        else:
+            print "ERROR: message not text or postback"
+            responses = msg.sorry_msg
 
-            for response in responses:
-                yield sender_id, response
+        for response in responses:
+            yield sender_id, response
 
 def send_message(recipient, message):
     """Send the message text to recipient with id recipient.
