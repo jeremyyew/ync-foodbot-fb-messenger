@@ -34,7 +34,7 @@ def messaging_events(payload):
     provided payload.
     """
     data = json.loads(payload)
-    print "MADE CONTACT WITH GDRIVE CMS", data["body"][0]
+    print "MADE CONTACT WITH GDRIVE CMS", data
 
     messaging_events = data["entry"][0]["messaging"]
 
