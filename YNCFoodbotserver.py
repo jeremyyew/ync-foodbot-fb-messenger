@@ -26,26 +26,29 @@ def handle_messages():
     data = json.loads(payload)
 
     if isinstance(data, dict):
-        for sender, message in messaging_events(payload):
+        for sender, message in messaging_events(data):
             #print "Incoming from %s: %s" % (sender, message)
             print "*************** SENDING RESPONSE: *************** \n", message, "\n"
             send_message(sender, message)
         return "ok"
+
     elif isinstance(data, list):
-        handle_CMS_Json(data)
-        return "ok"
+        if data[0]["gdrive_cms"] == True:
+            handle_CMS_Json(data[0])
+            return "ok"
+        else:
+            return "json not from gdrive_cms"
     else:
         print "Json array or obj?"
 
 def handle_CMS_Json(data):
-    print "MADE CONTACT", data[0]
+    print "MADE CONTACT", data, data["body"]
 
 
-def messaging_events(payload):
+def messaging_events(data):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
     """
-    data = json.loads(payload)
 
     messaging_events = data["entry"][0]["messaging"]
 
