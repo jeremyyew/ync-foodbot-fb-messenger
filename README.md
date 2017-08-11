@@ -1,11 +1,11 @@
 # YNCFoodbot_Messenger
 Still in development.
-Facebook Messenger chatbot that sends information and links about food options around Yale-NUS campus. 
-Chat with the bot on messenger at this page: https://www.facebook.com/YNC-Foodbot-979027202238929/ (currently not available as it is has not been published). 
+Facebook Messenger chatbot that sends information and links about food options around Yale-NUS campus.
+Chat with the bot on messenger at this page: https://www.facebook.com/YNC-Foodbot-979027202238929/ (currently not available as it is has not been published).
 
-I used https://tsaprailis.com/2016/06/02/How-to-build-and-deploy-a-Facebook-Messenger-bot-with-Python-and-Flask-a-tutorial/ to start. 
+I used https://tsaprailis.com/2016/06/02/How-to-build-and-deploy-a-Facebook-Messenger-bot-with-Python-and-Flask-a-tutorial/ to start.
 
-Hosted on Heroku. 
+Hosted on Heroku.
 
 ## Learning points:
 
@@ -17,37 +17,26 @@ Hosted on Heroku.
 - git branching
 
 ## To-do To-day
-**2/8 Mon**
-- [X] Add location to amaan_buttons
-- [X] Remove explore (from keywords_desc_list, quick_replies, get_all_carousel, get_all_text, test_generator, match_keyword)
-- [X] Remove info (from keywords_desc_list, quick_replies, get_all_carousel, get_all_text, test_generator, match_keyword)
-- [ ] xpath by day/tab rel
-
-- [X] add emoji to all msgs
-- [ ] Agora img, Utown img
-- [ ] Agora - grab n go scrape
-- [ ] Change Get Started description
-
-## Must-haves (Before deployment v0.1, 3/8)
-- [ ] Notes
-- [ ] update buttery opening timings
-- [ ] Populate explore button
-- [ ] Get rid of all COMING_SOON_PB
-
-## Should-haves (Before release)
-- [ ] update webscraper day tabs
-- [ ] upload all img to imgbb
+**10/8 Thursday**
+- [ ] update dh webscraper
 - [ ] update copy (e.g. share message)
-- [ ] delete false links (if any)
-- [ ] Implement Google Form CMS: https://www.drivecms.xyz/#getting-started
+- [ ] Spoons and Forks link
+
+## Must-haves (Before deployment v0.1, 19/8)
+- [ ] update buttery opening timings
+- [ ] Take picture of Buttery menus, Agora
+
+## Should-haves
+- [ ] upload all img to imgbb
+- [ ] Implement Google Form CMS
 
 ## Nice-to-haves
 - [ ] case insensitivity
-- [ ] coffee stand openings - scrape?
+- [ ] coffee stand openings?
+
 **Features to explore**
 - [X] Order buttery food?
 - [X] Notification subscriptions?
-- [ ] Spoons and Forks link
 
 ### Other chatbot ideas:
 - [ ] YNC general info, memes/comics subscription
@@ -62,6 +51,19 @@ Hosted on Heroku.
 - [X] Quick Replies
 
 ## Completed:
+**3/8 Thurs**
+- [X] **Facebook avpproval!**
+- [X] xpath by day/tab rel
+- [X] Fix share quick_reply
+- [X] macs img, utown img, agora img
+- [X] Agora - grab n go scrape
+
+**2/8 Wed**
+- [X] add emoji to all msgs
+- [X] Add location to amaan_buttons
+- [X] Remove explore (from keywords_desc_list, quick_replies, get_all_carousel, get_all_text, test_generator, match_keyword)
+- [X] Remove info (from keywords_desc_list, quick_replies, get_all_carousel, get_all_text, test_generator, match_keyword)
+- [X] Change Get Started description
 
 **30/07 Sunday**
 - [X] Change coming_soon_msg
@@ -82,6 +84,7 @@ Hosted on Heroku.
 - [X] "#feedback"
 - [X] GET_ALL_PB, get_all_msg
 - [X] turn typing delay back on
+
 
 **29/07 Saturday**
 - [X] Write instant_test.py

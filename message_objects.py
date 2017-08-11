@@ -8,11 +8,10 @@ keywords_desc_list = [
     (u'\U0001f35b', "amaan", "Al Amaan menu/hotline"),
     (u'\U0001F35F', "macs", "Macs menu/hotline/online order"),
     (u'\u2615', "agora", "cafe opening hours/menu"),
-    (u'\u2668', "utown", "Utown F&B outlets"),
+    (u'\u2668', "utown", "Utown F&B outlets")
     # (u'\U0001f6b2', "explore", "places near campus to visit")
     # ("brewhouse", "Brewhouse pop-up times/locations.")
 ]
-
 
 def generate_keywords_desc_text():
     keywords_desc_text = ""
