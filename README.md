@@ -17,22 +17,18 @@ Hosted on Heroku.
 - git branching
 
 ## To-do To-day
-**10/8 Thursday**
-- [ ] update dh webscraper
+- [ ] update buttery opening timings
+- [ ] update dh webscraper/show more
 - [ ] update copy (e.g. share message)
 - [ ] Spoons and Forks link
 
-## Must-haves (Before deployment v0.1, 19/8)
-- [ ] update buttery opening timings
-- [ ] Take picture of Buttery menus, Agora
-
 ## Should-haves
 - [ ] upload all img to imgbb
-- [ ] Implement Google Form CMS
 
 ## Nice-to-haves
 - [ ] case insensitivity
 - [ ] coffee stand openings?
+- [ ] Set up Firebase, link with Gdrive CMS
 
 **Features to explore**
 - [X] Order buttery food?
@@ -51,6 +47,10 @@ Hosted on Heroku.
 - [X] Quick Replies
 
 ## Completed:
+**10/8 Thursday**
+- [X] Connect Google Form CMS
+
+
 **3/8 Thurs**
 - [X] **Facebook avpproval!**
 - [X] xpath by day/tab rel
