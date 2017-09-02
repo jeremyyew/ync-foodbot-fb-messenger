@@ -1,4 +1,5 @@
 import dh_menu_scrape as dh
+import message_objects_updated_text as updated_text
 
 # json generators
 keywords_desc_list = [
@@ -97,13 +98,14 @@ def generate_buttons_msg(text, buttons):
 
 
 # GET_STARTED_PB
+from message_objects_updated_text import welcome_msg_text, share_msg_text, share_msg_subtitle_text
+
 welcome_msg = add_quick_reply({'attachment': {
     "type": "template",
     "payload": {
         "template_type": "button",
         "text": (
-            "Welcome to the Yale-NUS Foodbot! "
-            "Feel free to share this if you find it useful. Please do send any feedback or suggestions you may have " + u'\U0001f60a'
+            welcome_msg_text
         ),
         "buttons": [
             {"type": "element_share",
@@ -114,9 +116,9 @@ welcome_msg = add_quick_reply({'attachment': {
                          "template_type": "generic",
                          "elements": [
                              {
-                                 "title": "Hungry? I gotchu fam.",
+                                 "title": share_msg_text,
                                  "subtitle": (
-                                     "Quick access to buttery order forms, dining hall menu, delivery hotlines, and more!"),
+                                     share_msg_subtitle_text),
                                  "image_url": "https://image.ibb.co/d03JQQ/YNCFoodbotlogo2.png",
                                  "default_action": {
                                      "type": "web_url",
@@ -149,7 +151,7 @@ start_msg = add_quick_reply({
         "payload": {
             "template_type": "button",
             "text": (
-                "Try typing/tapping these keywords:\n" + generate_keywords_desc_text()
+                "Try typing/selecting these keywords:\n" + generate_keywords_desc_text()
             ),
             "buttons": [
                 {"type": "postback",
@@ -161,48 +163,21 @@ start_msg = add_quick_reply({
 
 # FEEDBACK_PB
 feedback_prompt_msg = add_quick_reply({
-                                          "text": "Simply include the tag #feedback directly in your message. If reporting a bug, please try to be as specific as possible. You can also hit me up at m.me/jeremy.yew.9.\n\n"})
+                                          "text": "Simply include the tag #feedback directly in your feedback message. If reporting a bug, please try to be as specific as possible. You can also hit me up at m.me/jeremy.yew.9.\n\n"})
 feedback_received_msg = add_quick_reply({"text": "Feedback received, thanks! I'll work on it."})
 
-# INFO_PB
-info_msg = add_quick_reply({"text": (
-    "Dining Hall:\n"
-    "Weekdays: 730-930am, 1130-130pm, 6-830pm\n"
-    "Weekends: 10am-1pm, 6-830pm\n"
-    "Green & Healthy Lunches: Mon (Elm), Wed (Cen), Fri (Saga)\n\n"
-
-    "Butteries:\n"
-    "The Nest: Sat/Sun/Mon, 10-12pm\n"
-    "Shiner's Diner: Fri/Sun/Mon, 830-12pm\n"
-    "Shiok Shack: Tue/Thur, 9-12pm, Wed 10-11pm\n\n"
-
-    "Al Amaan's Delivery: 67770555 (11AM-3AM)\n"
-    "McDelivery: 67773777 (24hrs)\n\n"
-
-    "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\n"
-    "Grab N' Go Lunch: TBC\n\n"
-
-    "RC addresses:\n"
-    "Cendana: 28 College Ave West, S138533\n"
-    "Elm: 12 College Ave West, S138610\n"
-    "Saga: 10 College Ave West, S138609\n"
-)
-})
-
 # DH_PB
-dh_text = u'\U0001f374 ' + "Dining hall mealtimes:\n" \
-                           "-Mon-Fri: 7.30-9.30am, 11.30am-1.30pm, 6-8.30pm\n" \
-                           "-Sat-Sun: 10am-1pm, 6-8.30pm\n" \
-                           "-Green & Healthy Lunch: (TBC) Mon (Elm), Wed (Cen), Fri (Saga)\n"
+from message_objects_updated_text import dh_info_msg_text
+
 dh_buttons = [
     {"type": "web_url",
      "title": "View menu",
      "url": "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"},
 ]
-dh_info_msg = add_quick_reply({"text": dh_text
+dh_info_msg = add_quick_reply({"text": dh_info_msg_text
                                })
 dh_carousel = generate_carousel_element(title="Dining Hall", image_url="https://image.ibb.co/iwb5fv/dining_hall_1.jpg",
-                                        subtitle=dh_text,
+                                        subtitle=dh_info_msg_text,
                                         default_url="https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/",
                                         buttons=dh_buttons)
 
@@ -215,16 +190,13 @@ def generate_dh_menu_msg():
         msg_string += "(preview not available)"
     else:
         for item in items:
-            msg_string += item + "\n"
+            msg_string += "-" + item + "\n"
     msg = generate_buttons_msg(msg_string, dh_buttons)
     return add_quick_reply(msg)
 
 
 # BUTTERY_PB
-buttery_text = u'\U0001f354 ' + "Buttery openings: (TBC)\n" \
-                                "-The Nest: Sat/Sun/Mon 10-12pm\n" \
-                                "-Shiner's Diner: Fri/Sun/Mon 8.30-12pm\n" \
-                                "-Shiok Shack: Tue/Thur 9-12pm, Wed 10-11pm\n"
+from message_objects_updated_text import buttery_msg_text
 buttery_buttons = [
     {
         "type": "web_url",
@@ -243,15 +215,15 @@ buttery_buttons = [
     }
 ]
 buttery_msg = add_quick_reply(generate_buttons_msg(
-    text=buttery_text, buttons=buttery_buttons))
+    text=buttery_msg_text, buttons=buttery_buttons))
 buttery_carousel = generate_carousel_element(title="Butteries",
                                              image_url="https://image.ibb.co/cgEVDF/12003252_488018108046512_3022481886860987112_n.jpg",
-                                             subtitle=buttery_text,
+                                             subtitle=buttery_msg_text,
                                              default_url="https://docs.google.com/forms/d/e/1FAIpQLSeZncU9zU9mYWr3o_N8syDljmsRSSM_VzH536CeC9eg1b2csg/viewform",
                                              buttons=buttery_buttons)
 
 # AMAAN_PB
-amaan_text = u'\U0001f35b ' + "Al Amaan Delivery: +67770555 (Open 11AM-3AM)\n"
+amaan_msg_text = u'\U0001f35b ' + "Al Amaan Delivery: +67770555 (Open 11AM-3AM)\n"
 amaan_buttons = [{
     "type": "phone_number",
     "title": "Call now",
@@ -267,7 +239,7 @@ amaan_buttons = [{
         "url": "https://goo.gl/maps/fRyaBEeCx172"
     }
 ]
-amaan_msg = add_quick_reply(generate_buttons_msg(amaan_text, amaan_buttons))
+amaan_msg = add_quick_reply(generate_buttons_msg(amaan_msg_text, amaan_buttons))
 amaan_menu_image1_msg = add_quick_reply({
     "attachment": {
         "type": "image",
@@ -286,11 +258,12 @@ amaan_menu_image2_msg = add_quick_reply({
 })
 amaan_carousel = generate_carousel_element(title="Al Amaan",
                                            image_url="https://static.wixstatic.com/media/7941e9_975d7ae7bd97474bba9ed3657faaea96.jpg/v1/fill/w_1021,h_680,al_c,q_90/7941e9_975d7ae7bd97474bba9ed3657faaea96.webp",
-                                           subtitle=amaan_text, default_url="http://www.alamaanrestaurant.com.sg/",
+                                           subtitle=amaan_msg_text, default_url="http://www.alamaanrestaurant.com.sg/",
                                            buttons=amaan_buttons)
 
 # MACS_PB
-macs_text = u'\U0001F35F ' + "McDelivery: 67773777 (Open 24hrs)\n-Cendana: S138533\n-Elm: S138610\n-Saga: S138609\n"
+
+macs_msg_text = u'\U0001F35F ' + "McDelivery: 67773777 (Open 24hrs)\n-Cendana: S138533\n-Elm: S138610\n-Saga: S138609\n"
 macs_buttons = [{
     "type": "phone_number",
     "title": "Call now",
@@ -306,19 +279,20 @@ macs_buttons = [{
         "url": "https://www.mcdelivery.com.sg/sg/guest.html",
         "title": "Order online"
     }]
-macs_msg = add_quick_reply(generate_buttons_msg(macs_text, macs_buttons))
+macs_msg = add_quick_reply(generate_buttons_msg(macs_msg_text, macs_buttons))
 macs_carousel = generate_carousel_element(title="McDonald's",
                                           image_url="https://image.ibb.co/kwM6Ga/macs.png",
-                                          subtitle=macs_text,
+                                          subtitle=macs_msg_text,
                                           default_url="https://www.mcdelivery.com.sg/sg/browse/menu.html",
                                           buttons=macs_buttons)
 
 # AGORA_PB
-agora_text = u'\u2615 ' + "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\nGrab & Go Hours: TBC\n"
+from message_objects_updated_text import agora_msg_text
+
 agora_buttons = [{"type": "postback", "title": "Grab & Go Menu", "payload": "AGORA_MENU_PB"}]
-agora_msg = add_quick_reply(generate_buttons_msg(agora_text, []))
+agora_msg = add_quick_reply(generate_buttons_msg(agora_msg_text, []))
 agora_carousel = generate_carousel_element(title="Agora Cafe", image_url="https://image.ibb.co/kk059v/agora1.jpg",
-                                           subtitle=agora_text,
+                                           subtitle=agora_msg_text,
                                            default_url="https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
                                            buttons=agora_buttons)
 
@@ -337,27 +311,27 @@ def generate_agora_menu_msg():
 
 
 # UTOWN_PB
-utown_text = u'\u2668 ' + "Utown Foodcourts: \n-Koufu Foodcourt: Mon-Fri 7am- 10pm, Sat-Sun 10am-10pm\n-Flavours@Utown: Everyday 7.30am-10pm\n"
+utown_msg_text = u'\u2668 ' + "Utown Foodcourts: \n-Koufu Foodcourt: Mon-Fri 7am- 10pm, Sat-Sun 10am-10pm\n-Flavours@Utown: Everyday 7.30am-10pm\n"
 utown_buttons = [{
     "type": "web_url",
     "url": "http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html",
     "title": "View More"
 }]
-utown_msg = add_quick_reply(generate_buttons_msg(utown_text, utown_buttons))
+utown_msg = add_quick_reply(generate_buttons_msg(utown_msg_text, utown_buttons))
 utown_carousel = generate_carousel_element(title="UTown F&B Outlets", image_url="https://image.ibb.co/dgqYwa/Utown.jpg",
-                                           subtitle=utown_text,
+                                           subtitle=utown_msg_text,
                                            default_url="http://www.nus.edu.sg/oca/Retail-And-Dining/Food-and-Beverages.html",
                                            buttons=utown_buttons)
 
 # EXPLORE_PB
-explore_text = "Check out these cool places near campus!"
+explore_msg_text = "Check out these cool places near campus!"
 explore_buttons = [{
     "type": "postback",
     "title": "Explore",
     "payload": "EXPLORE_PB"
 }]
-explore_msg = add_quick_reply(generate_buttons_msg(explore_text, []))
-explore_carousel = generate_carousel_element(title="Explore", image_url="", subtitle=explore_text,
+explore_msg = add_quick_reply(generate_buttons_msg(explore_msg_text, []))
+explore_carousel = generate_carousel_element(title="Explore", image_url="", subtitle=explore_msg_text,
                                              default_url="https://studentlife.yale-nus.edu.sg/dining-experience/operating-hours/",
                                              buttons=explore_buttons)
 
@@ -386,15 +360,13 @@ explore_places_list = [pipe_district_carousel1, pipe_district_carousel2]
 explore_places_carousel_msg = add_quick_reply(generate_carousel_msg(explore_places_list))
 
 # GET_ALL_MSG
-all_texts = [dh_text, buttery_text, amaan_text, macs_text, agora_text, utown_text]
-
-
 def generate_get_all_text(texts):
     get_all_text = ""
     for text in texts:
         get_all_text += text + "\n"
     return get_all_text
 
+all_texts = [dh_info_msg_text, buttery_msg_text, amaan_msg_text, macs_msg_text, agora_msg_text, utown_msg_text]
 
 get_all_text = generate_get_all_text(all_texts)
 get_all_buttons = []
