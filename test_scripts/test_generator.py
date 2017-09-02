@@ -33,6 +33,7 @@ text_list = ["Get Started",
              "agora",
              "utown",
              "get all",
+             "share",
              "help",
              "feedback",
              "#feedback"]
