@@ -2,11 +2,11 @@ from lxml import html
 import requests
 import datetime
 
-#Dependencies:
-#Meal timings.
-#Spelling of dh menu website of days as "Mon", "Thu", etc.
-#tab Today
-#names of meals and headers (daily specials, stations)
+# Dependencies:
+# Meal timings.
+# Spelling of dh menu website of days as "Mon", "Thu", etc.
+# tab Today
+# names of meals and headers (daily specials, stations)
 
 url = "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
 headers = {
@@ -30,12 +30,10 @@ def scrape(place):
     day = now.strftime('%A')[:3]
     now_time = now.time()
 
-    #TESTING:
-    day = "Fri"
 
     # set tab column to check depending on day
-
     tab = ""
+    """
     if day == "Mon":
         tab = "tab8"
     elif day == "Tue":
@@ -51,17 +49,15 @@ def scrape(place):
     elif day == "Sun":
         tab = "tab7"
     else:
-        print "tab assignment error: day unmatched"
+        print "tab assignment error: day unmatched""
+    """
 
+    xpath_by_today = ('//ul[@class="tabs dining"]'  # get ul of class = "tabs dining"
+                      '/li[contains(text(), "%s")]'  # get list which contains text "Today" 
+                      '/@rel'  # get rel of that list
+                      % ("Today"))
 
-    today = "Today"
-    xpath_by_today = ('//ul[@class="tabs dining"]' #get ul of class = "tabs dining"
-                    #'/li[@rel = "tab6"]/text()')
-                    '/li[contains(text(), "%s")]/@rel'
-                    # '/@rel'
-                    % (today))
-
-    #tab = tree.xpath(xpath_by_today)[0]
+    tab = tree.xpath(xpath_by_today)[0]
 
     if place == "dh":
 
@@ -188,4 +184,3 @@ def scrape(place):
     else:
         print "ERROR: please specify param 'place' as 'agora' or 'dh'"
         return None
-
