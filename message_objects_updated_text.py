@@ -1,4 +1,4 @@
-welcome_msg_text = "Hi there! Feel free to share this if you find it useful. Please do send feedback or suggestions " + u'\U0001f60a' + "\nPS. Join the 'Spoons and Forks' group for updates on free food availability!"
+welcome_msg_text = "Hi there! Feel free to share this if you find it useful. Please do send feedback or suggestions " + u'\U0001f60a' + "\nPS. Join the 'Spoons and Forks' group to get notified when there's free food available!"
 
 
 share_msg_text = "Hungry? I gotchu fam."
