@@ -1,6 +1,7 @@
 from lxml import html
 import requests
 import datetime
+import time
 
 # Dependencies:
 # Meal timings.
@@ -117,7 +118,7 @@ def scrape(place):
                             '/text()'  # get text of these <p>'s
                             % (tab, meal, heading, tab, meal, heading))
 
-        xpath_by_station = ('//*[@id="%s"]'  # get id = <tab> #todo: make id = day
+        xpath_by_station = ('//*[@id="%s"]'  # get id = <tab> 
                             '//span[contains(text(), "%s")]'  # get span that contains <meal> 
                             '/..'  # parent of <span> is <h4> ], goes back to <p> level 
                             '/following-sibling::p/strong/u[contains(text(), "%s")]'  # get following header that contains <heading> 
@@ -138,12 +139,39 @@ def scrape(place):
                             ']'
                             '/text()'  # get text of these <p>'s
                             % (tab, meal, "STATION", tab, meal, "STATION"))
+        xpath_by_station_new = ('//*[@id="%s"]'  # get id = <tab> 
+                            '//span[contains(text(), "%s")]'  # get span that contains <meal> 
+                            '/..'  # parent of <span> is <h4> ], goes back to <p> level 
+                            '/following-sibling::p/strong/u[contains(text(), "%s")]'  # get following header that contains <heading> 
+                            '/../..'  # grandparent of <p>/<strong>/<u> is <p>
+                            '/following-sibling::p'  # all p's following <header> (NOT p/strong/u)
+                            '['  # where 
+                            'count'  # number of
+                            '(following-sibling::p/strong/u)'  # preceding headers 
+                            '='  # equals to 
+                            'count'  # number of preceding headers before <heading> + 1. Logic: p's before and after will have diff number of preceding headers. 
+                            '(//*[@id="%s"]'
+                            '//span[contains(text(), "%s")]'
+                            '/..'
+                            '/following-sibling::p/strong/u[contains(text(), "%s")]'
+                            '/../..'
+                            '/following-sibling::p/strong/u)'
+                            ']'
+                            '/text()'  # get text of these <p>'s
+                            % (tab, meal, "STATION", tab, meal, "STATION"))
         items = tree.xpath(xpath_by_heading)
+        print "x_path_by_heading found these items:", items
         if items == []:
-            items = tree.xpath(xpath_by_station)
+            items = tree.xpath(xpath_by_station_new)
+            print "x_path_by_station_new found these items:", items
 
-        if u'\xa0' in items:
-            items.remove(u'\xa0')
+        #if u'\xa0' in items:
+         #   items = items.remove(u'\xa0')
+
+        while u'\xa0' in items:
+           items.remove(u'\xa0')
+
+
         print ("TESTING scrape(\'dh\')....DAY: %s, TIME: %s, TAB: %s, MEAL: %s, HEADING: %s, ITEMS: %s" % (
             day, now_time, tab, meal, heading, items))
         return meal, heading, items
