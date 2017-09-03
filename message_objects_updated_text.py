@@ -11,10 +11,10 @@ dh_info_msg_text = u'\U0001f374 ' + "Dining hall mealtimes:\n" \
                            "-Green & Healthy Lunch: Mon (Elm), Wed (Cen), Fri (Saga)\n"
 
 buttery_msg_text = u'\U0001f354 ' + "Buttery openings:  \n " \
-                                "-The Nest: TBC\n" \
-                                "-Shiner's Diner: Fri/Sun/Mon 930pm-1145mn\n" \
-                                "-Shiok Shack: Tue/Wed/Thu 9pm-12mn\n" \
-                                "(Subject to change, updated 2/9)"
+                                "-The Nest: Sun/Mon/Tue 10-12pm\n" \
+                                "-Shiner's Diner: Fri/Sun/Mon 930-1145mn\n" \
+                                "-Shiok Shack: Tue/Wed/Thu 9-12mn\n" \
+                                "(subject to change, updated 3/9)"
 
 
 agora_msg_text = u'\u2615 ' + "Agora Opening Hours: Mon-Fri 8am-6pm, Sat 9am-3pm\nGrab & Go Hours: TBC\n"
