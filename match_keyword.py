@@ -7,7 +7,7 @@ import YNCFoodbotserver as yncfbserver
 def match_text_or_payload(input, sender_id):
     # IF RECOGNIZED TEXT MSG/POSTBACK:
     def input_contains(keys):
-        return any(key in input for key in keys)
+        return any(key.lower() in input.lower() for key in keys)
 
     if input_contains(["Get Started", "start", "GET_STARTED_PB"]):
         yield msg.welcome_msg
