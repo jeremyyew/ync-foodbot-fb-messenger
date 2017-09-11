@@ -26,12 +26,12 @@ def match_text_or_payload(input, sender_id):
     elif input_contains(["buttery", "BUTTERY_PB"]):
         yield msg.buttery_msg
 
-    elif input_contains(["amaan", "AMAAN_PB"]):
-        yield msg.amaan_msg
-
     elif input_contains(["AMAAN_MENU_PB"]):
         yield msg.amaan_menu_image1_msg
         yield msg.amaan_menu_image2_msg
+
+    elif input_contains(["amaan", "AMAAN_PB"]):
+        yield msg.amaan_msg
 
     elif input_contains(["macs", "MACS_PB"]):
         yield msg.macs_msg
