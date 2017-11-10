@@ -2,10 +2,10 @@ import pylibmc
 
 servers = os.environ.get('MEMCACHIER_SERVERS', '').split(',')
 user = os.environ.get('MEMCACHIER_USERNAME', '')
-pass = os.environ.get('MEMCACHIER_PASSWORD', '')
+password = os.environ.get('MEMCACHIER_PASSWORD', '')
 
 cache = pylibmc.Client(servers, binary=True,
-                    username=user, password=pass,
+                    username=user, password=password,
                     behaviors={
                       # Faster IO
                       "tcp_nodelay": True,
