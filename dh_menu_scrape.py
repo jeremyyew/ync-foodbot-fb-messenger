@@ -2,12 +2,17 @@ from lxml import html
 import requests
 import datetime
 import time
-
+from settings import *
+import pylibmc
 # Dependencies:
 # Meal timings.
 # Spelling of dh menu website of days as "Mon", "Thu", etc.
 # tab Today
 # names of meals and headers (daily specials, stations)
+#cache = pylibmc.Client(["127.0.0.1"], binary=True,
+#                    behaviors={"tcp_nodelay": True,
+#                               "ketama": True})
+
 
 url = "https://studentlife.yale-nus.edu.sg/dining-experience/daily-dining-menu/"
 headers = {
@@ -23,9 +28,21 @@ t2359 = datetime.time(23, 59, 59)
 
 def scrape(place):
     # get xpath object from dh html
-    page = requests.get(url, headers=headers)
-    tree = html.fromstring(page.content)
+    #start = time.clock()
+    #page = requests.get(url, headers=headers)
+    #print("TIME TAKEN FOR REQUEST: ", time.clock() - start)
 
+    def get_page():
+        start = time.clock()
+        page = cache.get('page')
+        if page is None:
+            page = requests.get(url, headers=headers)
+            cache.set('page', page)
+        print("TIME TAKEN FOR CACHE: ", time.clock() - start)
+        return page
+
+    page = get_page()
+    tree = html.fromstring(page.content)
     # get current day and hour
     now = datetime.datetime.now()
     day = now.strftime('%A')[:3]
