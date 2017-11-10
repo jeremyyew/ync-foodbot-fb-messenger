@@ -15,19 +15,21 @@ Hosted on Heroku.
 - git markdown
 - gitignore
 - git branching
+- caching with pylibmc
 
-## To-do To-day
-- [ ] update buttery opening timings
-- [ ] update dh webscraper/show more
-- [ ] update copy (e.g. share message)
-- [ ] Spoons and Forks link
+## 11/10 Fri
+- [ ] Update Cendana buttery timing
+- [ ] Cache for webscrape
+- [ ] Cache for everything
+- [ ] Buttery menus
+- [ ] Brewhouse: quick reply, welcome_msg, reply, get_all, carousel, match_keyword, test
 
 ## Should-haves
-- [ ] upload all img to imgbb
+- [ ] Grab n Go preview
+- [X] upload all img to imgbb
 
 ## Nice-to-haves
-- [ ] case insensitivity
-- [ ] coffee stand openings?
+- [ ] coffee stand openings/updates
 - [ ] Set up Firebase, link with Gdrive CMS
 
 **Features to explore**
@@ -47,9 +49,16 @@ Hosted on Heroku.
 - [X] Quick Replies
 
 ## Completed:
+**3/9**
+- [X] update buttery opening timings
+- [X] update agora
+- [X] update dh webscraper/show more
+- [X] update copy (e.g. share message)
+- [X] Spoons and Forks link
+- [X] case insensitivity
+
 **10/8 Thursday**
 - [X] Connect Google Form CMS
-
 
 **3/8 Thurs**
 - [X] **Facebook avpproval!**
