@@ -32,21 +32,28 @@ def scrape(place):
     #page = requests.get(url, headers=headers)
     #print("TIME TAKEN FOR REQUEST: ", time.clock() - start)
 
-    def get_page():
+    def get_page(day):
         start = time.clock()
-        page = cache.get('page')
-        if page is None:
-            page = requests.get(url, headers=headers)
-            cache.set('page', page)
+        if day == "Sat":
+            page = cache.get('page')
+            if page is None:
+                page = requests.get(url, headers=headers)
+                cache.set('page', page, time=5 * 60 * 60)
+        else:
+            page = cache.get('page')
+            if page is None:
+                page = requests.get(url, headers=headers)
+                cache.set('page', page, time = 24 * 60 * 60)
         print("TIME TAKEN FOR CACHE: ", time.clock() - start)
         return page
 
-    page = get_page()
-    tree = html.fromstring(page.content)
-    # get current day and hour
     now = datetime.datetime.now()
     day = now.strftime('%A')[:3]
     now_time = now.time()
+    page = get_page(day)
+    tree = html.fromstring(page.content)
+    # get current day and hour
+
 
 
     # set tab column to check depending on day
